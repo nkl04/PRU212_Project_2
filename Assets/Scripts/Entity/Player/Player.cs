@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
+        var moveX = CF2Input.GetAxis("Horizontal") * playerInfo._speed * Time.deltaTime;
+        var moveY = CF2Input.GetAxis("Vertical") * playerInfo._speed * Time.deltaTime;
+        var p = transform.position;
+        p = new Vector3(p.x + moveX, p.y + moveY, p.z);
+        transform.position = p;
     }
 }
