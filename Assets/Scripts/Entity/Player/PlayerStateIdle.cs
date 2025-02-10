@@ -12,6 +12,7 @@ public class PlayerStateIdle : PlayerState
 
     public override void Execute()
     {
+        CheckChangeState();
     }
 
     public override void Exit()
@@ -20,6 +21,9 @@ public class PlayerStateIdle : PlayerState
 
     public override void CheckChangeState()
     {
-
+        if (player.IsMoving)
+        {
+            stateMachine.ChangeState(new PlayerStateMoving(player, stateMachine));
+        }
     }
 }

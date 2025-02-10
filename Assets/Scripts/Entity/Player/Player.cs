@@ -1,27 +1,50 @@
 using UnityEngine;
 using ControlFreak2;
+using System;
 
 public class Player : MonoBehaviour
 {
 
     public EntityInfo PlayerInfo { get => playerInfo; }
+    public Vector2 DirectionVector { get; set; }
+    public bool IsMoving { get; set; }
     private StateMachine<PlayerState> stateMachine;
+    private GameInput gameInput;
+    private PlayerAttack playerAttack;
 
     [Header("Data")]
     [SerializeField] private EntityInfo playerInfo;
 
-    private void Start()
+    [Header("Gear")]
+    [SerializeField] private Weapon weapon;
+
+    private void Awake()
     {
         stateMachine = new StateMachine<PlayerState>();
+
+        playerAttack = GetComponent<PlayerAttack>();
+        playerAttack.SetWeapon(weapon);
+    }
+    private void Start()
+    {
+        gameInput = GameInput.Instance;
+
+        gameInput.OnMovePerformed += OnMove;
+        gameInput.OnMoveCanceled += OnMove;
+
         stateMachine.ChangeState(new PlayerStateIdle(this, stateMachine));
+
+
     }
 
     private void Update()
     {
-        var moveX = CF2Input.GetAxis("Horizontal") * playerInfo._speed * Time.deltaTime;
-        var moveY = CF2Input.GetAxis("Vertical") * playerInfo._speed * Time.deltaTime;
-        var p = transform.position;
-        p = new Vector3(p.x + moveX, p.y + moveY, p.z);
-        transform.position = p;
+        stateMachine.Update();
+    }
+
+    private void OnMove(Vector2 directionVector)
+    {
+        DirectionVector = directionVector;
+        IsMoving = directionVector.magnitude > 0;
     }
 }

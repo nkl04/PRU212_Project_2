@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnemyInfo
   m_EditorClassIdentifier: 
   _name: 
-  _maxHealth: 0
-  _speed: 0
+  _maxHealth: 5
+  _speed: 2
   _baseDamage: 0
   _attackRange: 0
   _attackRate: 0

@@ -15,6 +15,3 @@ MonoBehaviour:
   _name: Player
   _maxHealth: 100
   _speed: 10
-  _baseDamage: 0
-  _attackRange: 0
-  _attackRate: 0

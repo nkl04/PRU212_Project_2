@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 var enemy = ObjectPooler.Instance.GetObjectFromPool(enemyPrefab.name);
                 enemy.transform.position = new Vector2(p.x, p.y) + Random.insideUnitCircle.normalized * radius;
-                enemy.GetComponent<Enemy>().speed = Random.Range(1.0f, 6.0f);
+                enemy.SetActive(true);
             }
 
             // // inc player DPS
