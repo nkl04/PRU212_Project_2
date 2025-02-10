@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInfo: {fileID: 11400000, guid: 861bfe48db718d249bba544a82d16370, type: 2}
   weapon: {fileID: 1485946683179817076, guid: afdc8cae641d8314cba207c85d1b8073, type: 3}
+  handPosition: {fileID: 6781855487046847941}
 --- !u!114 &2666910142690293320
 MonoBehaviour:
   m_ObjectHideFlags: 0

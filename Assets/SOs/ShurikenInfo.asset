@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc6db7eb228a82e4b8dc62f97f12324e, type: 3}
-  m_Name: KunaiInfo
+  m_Name: ShurikenInfo
   m_EditorClassIdentifier: 
   _name: Kunai
   _damage: 12
   _attackSpeed: 2
   _range: 10
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 039c05c0076e40e4a8358491ca62668b, type: 3}
   _model: {fileID: 0}

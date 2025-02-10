@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [Header("Gear")]
     [SerializeField] private Weapon weapon;
 
+    [Header("References")]
+    [SerializeField] private Transform handPosition;
+
     private void Awake()
     {
         stateMachine = new StateMachine<PlayerState>();
