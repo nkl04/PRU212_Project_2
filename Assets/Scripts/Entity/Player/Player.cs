@@ -4,7 +4,6 @@ using System;
 
 public class Player : MonoBehaviour
 {
-
     public EntityInfo PlayerInfo { get => playerInfo; }
     public Vector2 DirectionVector { get; set; }
     public bool IsMoving { get; set; }
@@ -33,8 +32,6 @@ public class Player : MonoBehaviour
         gameInput.OnMoveCanceled += OnMove;
 
         stateMachine.ChangeState(new PlayerStateIdle(this, stateMachine));
-
-
     }
 
     private void Update()
