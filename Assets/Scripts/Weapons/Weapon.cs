@@ -1,18 +1,19 @@
 using UnityEngine;
-
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     public EquipmentInfo _weaponInfo { get => weaponInfo; }
     [SerializeField] private EquipmentInfo weaponInfo;
-
     private SpriteRenderer spriteRenderer;
+    public abstract void Attack();
 
-    private void Start()
+    private void OnValidate()
     {
         if (weaponInfo != null)
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sprite = weaponInfo._sprite;
         }
     }
 }
+
+

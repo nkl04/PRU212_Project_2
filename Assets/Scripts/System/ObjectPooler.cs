@@ -16,7 +16,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
             List<GameObject> objectPoolQueue = new List<GameObject>();
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab, this.transform);
+                GameObject obj = Instantiate(pool.prefab, pool.parent ? pool.parent : this.transform);
                 obj.SetActive(false);
                 objectPoolQueue.Add(obj);
             }
@@ -34,13 +34,13 @@ public class ObjectPooler : Singleton<ObjectPooler>
             }
         }
 
-        foreach (Pool item in poolList)
+        foreach (Pool pool in poolList)
         {
-            if (item.tag == tag && item.expandable)
+            if (pool.tag == tag && pool.expandable)
             {
-                GameObject obj = Instantiate(item.prefab, this.transform);
+                GameObject obj = Instantiate(pool.prefab, pool.parent ? pool.parent : this.transform);
                 obj.SetActive(false);
-                item.size++;
+                pool.size++;
                 poolDictionary[tag].Add(obj);
                 return obj;
             }

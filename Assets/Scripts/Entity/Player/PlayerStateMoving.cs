@@ -15,7 +15,7 @@ public class PlayerStateMoving : PlayerState
     public override void Execute()
     {
         _directionVector = player.DirectionVector;
-        _speed = player.PlayerInfo._speed;
+        _speed = player.PlayerInfo._baseSpeed;
 
         player.transform.parent.position += new Vector3(_directionVector.x, _directionVector.y, 0) * _speed * Time.deltaTime;
     }

@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         {
             var p = transform.position;
             var p1 = player.transform.position;
-            transform.position = Vector3.MoveTowards(p, p1, entityInfo._speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(p, p1, entityInfo._baseSpeed * Time.deltaTime);
             var l1 = 0.1f * (hp - 1);
             var scaleTo = _originScale + Vector3.one * l1;
             scaleTo.z = _originScale.z;

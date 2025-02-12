@@ -4,7 +4,7 @@ using System;
 
 public class Player : MonoBehaviour
 {
-    public EntityInfo PlayerInfo { get => playerInfo; }
+    public PlayerInfo PlayerInfo { get => playerInfo; }
     public Vector2 DirectionVector { get; set; }
     public bool IsMoving { get; set; }
     private StateMachine<PlayerState> stateMachine;
@@ -12,10 +12,7 @@ public class Player : MonoBehaviour
     private PlayerAttack playerAttack;
 
     [Header("Data")]
-    [SerializeField] private EntityInfo playerInfo;
-
-    [Header("Gear")]
-    [SerializeField] private Weapon weapon;
+    [SerializeField] private PlayerInfo playerInfo;
 
     [Header("References")]
     [SerializeField] private Transform handPosition;
@@ -25,7 +22,7 @@ public class Player : MonoBehaviour
         stateMachine = new StateMachine<PlayerState>();
 
         playerAttack = GetComponent<PlayerAttack>();
-        playerAttack.SetWeapon(weapon);
+        playerAttack.SetWeapon(playerInfo.weaponInfo.weapon);
     }
     private void Start()
     {
@@ -39,6 +36,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        playerAttack.AutomaticAttack();
         stateMachine.Update();
     }
 
@@ -46,5 +44,26 @@ public class Player : MonoBehaviour
     {
         DirectionVector = directionVector;
         IsMoving = directionVector.magnitude > 0;
+    }
+
+    public Enemy GetTheNeareastEnemy(Transform playerTransform)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, playerInfo.weaponInfo._range);
+        Enemy nearestEnemy = null;
+        float minDistance = float.MaxValue;
+        foreach (var collider in colliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                float distance = Vector2.Distance(playerTransform.position, enemy.transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestEnemy = enemy;
+                }
+            }
+        }
+        return nearestEnemy;
     }
 }

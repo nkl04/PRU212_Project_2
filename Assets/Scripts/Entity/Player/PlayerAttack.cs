@@ -5,46 +5,25 @@ public class PlayerAttack : MonoBehaviour
 {
     private Weapon _weapon;
     private float _attackRange;
+    private float timer = 0;
+
     /// <summary>
-    /// Attack the nearest enemy
+    /// Attack automatically
     /// </summary>
-    public void Attack()
+    public void AutomaticAttack()
     {
-        // Get the nearest enemy
-        Enemy enemy = GetTheNeareastEnemy(transform);
-
-        // if (enemy != null)
-        // {
-        //     // Attack the enemy
-        //     _weapon.Attack(enemy);
-        // }
-
+        timer += Time.deltaTime;
+        if (timer >= _weapon._weaponInfo._attackSpeed)
+        {
+            timer = 0;
+            _weapon.Attack();
+        }
     }
 
     /// <summary>
     /// Get the nearest enemy from the player
     /// </summary>
     /// <returns></returns>
-    public Enemy GetTheNeareastEnemy(Transform playerTransform)
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, _attackRange);
-        Enemy nearestEnemy = null;
-        float minDistance = float.MaxValue;
-        foreach (var collider in colliders)
-        {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                float distance = Vector2.Distance(playerTransform.position, enemy.transform.position);
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    nearestEnemy = enemy;
-                }
-            }
-        }
-        return nearestEnemy;
-    }
 
     private void OnDrawGizmos()
     {
@@ -56,5 +35,4 @@ public class PlayerAttack : MonoBehaviour
         _weapon = weapon;
         _attackRange = weapon._weaponInfo._range;
     }
-
 }

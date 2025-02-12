@@ -9,4 +9,5 @@ public class Pool
     public bool expandable;
     public bool hasMax;
     public int max;
+    public Transform parent;
 }

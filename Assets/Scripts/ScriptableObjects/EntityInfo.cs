@@ -1,9 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Info", menuName = "Scriptable Objects/Entity Info", order = 1)]
 public class EntityInfo : ScriptableObject
 {
+    [Header("Base Info")]
     public string _name;
-    public float _maxHealth;
-    public float _speed;
+    public float _baseMaxHealth;
+    public float _baseDamage;
+    public float _baseSpeed;
 }

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 039c05c0076e40e4a8358491ca62668b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,9 +96,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2546714589194051844}
-  - component: {fileID: 8316749352023314830}
+  - component: {fileID: 7040037716259011710}
   m_Layer: 0
-  m_Name: Weapon_Base
+  m_Name: Bullet_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ Transform:
   - {fileID: 6372960704731822913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8316749352023314830
+--- !u!114 &7040037716259011710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5611669585562103981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35edd9e549b91cc4b8b685b59b4e63f9, type: 3}
+  m_Script: {fileID: 11500000, guid: f6ff5be1346922143852752205812ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 7540abb6a9d05de49ba740408377a0e9, type: 2}

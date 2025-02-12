@@ -13,6 +13,7 @@ public class PoolEditor : PropertyDrawer
         SerializedProperty expandableProp = property.FindPropertyRelative("expandable");
         SerializedProperty hasMaxProp = property.FindPropertyRelative("hasMax");
         SerializedProperty maxProp = property.FindPropertyRelative("max");
+        SerializedProperty parentProp = property.FindPropertyRelative("parent");
 
         float lineHeight = EditorGUIUtility.singleLineHeight;
         float spacing = EditorGUIUtility.standardVerticalSpacing;
@@ -27,7 +28,10 @@ public class PoolEditor : PropertyDrawer
             Rect prefabRect = new Rect(position.x, position.y + lineHeight + spacing, position.width, lineHeight);
             EditorGUI.PropertyField(prefabRect, prefabProp);
 
-            Rect sizeRect = new Rect(position.x, prefabRect.y + lineHeight + spacing, position.width, lineHeight);
+            Rect parentRect = new Rect(position.x, prefabRect.y + lineHeight + spacing, position.width, lineHeight);
+            EditorGUI.PropertyField(parentRect, parentProp);
+
+            Rect sizeRect = new Rect(position.x, parentRect.y + lineHeight + spacing, position.width, lineHeight);
             EditorGUI.PropertyField(sizeRect, sizeProp);
 
             Rect expandableRect = new Rect(position.x, sizeRect.y + lineHeight + spacing, position.width, lineHeight);
@@ -45,6 +49,8 @@ public class PoolEditor : PropertyDrawer
             }
 
 
+
+
             EditorGUI.indentLevel--;
         }
 
@@ -55,7 +61,7 @@ public class PoolEditor : PropertyDrawer
     {
         float lineHeight = EditorGUIUtility.singleLineHeight;
         float spacing = EditorGUIUtility.standardVerticalSpacing;
-        int lineCount = property.isExpanded ? (!property.FindPropertyRelative("expandable").boolValue ? 4 : !property.FindPropertyRelative("hasMax").boolValue ? 5 : 6) : 1;
+        int lineCount = property.isExpanded ? (!property.FindPropertyRelative("expandable").boolValue ? 5 : !property.FindPropertyRelative("hasMax").boolValue ? 6 : 7) : 1;
         return lineHeight * lineCount + spacing * (lineCount - 1);
     }
 }
