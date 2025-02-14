@@ -30,9 +30,10 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _attackRange);
     }
 
-    public void SetWeapon(Weapon weapon)
+    public void SetWeapon(Weapon weapon, Player player)
     {
         _weapon = weapon;
+        _weapon.Player = player;
         _attackRange = weapon._weaponInfo._range;
     }
 }

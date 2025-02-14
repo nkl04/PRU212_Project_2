@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3484413341429236708}
   - component: {fileID: 6098227616602419137}
   - component: {fileID: 5084506450356452201}
+  - component: {fileID: 8231496058743922365}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Eneny
@@ -124,6 +125,19 @@ MonoBehaviour:
   entityInfo: {fileID: 11400000, guid: 33ccd43f1df11524a97380aa0515c29f, type: 2}
   player: {fileID: 0}
   hp: 1
+--- !u!114 &8231496058743922365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577083206888320914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573992336f8b83249a24204f2cba39c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &1325891227025861034
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private StateMachine<PlayerState> stateMachine;
     private GameInput gameInput;
     private PlayerAttack playerAttack;
+    private PlayerHealth playerHealth;
 
     [Header("Data")]
     [SerializeField] private PlayerInfo playerInfo;
@@ -22,7 +23,10 @@ public class Player : MonoBehaviour
         stateMachine = new StateMachine<PlayerState>();
 
         playerAttack = GetComponent<PlayerAttack>();
-        playerAttack.SetWeapon(playerInfo.weaponInfo.weapon);
+        playerHealth = GetComponent<PlayerHealth>();
+
+        playerAttack.SetWeapon(playerInfo.weaponInfo.weapon, this);
+        playerHealth.SetMaxHealth(playerInfo._baseMaxHealth);
     }
     private void Start()
     {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4026027511791193231}
   - component: {fileID: 9137427381945710698}
   - component: {fileID: 2666910142690293320}
+  - component: {fileID: 6907794548704509220}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInfo: {fileID: 11400000, guid: 861bfe48db718d249bba544a82d16370, type: 2}
-  weapon: {fileID: 1485946683179817076, guid: afdc8cae641d8314cba207c85d1b8073, type: 3}
   handPosition: {fileID: 6781855487046847941}
 --- !u!114 &2666910142690293320
 MonoBehaviour:
@@ -137,6 +137,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ca20890454c424ab1021984d7e394c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6907794548704509220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790080238803046482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da52b81bf2f2a4447a04ea4b4c243923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  hitEffect: {fileID: 0}
 --- !u!1 &6938557950088800963
 GameObject:
   m_ObjectHideFlags: 0

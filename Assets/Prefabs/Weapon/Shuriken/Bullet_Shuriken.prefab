@@ -52,8 +52,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet_Shuriken
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7040037716259011710, guid: de653f690ba1ff247908482c6afc2bbe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5611669585562103981, guid: de653f690ba1ff247908482c6afc2bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5328919189524727323}
   m_SourcePrefab: {fileID: 100100000, guid: de653f690ba1ff247908482c6afc2bbe, type: 3}
+--- !u!1 &1050196645887753514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5611669585562103981, guid: de653f690ba1ff247908482c6afc2bbe, type: 3}
+  m_PrefabInstance: {fileID: 4860417025919995271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5328919189524727323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050196645887753514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3a6445e8cf9874d830998c9b29db43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

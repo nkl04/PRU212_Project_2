@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ShurikenInfo
   m_EditorClassIdentifier: 
   _name: Kunai
-  _damage: 12
+  _damage: 5
   _attackSpeed: 2
+  _speed: 15
   _range: 10
   _sprite: {fileID: 21300000, guid: 039c05c0076e40e4a8358491ca62668b, type: 3}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 1050196645887753514, guid: 25b1056788d323a419f1b17dd7605a4a, type: 3}
+  weapon: {fileID: 3234076696594434949, guid: a7bc6e1dddd4ab44a920ce6eab5f24f1, type: 3}
   fireMoveType: 0

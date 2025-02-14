@@ -1,8 +1,9 @@
 using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
+    public Player Player { get; set; }
     public EquipmentInfo _weaponInfo { get => weaponInfo; }
-    [SerializeField] private EquipmentInfo weaponInfo;
+    [SerializeField] protected EquipmentInfo weaponInfo;
     private SpriteRenderer spriteRenderer;
     public abstract void Attack();
 

@@ -6,6 +6,7 @@ public class EquipmentInfo : ScriptableObject
     public string _name;
     public int _damage;
     public float _attackSpeed;
+    public float _speed;
     public float _range;
     public Sprite _sprite;
     public GameObject bulletPrefab;
@@ -14,9 +15,9 @@ public class EquipmentInfo : ScriptableObject
 
     private void OnValidate()
     {
-        if (bulletPrefab != null && bulletPrefab.GetComponent<Bullet>() == null)
+        if (bulletPrefab != null && bulletPrefab.GetComponent<Projectile>() == null)
         {
-            Debug.LogError($"GameObject {bulletPrefab.name} must contain Bullet component!", bulletPrefab);
+            Debug.LogError($"GameObject {bulletPrefab.name} must contain Projectile component!", bulletPrefab);
             bulletPrefab = null;
         }
     }

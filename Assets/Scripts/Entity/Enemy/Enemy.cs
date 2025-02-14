@@ -9,6 +9,13 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public float hp = 1;
     private Vector3 _originScale;
+    private EnemyHealth enemyHealth;
+
+    private void Awake()
+    {
+        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
+    }
 
     private void Start()
     {
@@ -18,20 +25,24 @@ public class Enemy : MonoBehaviour
         }
 
         _originScale = transform.localScale * 1f;
+
     }
 
     private void Update()
     {
         if (player)
         {
-            var p = transform.position;
-            var p1 = player.transform.position;
-            transform.position = Vector3.MoveTowards(p, p1, entityInfo._baseSpeed * Time.deltaTime);
-            var l1 = 0.1f * (hp - 1);
-            var scaleTo = _originScale + Vector3.one * l1;
-            scaleTo.z = _originScale.z;
-            transform.localScale = scaleTo;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, entityInfo._baseSpeed * Time.deltaTime);
+            // var l1 = 0.1f * (hp - 1);
+            // var scaleTo = _originScale + Vector3.one * l1;
+            // scaleTo.z = _originScale.z;
+            // transform.localScale = scaleTo;
         }
+    }
+
+    private void OnDisable()
+    {
+        enemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
