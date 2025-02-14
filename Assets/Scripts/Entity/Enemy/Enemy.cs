@@ -1,42 +1,49 @@
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 5;
+    public bool CanFollowPlayer { get; set; } = true;
+
     [Header("Enemy Info")]
     [SerializeField] private EntityInfo entityInfo;
-    public GameObject player;
-    public float hp = 1;
-    private Vector3 _originScale;
+    private GameObject target;
     private EnemyHealth enemyHealth;
+    private StateMachine<EnemyState> stateMachine;
+    private bool facingRight = true; // Lưu trạng thái hướng hiện tại của enemy
 
     private void Awake()
     {
+        stateMachine = new StateMachine<EnemyState>();
         enemyHealth = GetComponent<EnemyHealth>();
         enemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
     }
 
     private void Start()
     {
-        if (!player)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-
-        _originScale = transform.localScale * 1f;
-
+        target = GameObject.FindGameObjectWithTag("Player");
+        stateMachine.ChangeState(new EnemyStateIdle(this, stateMachine));
     }
 
     private void Update()
     {
-        if (player)
+        stateMachine.Update();
+    }
+    public void MoveTowardsTarget()
+    {
+        if (!target) return;
+
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, entityInfo._baseSpeed * Time.deltaTime);
+
+        Flip(direction.x);
+    }
+
+    private void Flip(float directionX)
+    {
+        if ((directionX > 0 && !facingRight) || (directionX < 0 && facingRight))
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, entityInfo._baseSpeed * Time.deltaTime);
-            // var l1 = 0.1f * (hp - 1);
-            // var scaleTo = _originScale + Vector3.one * l1;
-            // scaleTo.z = _originScale.z;
-            // transform.localScale = scaleTo;
+            facingRight = !facingRight;
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 
@@ -49,32 +56,17 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            CanFollowPlayer = false;
             IAttackable attackable = other.GetComponent<IAttackable>();
             attackable?.TakeDamage(entityInfo._baseDamage);
         }
-        // if (other.transform.CompareTag("Bullet"))
-        // {
-        //     // Calc HP here
-        //     hp -= 1;
-        //     if (hp <= 0)
-        //     {
-        //         Destroy(gameObject);
-        //     }
+    }
 
-        //     // other.GetComponent<Bullet>().canDestroy = true;
-        // }
-        // else
-        // {
-        //     // if (other.transform.CompareTag("Enemy"))
-        //     // {
-        //     //     var ec = other.GetComponent<Enemy>();
-        //     //     if (ec.hp > hp || (Math.Abs(ec.hp - hp) < 0.001f && ec.speed > entityInfo._speed))
-        //     //     {
-        //     //         ec.hp += hp;
-        //     //         ec.speed = (speed + ec.speed) / 2f;
-        //     //         Destroy(gameObject);
-        //     //     }
-        //     // }
-        // }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            CanFollowPlayer = true;
+        }
     }
 }

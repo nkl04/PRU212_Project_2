@@ -19,3 +19,15 @@ public abstract class PlayerState : State
         this.stateMachine = stateMachine;
     }
 }
+
+public abstract class EnemyState : State
+{
+    protected Enemy enemy;
+    protected StateMachine<EnemyState> stateMachine;
+
+    public EnemyState(Enemy enemy, StateMachine<EnemyState> stateMachine)
+    {
+        this.enemy = enemy;
+        this.stateMachine = stateMachine;
+    }
+}
