@@ -8,6 +8,7 @@ public class PlayerStateIdle : PlayerState
 
     public override void Enter()
     {
+        player.Animator.Play(Utilities.AnimationClips.Player.Idle);
     }
 
     public override void Execute()

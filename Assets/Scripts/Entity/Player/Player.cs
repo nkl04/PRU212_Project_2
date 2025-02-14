@@ -4,6 +4,7 @@ using System;
 
 public class Player : MonoBehaviour
 {
+    public Animator Animator { get; private set; }
     public PlayerInfo PlayerInfo { get => playerInfo; }
     public Vector2 DirectionVector { get; set; }
     public bool IsMoving { get; set; }
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     private GameInput gameInput;
     private PlayerAttack playerAttack;
     private PlayerHealth playerHealth;
+    private bool isFacingRight = true;
 
     [Header("Data")]
     [SerializeField] private PlayerInfo playerInfo;
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        Animator = GetComponent<Animator>();
         stateMachine = new StateMachine<PlayerState>();
 
         playerAttack = GetComponent<PlayerAttack>();
@@ -49,8 +52,18 @@ public class Player : MonoBehaviour
     {
         DirectionVector = directionVector;
         IsMoving = directionVector.magnitude > 0;
-    }
 
+        if (isFacingRight && directionVector.x < 0)
+        {
+            Flip();
+            isFacingRight = false;
+        }
+        else if (!isFacingRight && directionVector.x > 0)
+        {
+            Flip();
+            isFacingRight = true;
+        }
+    }
     private void SetUpWeapon()
     {
         GameObject weaponObj = Instantiate(playerInfo.weaponInfo.weapon.gameObject, handPosition);
@@ -76,5 +89,10 @@ public class Player : MonoBehaviour
             }
         }
         return nearestEnemy;
+    }
+
+    private void Flip()
+    {
+        transform.Rotate(0, 180, 0);
     }
 }

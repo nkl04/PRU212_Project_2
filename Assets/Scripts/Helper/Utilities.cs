@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Utilities
@@ -12,5 +13,14 @@ public class Utilities
         public const string Player = "Player";
         public const string Enemy = "Enemy";
         public const string Projectile = "Projectile";
+    }
+
+    public static class AnimationClips
+    {
+        public class Player
+        {
+            public const string Idle = "Player_Idle";
+            public const string Run = "Player_Run";
+        }
     }
 }

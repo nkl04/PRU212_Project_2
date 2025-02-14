@@ -10,10 +10,13 @@ public class PlayerStateMoving : PlayerState
 
     public override void Enter()
     {
+        player.Animator.Play(Utilities.AnimationClips.Player.Run);
     }
 
     public override void Execute()
     {
+        CheckChangeState();
+
         _directionVector = player.DirectionVector;
         _speed = player.PlayerInfo._baseSpeed;
 
@@ -22,7 +25,6 @@ public class PlayerStateMoving : PlayerState
 
     public override void Exit()
     {
-        CheckChangeState();
     }
 
     public override void CheckChangeState()
