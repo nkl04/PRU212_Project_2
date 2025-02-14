@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Player"))
+        {
+            IAttackable attackable = other.GetComponent<IAttackable>();
+            attackable?.TakeDamage(entityInfo._baseDamage);
+        }
         // if (other.transform.CompareTag("Bullet"))
         // {
         //     // Calc HP here

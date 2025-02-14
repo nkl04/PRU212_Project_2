@@ -1406,11 +1406,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc86ce8749a3d24a9e5aa55677a3f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 577083206888320914, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+  enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
   waveTime: 5000
   waveEnemies: 10
   theCamera: {fileID: 519420031}
   player: {fileID: 405814727}
+--- !u!114 &891713839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4686060927804119734, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+  m_PrefabInstance: {fileID: 7690262213572516093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939902867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,8 +1452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolList:
-  - tag: Enemy
-    prefab: {fileID: 577083206888320914, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+  - tag: Zombie
+    prefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
     size: 100
     expandable: 1
     hasMax: 0
@@ -4183,6 +4194,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5620486855386221830, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: attackWeaponRate
+      value: 
+      objectReference: {fileID: 891713839}
     - target: {fileID: 6617641183397071195, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
       propertyPath: m_FillAmount
       value: 1

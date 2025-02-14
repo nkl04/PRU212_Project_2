@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Player))]
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private Image attackWeaponRate;
     private Weapon _weapon;
     private float _attackRange;
     private float timer = 0;
@@ -13,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public void AutomaticAttack()
     {
         timer += Time.deltaTime;
+        attackWeaponRate.fillAmount = timer / _weapon._weaponInfo._attackSpeed;
         if (timer >= _weapon._weaponInfo._attackSpeed)
         {
             timer = 0;

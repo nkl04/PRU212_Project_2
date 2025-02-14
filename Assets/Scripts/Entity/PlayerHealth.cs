@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour, IAttackable
 {
     [SerializeField] private Image healthBar;
-    [SerializeField] private ParticleSystem hitEffect;
     private float maxHealth;
     private float currentHealth;
 
@@ -16,11 +15,7 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (healthBar != null)
-        {
-            //healthBar.fillAmount = currentHealth / maxHealth;
-        }
-        hitEffect.Play();
+        healthBar.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {
             Die();
