@@ -1448,6 +1448,13 @@ MonoBehaviour:
     hasMax: 0
     max: 0
     parent: {fileID: 1089085796}
+  - tag: Bullet_Shuriken
+    prefab: {fileID: 1050196645887753514, guid: 25b1056788d323a419f1b17dd7605a4a, type: 3}
+    size: 5
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
 --- !u!4 &939902869
 Transform:
   m_ObjectHideFlags: 0
@@ -4163,6 +4170,18 @@ PrefabInstance:
     - target: {fileID: 3689444488384242205, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954373791266289291, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954373791266289291, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.094
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954373791266289291, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6617641183397071195, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
       propertyPath: m_FillAmount

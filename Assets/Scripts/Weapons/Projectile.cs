@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     protected float speed;
     protected float damage;
+    protected SpriteRenderer spriteRenderer;
 
     public void SetDamage(float damage)
     {
@@ -14,6 +15,13 @@ public class Projectile : MonoBehaviour
     {
         this.speed = speed;
     }
+
+    public void SetSprite(Sprite sprite)
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = sprite;
+    }
+
     protected void DisableSelf()
     {
         gameObject.SetActive(false);

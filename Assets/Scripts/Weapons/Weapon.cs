@@ -5,8 +5,9 @@ public abstract class Weapon : MonoBehaviour
     public EquipmentInfo _weaponInfo { get => weaponInfo; }
     [SerializeField] protected EquipmentInfo weaponInfo;
     private SpriteRenderer spriteRenderer;
-    public abstract void Attack();
 
+    protected abstract void Start();
+    public abstract void Attack();
     private void OnValidate()
     {
         if (weaponInfo != null)

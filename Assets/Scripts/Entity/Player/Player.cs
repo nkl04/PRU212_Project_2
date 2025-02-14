@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         playerHealth = GetComponent<PlayerHealth>();
 
-        playerAttack.SetWeapon(playerInfo.weaponInfo.weapon, this);
+        SetUpWeapon();
+
         playerHealth.SetMaxHealth(playerInfo._baseMaxHealth);
     }
     private void Start()
@@ -50,6 +51,12 @@ public class Player : MonoBehaviour
         IsMoving = directionVector.magnitude > 0;
     }
 
+    private void SetUpWeapon()
+    {
+        GameObject weaponObj = Instantiate(playerInfo.weaponInfo.weapon.gameObject, handPosition);
+        Weapon weapon = weaponObj.GetComponent<Weapon>();
+        playerAttack.SetWeapon(weapon, this);
+    }
     public Enemy GetTheNeareastEnemy(Transform playerTransform)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, playerInfo.weaponInfo._range);
