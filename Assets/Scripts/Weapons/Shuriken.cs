@@ -19,7 +19,7 @@ public class Shuriken : Weapon
             return;
         }
 
-        Enemy nearestEnemy = Player.GetTheNeareastEnemy(Player.transform);
+        Enemy nearestEnemy = Player.PlayerAttack.GetTheNeareastEnemy(Player.transform);
 
         if (nearestEnemy != null)
         {

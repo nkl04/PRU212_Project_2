@@ -28,8 +28,12 @@ public abstract class Item : MonoBehaviour
             }
             else
             {
-                Action();
-                DisbleSelf();
+                PlayerController playerController = other.GetComponent<PlayerController>();
+                if (playerController != null)
+                {
+                    Action(playerController);
+                    DisbleSelf();
+                }
             }
         }
     }
@@ -42,7 +46,7 @@ public abstract class Item : MonoBehaviour
         }
     }
 
-    protected abstract void Action();
+    protected abstract void Action(PlayerController playerController);
 
     private void DisbleSelf()
     {

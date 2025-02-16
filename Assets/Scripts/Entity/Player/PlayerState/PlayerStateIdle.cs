@@ -22,7 +22,7 @@ public class PlayerStateIdle : PlayerState
 
     public override void CheckChangeState()
     {
-        if (player.IsMoving)
+        if (player.PlayerMovement.IsMoving)
         {
             stateMachine.ChangeState(new PlayerStateMoving(player, stateMachine));
         }

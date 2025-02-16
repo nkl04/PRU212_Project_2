@@ -17,7 +17,7 @@ public class PlayerStateMoving : PlayerState
     {
         CheckChangeState();
 
-        _directionVector = player.DirectionVector;
+        _directionVector = player.PlayerMovement.DirectionVector;
         _speed = player.PlayerInfo._baseSpeed;
 
         player.transform.parent.position += new Vector3(_directionVector.x, _directionVector.y, 0) * _speed * Time.deltaTime;
@@ -29,7 +29,7 @@ public class PlayerStateMoving : PlayerState
 
     public override void CheckChangeState()
     {
-        if (!player.IsMoving)
+        if (!player.PlayerMovement.IsMoving)
         {
             stateMachine.ChangeState(new PlayerStateIdle(player, stateMachine));
         }

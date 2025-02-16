@@ -370,6 +370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3689444488384242205}
     m_Modifications:
+    - target: {fileID: 2666910142690293320, guid: 8033b3f42a1c69f4292e8e5b7782654a, type: 3}
+      propertyPath: attackWeaponRate
+      value: 
+      objectReference: {fileID: 4686060927804119734}
     - target: {fileID: 2790080238803046482, guid: 8033b3f42a1c69f4292e8e5b7782654a, type: 3}
       propertyPath: m_Name
       value: Player

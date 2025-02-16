@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(PlayerController))]
 public class PlayerHealth : MonoBehaviour, IAttackable
 {
     [SerializeField] private Image healthBar;
