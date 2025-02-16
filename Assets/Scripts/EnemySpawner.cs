@@ -1,12 +1,11 @@
 using TMPro;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Spawner
 {
-    public GameObject enemyPrefab;
-    public float waveTime = 5000;
-    public int waveEnemies = 10;
-    public Camera theCamera;
+    [SerializeField] private float waveTime = 5000;
+    [SerializeField] private int waveEnemies = 10;
+    [SerializeField] private Camera theCamera;
     private float _lastWaveAt;
     private int _waveNumber;
 
@@ -28,9 +27,9 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void Spawn()
+    public override void Spawn()
     {
-        if (enemyPrefab)
+        if (prefab)
         {
             var radius = theCamera.orthographicSize + 3;
             var p = theCamera.transform.position;
@@ -38,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
             for (var i = 0; i < numEnemies; i++)
             {
-                var enemy = ObjectPooler.Instance.GetObjectFromPool(enemyPrefab.name);
+                var enemy = ObjectPooler.Instance.GetObjectFromPool(prefab.name);
                 enemy.transform.position = new Vector2(p.x, p.y) + Random.insideUnitCircle.normalized * radius;
                 enemy.SetActive(true);
             }

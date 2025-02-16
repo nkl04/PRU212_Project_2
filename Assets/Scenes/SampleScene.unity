@@ -1392,6 +1392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842239179}
   - component: {fileID: 842239180}
+  - component: {fileID: 842239181}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1426,10 +1427,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc86ce8749a3d24a9e5aa55677a3f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+  prefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
   waveTime: 5000
   waveEnemies: 10
   theCamera: {fileID: 519420031}
+--- !u!114 &842239181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842239178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a15dd0181c3d5644a081d14214db72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
 --- !u!114 &891713839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4686060927804119734, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
@@ -1480,6 +1494,13 @@ MonoBehaviour:
     parent: {fileID: 1089085796}
   - tag: Bullet_Shuriken
     prefab: {fileID: 1050196645887753514, guid: 25b1056788d323a419f1b17dd7605a4a, type: 3}
+    size: 5
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
+  - tag: Diamond
+    prefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
     size: 5
     expandable: 1
     hasMax: 0
@@ -4172,63 +4193,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3689444488384242205, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
   m_PrefabInstance: {fileID: 7690262213572516093}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5787182554208139384
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_Name
-      value: Diamond
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952385610985965374, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
 --- !u!1001 &7690262213572516093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4244,6 +4208,10 @@ PrefabInstance:
     - target: {fileID: 1599787681287602980, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
       propertyPath: weapon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193140689418495578, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3689444488384242205, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4331,5 +4299,4 @@ SceneRoots:
   - {fileID: 1648762655}
   - {fileID: 7690262213572516093}
   - {fileID: 1089085796}
-  - {fileID: 5787182554208139384}
   - {fileID: 322265202}
