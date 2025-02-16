@@ -4,7 +4,7 @@ public class PlayerStateMoving : PlayerState
 {
     private Vector2 _directionVector;
     private float _speed;
-    public PlayerStateMoving(Player player, StateMachine<PlayerState> stateMachine) : base(player, stateMachine)
+    public PlayerStateMoving(PlayerController player, StateMachine<PlayerState> stateMachine) : base(player, stateMachine)
     {
     }
 

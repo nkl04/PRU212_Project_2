@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerStateDie : PlayerState
 {
-    public PlayerStateDie(Player player, StateMachine<PlayerState> stateMachine) : base(player, stateMachine)
+    public PlayerStateDie(PlayerController player, StateMachine<PlayerState> stateMachine) : base(player, stateMachine)
     {
     }
 

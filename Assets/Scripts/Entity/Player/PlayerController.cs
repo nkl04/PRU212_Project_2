@@ -2,7 +2,7 @@ using UnityEngine;
 using ControlFreak2;
 using System;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Animator Animator { get; private set; }
     public PlayerInfo PlayerInfo { get => playerInfo; }

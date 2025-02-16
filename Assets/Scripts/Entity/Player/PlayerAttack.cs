@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(PlayerController))]
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Image attackWeaponRate;
     private Weapon _weapon;
-    private float _attackRange;
     private float timer = 0;
 
     /// <summary>
@@ -22,18 +21,7 @@ public class PlayerAttack : MonoBehaviour
             _weapon.Attack();
         }
     }
-
-    /// <summary>
-    /// Get the nearest enemy from the player
-    /// </summary>
-    /// <returns></returns>
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, _attackRange);
-    }
-
-    public void SetWeapon(Weapon weapon, Player player)
+    public void SetWeapon(Weapon weapon, PlayerController player)
     {
         _weapon = weapon;
         _weapon.Player = player;

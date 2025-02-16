@@ -10,10 +10,10 @@ public abstract class State
 
 public abstract class PlayerState : State
 {
-    protected Player player;
+    protected PlayerController player;
     protected StateMachine<PlayerState> stateMachine;
 
-    public PlayerState(Player player, StateMachine<PlayerState> stateMachine)
+    public PlayerState(PlayerController player, StateMachine<PlayerState> stateMachine)
     {
         this.player = player;
         this.stateMachine = stateMachine;
