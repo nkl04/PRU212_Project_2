@@ -15,4 +15,9 @@ MonoBehaviour:
   _name: Zombie
   _baseMaxHealth: 5
   _baseDamage: 5
+  _baseAttackRate: 2
   _baseSpeed: 2
+  RewardList:
+  - RewardPrefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
+    Amount: 1
+    DropRate: 70

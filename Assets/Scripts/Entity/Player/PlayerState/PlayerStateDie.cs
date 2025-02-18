@@ -12,6 +12,7 @@ public class PlayerStateDie : PlayerState
 
     public override void Enter()
     {
+        player.PlayerHealth.Die();
     }
 
     public override void Execute()

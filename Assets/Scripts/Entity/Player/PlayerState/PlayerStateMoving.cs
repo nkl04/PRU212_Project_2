@@ -31,7 +31,7 @@ public class PlayerStateMoving : PlayerState
     {
         if (!player.PlayerMovement.IsMoving)
         {
-            stateMachine.ChangeState(new PlayerStateIdle(player, stateMachine));
+            stateMachine.ChangeState(player.PlayerStateIdle);
         }
     }
 }

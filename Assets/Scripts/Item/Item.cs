@@ -12,6 +12,11 @@ public abstract class Item : MonoBehaviour
     [SerializeField] public float delayBeforeFollow = 0.5f;
     private bool isTriggered = false;
 
+    private void OnEnable()
+    {
+        followPlayer = false;
+        isTriggered = false;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

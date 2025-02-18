@@ -8,8 +8,11 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     private float maxHealth;
     private float currentHealth;
 
+    private PlayerController player;
     private void Start()
     {
+        player = GetComponent<PlayerController>();
+
         currentHealth = maxHealth;
         healthBar.fillAmount = currentHealth / maxHealth;
     }
@@ -19,7 +22,7 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         healthBar.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {
-            Die();
+            player.StateMachine.ChangeState(player.PlayerStateDie);
         }
     }
 

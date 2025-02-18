@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     public PlayerHealth PlayerHealth { get; private set; }
     public PlayerStats PlayerStats { get; private set; }
     public PlayerInfo PlayerInfo { get => playerInfo; }
+    public PlayerStateIdle PlayerStateIdle { get; private set; }
+    public PlayerStateMoving PlayerStateRun { get; private set; }
+    public PlayerStateDie PlayerStateDie { get; private set; }
+    public StateMachine<PlayerState> StateMachine => stateMachine;
 
     private StateMachine<PlayerState> stateMachine;
 
@@ -35,10 +39,14 @@ public class PlayerController : MonoBehaviour
     {
         gameInput = GameInput.Instance;
 
+        PlayerStateIdle = new PlayerStateIdle(this, stateMachine);
+        PlayerStateRun = new PlayerStateMoving(this, stateMachine);
+        PlayerStateDie = new PlayerStateDie(this, stateMachine);
+
         gameInput.OnMovePerformed += PlayerMovement.OnMove;
         gameInput.OnMoveCanceled += PlayerMovement.OnMove;
 
-        stateMachine.ChangeState(new PlayerStateIdle(this, stateMachine));
+        stateMachine.ChangeState(PlayerStateIdle);
     }
 
     private void Update()

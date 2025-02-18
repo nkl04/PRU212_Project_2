@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _ScrollOffset ("Scroll Offset", Vector) = (0, 0, 0, 0) // Thay vì _ScrollSpeed
+        _ScrollOffset ("Scroll Offset", Vector) = (0, 0, 0, 0) 
     }
     SubShader
     {
