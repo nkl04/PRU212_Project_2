@@ -3,17 +3,23 @@ using UnityEngine;
 
 public class EventHandlers
 {
-    public static event Action<float> OnExpCollectedEvent;
+    public static event Action<float, float> OnExpCollectedEvent;
 
-    public static void CallOnExpCollectedEvent(float exp)
+    public static void CallOnExpCollectedEvent(float exp, float maxExp)
     {
-        OnExpCollectedEvent?.Invoke(exp);
+        OnExpCollectedEvent?.Invoke(exp, maxExp);
     }
 
     public static event Action<Enemy> OnEnemyDeadEvent;
     public static void CallOnEnemyDeadEvent(Enemy enemy)
     {
         OnEnemyDeadEvent?.Invoke(enemy);
+    }
+
+    public static event Action<int> OnLevelUpEvent;
+    public static void CallOnLevelUpEvent(int level)
+    {
+        OnLevelUpEvent?.Invoke(level);
     }
 
 

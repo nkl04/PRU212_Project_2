@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
     public EnemyMovement EnemyMovement { get; private set; }
     public EnemyAttack EnemyAttack { get; private set; }
     public EnemyRewardDrop EnemyRewardDrop { get; private set; }
-    public EntityInfo EntityInfo => entityInfo;
+    public EnemyInfo EnemyInfo => enemyInfo;
     public PlayerController Target { get; private set; }
     public StateMachine<EnemyState> StateMachine => stateMachine;
     public Animator Animator { get; private set; }
@@ -18,7 +18,7 @@ public abstract class Enemy : MonoBehaviour
     public bool CanAttackPlayer { get; set; } = false;
 
     [Header("Enemy Info")]
-    [SerializeField] protected EnemyInfo entityInfo;
+    [SerializeField] protected EnemyInfo enemyInfo;
 
     protected StateMachine<EnemyState> stateMachine;
 
@@ -34,7 +34,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (EnemyHealth != null)
         {
-            EnemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
+            EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
         }
     }
 
@@ -47,7 +47,7 @@ public abstract class Enemy : MonoBehaviour
         EnemyRewardDrop = GetComponent<EnemyRewardDrop>();
         Animator = GetComponent<Animator>();
 
-        EnemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
+        EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
         Target = FindFirstObjectByType<PlayerController>();
     }
 
@@ -58,7 +58,7 @@ public abstract class Enemy : MonoBehaviour
         EnemyStateAttack = new EnemyStateAttack(this, stateMachine);
         EnemyStateDie = new EnemyStateDie(this, stateMachine);
 
-        EnemyRewardDrop.SetReward(entityInfo.RewardList);
+        EnemyRewardDrop.SetReward(enemyInfo.RewardList);
         stateMachine.ChangeState(EnemyStateIdle);
     }
 
@@ -69,7 +69,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void OnDisable()
     {
-        EnemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
+        EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy Info", menuName = "Scriptable Objects/Enemy Info")]
 public class EnemyInfo : EntityInfo
 {
+    public float _baseAttackRate;
+
     [Header("Rewards")]
     public List<Reward> RewardList;
 }

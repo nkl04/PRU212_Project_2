@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Kunai
   _damage: 5
-  _attackSpeed: 2
+  _attackSpeed: 1
   _speed: 15
   _range: 10
   _sprite: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}

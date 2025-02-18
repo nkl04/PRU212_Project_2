@@ -7,6 +7,5 @@ public class EntityInfo : ScriptableObject
     public string _name;
     public float _baseMaxHealth;
     public float _baseDamage;
-    public float _baseAttackRate;
     public float _baseSpeed;
 }

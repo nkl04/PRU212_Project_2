@@ -13,13 +13,18 @@ public class UIManager : Singleton<UIManager>
         playerController = FindFirstObjectByType<PlayerController>();
 
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
+        EventHandlers.OnLevelUpEvent += UpdateLevel;
     }
 
-    private void UpdateExpBar(float exp)
+    private void UpdateLevel(int level)
+    {
+        expBar.SetLevelText(level);
+    }
+
+    private void UpdateExpBar(float exp, float maxExp)
     {
         // exp max based on the level of player
-        // demo value is 10
-        float fillAmount = exp / 10;
+        float fillAmount = exp / maxExp;
         expBar.SetFillAmount(fillAmount);
     }
 }

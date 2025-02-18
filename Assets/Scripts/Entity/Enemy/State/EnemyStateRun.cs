@@ -27,7 +27,7 @@ public class EnemyStateRun : EnemyState
     public override void Execute()
     {
         CheckChangeState();
-        enemy.EnemyMovement.Move(enemy.EntityInfo._baseSpeed);
+        enemy.EnemyMovement.Move(enemy.EnemyInfo._baseSpeed);
     }
 
     public override void Exit()

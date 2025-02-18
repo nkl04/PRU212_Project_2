@@ -21,7 +21,7 @@ public class EnemyStateAttack : EnemyState
     public override void Enter()
     {
         enemy.CanFollowPlayer = false;
-        nextAttackTime = enemy.EntityInfo._baseAttackRate;
+        nextAttackTime = enemy.EnemyInfo._baseAttackRate;
     }
 
     public override void Execute()
@@ -29,7 +29,7 @@ public class EnemyStateAttack : EnemyState
         CheckChangeState();
         nextAttackTime += Time.deltaTime;
 
-        if (nextAttackTime >= enemy.EntityInfo._baseAttackRate)
+        if (nextAttackTime >= enemy.EnemyInfo._baseAttackRate)
         {
             IAttackable target = enemy.Target.GetComponent<IAttackable>();
             if (target == null)
@@ -37,7 +37,7 @@ public class EnemyStateAttack : EnemyState
                 Debug.Log("Target is not attackable");
                 return;
             }
-            enemy.EnemyAttack.Attack(target, enemy.EntityInfo._baseDamage);
+            enemy.EnemyAttack.Attack(target, enemy.EnemyInfo._baseDamage);
             nextAttackTime = 0;
         }
     }
