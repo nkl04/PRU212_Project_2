@@ -2068,6 +2068,20 @@ MonoBehaviour:
     hasMax: 0
     max: 0
     parent: {fileID: 1089085796}
+  - tag: Big Zombie
+    prefab: {fileID: 6351221079286566527, guid: b4fceeeef777eea488fab3531f76d5a3, type: 3}
+    size: 5
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
+  - tag: Dog
+    prefab: {fileID: 6351221079286566527, guid: 20c8db1cb132538448c4a3fc40f21155, type: 3}
+    size: 5
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
   - tag: Bullet_Shuriken
     prefab: {fileID: 1050196645887753514, guid: 25b1056788d323a419f1b17dd7605a4a, type: 3}
     size: 5
