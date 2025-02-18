@@ -21,6 +21,7 @@ public class EnemyStateRun : EnemyState
     public override void Enter()
     {
         enemy.CanFollowPlayer = true;
+        enemy.Animator.Play(Utilities.AnimationClips.Enemy.Run);
     }
 
     public override void Execute()

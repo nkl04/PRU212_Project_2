@@ -22,5 +22,11 @@ public class Utilities
             public const string Idle = "Player_Idle";
             public const string Run = "Player_Run";
         }
+
+        public class Enemy
+        {
+            public const string Run = "Run";
+            public const string Die = "Die";
+        }
     }
 }

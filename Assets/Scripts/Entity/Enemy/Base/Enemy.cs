@@ -13,6 +13,7 @@ public abstract class Enemy : MonoBehaviour
     public EntityInfo EntityInfo => entityInfo;
     public PlayerController Target { get; private set; }
     public StateMachine<EnemyState> StateMachine => stateMachine;
+    public Animator Animator { get; private set; }
     public bool CanFollowPlayer { get; set; } = true;
     public bool CanAttackPlayer { get; set; } = false;
 
@@ -44,6 +45,7 @@ public abstract class Enemy : MonoBehaviour
         EnemyMovement = GetComponent<EnemyMovement>();
         EnemyAttack = GetComponent<EnemyAttack>();
         EnemyRewardDrop = GetComponent<EnemyRewardDrop>();
+        Animator = GetComponent<Animator>();
 
         EnemyHealth.SetMaxHealth(entityInfo._baseMaxHealth);
         Target = FindFirstObjectByType<PlayerController>();

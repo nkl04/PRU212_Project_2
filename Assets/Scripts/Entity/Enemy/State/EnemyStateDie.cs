@@ -15,9 +15,10 @@ public class EnemyStateDie : EnemyState
         //drop reward 
         enemy.EnemyRewardDrop.DropReward();
         // die animation
+        enemy.Animator.Play(Utilities.AnimationClips.Enemy.Die);
 
-        //die
-        enemy.EnemyHealth.Die();
+        ////die
+        //enemy.EnemyHealth.Die();
     }
 
     public override void Execute()
