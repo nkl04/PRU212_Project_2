@@ -21,7 +21,7 @@ public class EnemyStateAttack : EnemyState
     public override void Enter()
     {
         enemy.CanFollowPlayer = false;
-        nextAttackTime = 0;
+        nextAttackTime = enemy.EntityInfo._baseAttackRate;
     }
 
     public override void Execute()
