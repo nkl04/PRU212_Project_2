@@ -111,8 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 2
-  followSpeed: 10
+  followSpeed: 7
   delayBeforeFollow: 0.2
+  expValue: 1
 --- !u!1 &1751982178129043521
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,5 +15,7 @@ MonoBehaviour:
   _name: Player
   _baseMaxHealth: 100
   _baseDamage: 10
-  _baseSpeed: 5
+  _baseAttackRate: 0
+  _baseSpeed: 4
+  RewardList: []
   weaponInfo: {fileID: 11400000, guid: 7540abb6a9d05de49ba740408377a0e9, type: 2}
