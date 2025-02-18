@@ -18,7 +18,7 @@ public abstract class Enemy : MonoBehaviour
     public bool CanAttackPlayer { get; set; } = false;
 
     [Header("Enemy Info")]
-    [SerializeField] protected EntityInfo entityInfo;
+    [SerializeField] protected EnemyInfo entityInfo;
 
     protected StateMachine<EnemyState> stateMachine;
 

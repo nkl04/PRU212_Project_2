@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enemy Info", menuName = "Scriptable Objects/Enemy Info")]
-public class EnemyInfo_Normal : EntityInfo
+public class EnemyInfo : EntityInfo
 {
-
+    [Header("Rewards")]
+    public List<Reward> RewardList;
 }
 
 [Serializable]

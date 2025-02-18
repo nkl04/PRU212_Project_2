@@ -9,7 +9,4 @@ public class EntityInfo : ScriptableObject
     public float _baseDamage;
     public float _baseAttackRate;
     public float _baseSpeed;
-
-    [Header("Rewards")]
-    public List<Reward> RewardList;
 }
