@@ -28,6 +28,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.79750645
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2513422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.071811974
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.074376166
+      objectReference: {fileID: 0}
     - target: {fileID: 4658346807187507130, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
       propertyPath: m_Sprite
       value: 

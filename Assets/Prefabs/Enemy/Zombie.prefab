@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 3484413341429236708, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4932486
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.70432615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04952894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285416983405441886, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.100417554
+      objectReference: {fileID: 0}
     - target: {fileID: 4658346807187507130, guid: f9cb9fc87e77a1042bf6ac35b9e2a7a4, type: 3}
       propertyPath: m_Sprite
       value: 
