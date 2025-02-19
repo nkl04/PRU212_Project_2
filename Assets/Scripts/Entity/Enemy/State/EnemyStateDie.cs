@@ -14,6 +14,8 @@ public class EnemyStateDie : EnemyState
     {
         //drop reward 
         enemy.EnemyRewardDrop.DropReward();
+        //call on enemy dead event
+        EventHandlers.CallOnEnemyDeadEvent(enemy);
         // die animation
         enemy.Animator.Play(Utilities.AnimationClips.Enemy.Die);
 

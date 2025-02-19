@@ -27,7 +27,6 @@ public class EnemyHealth : MonoBehaviour, IAttackable
     }
     public void Die()
     {
-        EventHandlers.CallOnEnemyDeadEvent(enemy);
         gameObject.SetActive(false);
     }
 }
