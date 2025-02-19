@@ -13,12 +13,14 @@ public abstract class Enemy : MonoBehaviour
     public EnemyInfo EnemyInfo => enemyInfo;
     public PlayerController Target { get; private set; }
     public StateMachine<EnemyState> StateMachine => stateMachine;
+    public Transform Visual => visual;
     public Animator Animator { get; private set; }
     public bool CanFollowPlayer { get; set; } = true;
     public bool CanAttackPlayer { get; set; } = false;
 
     [Header("Enemy Info")]
     [SerializeField] protected EnemyInfo enemyInfo;
+    [SerializeField] protected Transform visual;
 
     protected StateMachine<EnemyState> stateMachine;
 
