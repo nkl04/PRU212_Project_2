@@ -27,26 +27,4 @@ public class EnemyManager : Singleton<EnemyManager>
         if (enemies.Contains(enemy))
             enemies.Remove(enemy);
     }
-
-    /// <summary>
-    /// Get the nearest enemy from a input position
-    /// </summary>
-    /// <param name="position"></param>
-    /// <returns></returns>
-    public Enemy GetNearestEnemyFrom(Vector3 position)
-    {
-        Enemy nearest = null;
-        float minDistance = Mathf.Infinity;
-
-        foreach (var enemy in enemies)
-        {
-            float distance = Vector3.Distance(position, enemy.transform.position);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                nearest = enemy;
-            }
-        }
-        return nearest;
-    }
 }
