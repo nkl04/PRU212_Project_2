@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dade8c929ad64a84a8fdcb38d115e219, type: 3}
-  m_Name: PlayerInfo
+  m_Script: {fileID: 11500000, guid: 1369c29bc0f753144ad38565085cbad7, type: 3}
+  m_Name: ConfigEnemy_Zombie_Big
   m_EditorClassIdentifier: 
-  _name: Player
-  _baseMaxHealth: 100
-  _baseDamage: 10
-  _baseSpeed: 4
-  weaponInfo: {fileID: 11400000, guid: 7540abb6a9d05de49ba740408377a0e9, type: 2}
+  _name: 
+  _baseMaxHealth: 0
+  _baseDamage: 0
+  _baseSpeed: 0
+  _baseAttackRate: 0
+  RewardList: []

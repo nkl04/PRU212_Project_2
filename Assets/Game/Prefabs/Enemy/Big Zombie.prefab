@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ac931cb84b15844bae863671384e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfo: {fileID: 11400000, guid: 85de97bc51d3c5e418ddefe04f438ac6, type: 2}
+  enemyInfo: {fileID: 11400000, guid: 7c7f6ecda0280aa4b9bc45c3e1faf6f1, type: 2}
   visual: {fileID: 5928731106274696543}
 --- !u!114 &5970384606740815021
 MonoBehaviour:

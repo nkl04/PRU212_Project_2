@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ac931cb84b15844bae863671384e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfo: {fileID: 11400000, guid: 33ccd43f1df11524a97380aa0515c29f, type: 2}
+  enemyInfo: {fileID: 11400000, guid: 40f8253066837f547b36b781c6c325a9, type: 2}
   visual: {fileID: 5928731106274696543}
 --- !u!114 &5970384606740815021
 MonoBehaviour:

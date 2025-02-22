@@ -24,7 +24,7 @@ TextureImporter:
       213: 21300012
     second: MainUI_Shop_ChapterBoxBG_7
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -41,11 +41,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -84,8 +85,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -95,6 +98,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -111,6 +128,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 564, y: 0, z: 45, w: 0}
+      customData: 
       outline:
       - - {x: -306.5, y: -242}
         - {x: -310.5, y: -238.00002}
@@ -158,6 +176,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50049925, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -511.48334, y: -290}
         - {x: -514.48334, y: -287}
@@ -208,6 +227,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -523, y: -96}
         - {x: -525, y: -93}
@@ -750,6 +770,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5007134, y: 0.4985744}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -243.5, y: -163.53162}
         - {x: -245.5, y: -161.53162}
@@ -967,6 +988,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 564, y: 0, z: 45, w: 0}
+      customData: 
       outline:
       - - {x: -306.5, y: -242}
         - {x: -310.5, y: -238.00002}
@@ -1014,6 +1036,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 564, y: 0, z: 45, w: 0}
+      customData: 
       outline:
       - - {x: -306.5, y: -242}
         - {x: -310.5, y: -238.00002}
@@ -1061,6 +1084,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -514.5, y: -289}
         - {x: -518.5, y: -285}
@@ -1099,6 +1123,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 
@@ -1108,17 +1133,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
       MainUI_LoginActivity_TimeLimitSEquipUpBox2_BG: 21300004
-      MainUI_Shop_SpecifyEquip_weapon: 21300006
+      MainUI_Shop_ChapterBoxBG_1: 21300000
+      MainUI_Shop_ChapterBoxBG_3: 21300010
       MainUI_Shop_ChapterBoxBG_4: 21300008
       MainUI_Shop_ChapterBoxBG_7: 21300012
       MainUI_Shop_ChapterBoxBG_8: 21300002
-      MainUI_Shop_ChapterBoxBG_3: 21300010
-      MainUI_Shop_ChapterBoxBG_1: 21300000
-  spritePackingTag: 
+      MainUI_Shop_SpecifyEquip_weapon: 21300006
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -354,7 +354,7 @@ TextureImporter:
       213: 21300232
     second: UICommon_Button_Yellow_Small2
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -371,11 +371,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -414,8 +415,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -425,6 +428,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -441,6 +458,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 29, y: 32, z: 28, w: 32}
+      customData: 
       outline:
       - - {x: -28.5, y: -43}
         - {x: -39.5, y: -35}
@@ -478,6 +496,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 25, y: 0, z: 20, w: 0}
+      customData: 
       outline:
       - - {x: 24, y: -41.5}
         - {x: -24, y: -41.5}
@@ -507,6 +526,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 40, y: 40, z: 40, w: 40}
+      customData: 
       outline:
       - - {x: -44, y: -46}
         - {x: -47, y: -39}
@@ -550,6 +570,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -35, y: -41}
         - {x: -47, y: -13}
@@ -601,6 +622,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.49525556}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -25, y: -53.506996}
         - {x: -54.000004, y: -31.507}
@@ -638,6 +660,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5001769, y: 0.5052716}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -19.98339, y: -47.5}
         - {x: -46.98339, y: -39.5}
@@ -701,6 +724,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4944963, y: 0.4895668}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -38.5, y: -48}
         - {x: -45.5, y: -31.000002}
@@ -763,6 +787,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49328044, y: 0.50654495}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -37.516605, y: -39.483517}
         - {x: -38.516605, y: -37.483517}
@@ -798,6 +823,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -41, y: -50}
         - {x: -50, y: -48}
@@ -839,6 +865,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -35, y: -41}
         - {x: -47, y: -13}
@@ -890,6 +917,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -8.5, y: -17.5}
         - {x: -17.5, y: -9.5}
@@ -933,6 +961,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 30, y: 107, z: 35, w: 110}
+      customData: 
       outline:
       - - {x: -32, y: -121}
         - {x: -37, y: -115}
@@ -978,6 +1007,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 14, y: -41.5}
         - {x: -34, y: -41.5}
@@ -1013,6 +1043,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4795616, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -12.513378, y: 64}
         - {x: 47.48662, y: 64}
@@ -1090,6 +1121,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5001171}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -43, y: -52.987595}
         - {x: -52.999996, y: -21.987598}
@@ -1147,6 +1179,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -13, y: -63.5}
         - {x: -52, y: -18.5}
@@ -1190,6 +1223,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 9, y: 27, z: 9, w: 25}
+      customData: 
       outline:
       - - {x: -1.5, y: -80.5}
         - {x: -1.5, y: 80.5}
@@ -1219,6 +1253,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 19, y: -18.5}
         - {x: -19, y: -18.5}
@@ -1262,6 +1297,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.47945014, y: 0.4997712}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -48.012283, y: -48.024685}
         - {x: -49.012283, y: -40.024685}
@@ -1314,6 +1350,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 40, y: 40, z: 40, w: 40}
+      customData: 
       outline:
       - - {x: -44, y: -46}
         - {x: -47, y: -39}
@@ -1357,6 +1394,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 82.5, y: -63.5}
         - {x: -82.5, y: -63.5}
@@ -1390,6 +1428,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.4809878}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 39, y: -51.975315}
         - {x: -42, y: -51.975315}
@@ -1439,6 +1478,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49996993, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -62.003788, y: -50}
         - {x: -63.003788, y: -36}
@@ -1502,6 +1542,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 23, y: 0, z: 23, w: 0}
+      customData: 
       outline:
       - - {x: 27.000002, y: -49}
         - {x: -27.000002, y: -49}
@@ -1535,6 +1576,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 33, y: 32, z: 29, w: 32}
+      customData: 
       outline:
       - - {x: 38, y: -38}
         - {x: -38, y: -38}
@@ -1572,6 +1614,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49938133, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 14.975318, y: -16.999998}
         - {x: -20.024683, y: -16.999998}
@@ -1607,6 +1650,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 18, y: -25}
         - {x: -25, y: -25}
@@ -1640,6 +1684,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5041347, y: 0.4916561}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -59.47532, y: -59.999996}
         - {x: -63.475315, y: -52}
@@ -1705,6 +1750,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -50.5, y: -58.499996}
         - {x: -66.5, y: -43.5}
@@ -1742,6 +1788,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -50, y: -50}
         - {x: -50, y: 50}
@@ -1786,6 +1833,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5073355, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -30.01649, y: -32.5}
         - {x: -33.01649, y: -21.5}
@@ -1823,6 +1871,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21, y: -31}
         - {x: -32, y: -16}
@@ -1872,6 +1921,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21, y: -31}
         - {x: -32, y: -16}
@@ -1921,6 +1971,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -17, y: 1.5}
         - {x: -19, y: 4.5}
@@ -1968,6 +2019,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 121, y: 0, z: 7, w: 0}
+      customData: 
       outline:
       - - {x: -65.5, y: -46.5}
         - {x: -70.5, y: -29.499998}
@@ -2008,6 +2060,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49545264, y: 0.50444645}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -40.49515, y: -53.524693}
         - {x: -54.495155, y: -49.52469}
@@ -2071,6 +2124,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49980453, y: 0.48669654}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -22.019917, y: -55.47532}
         - {x: -51.019917, y: -40.475315}
@@ -2108,6 +2162,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49411395, y: 0.5441524}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 42.5, y: -34}
         - {x: -42.5, y: -34}
@@ -2145,6 +2200,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 22, y: -22.5}
         - {x: -23, y: -22.5}
@@ -2191,6 +2247,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 47, y: 47, z: 47, w: 47}
+      customData: 
       outline:
       - - {x: -39, y: -49}
         - {x: -49, y: -46}
@@ -2228,6 +2285,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -32.5, y: -27.5}
         - {x: -34.5, y: -25.5}
@@ -2263,6 +2321,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21, y: -31}
         - {x: -32, y: -16}
@@ -2302,6 +2361,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -13.500001, y: -24.5}
         - {x: -31.5, y: -6.5}
@@ -2341,6 +2401,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50771034, y: 0.50648576}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 22.5, y: -40.47532}
         - {x: -32.5, y: -40.47532}
@@ -2378,6 +2439,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 40, y: 40, z: 40, w: 40}
+      customData: 
       outline:
       - - {x: -44, y: -46}
         - {x: -47, y: -39}
@@ -2421,6 +2483,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49411395, y: 0.5056214}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -36.5, y: -44.5}
         - {x: -42.5, y: -39.5}
@@ -2465,6 +2528,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -31.5, y: -34}
         - {x: -32.5, y: -29}
@@ -2523,6 +2587,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 6, z: 7, w: 6}
+      customData: 
       outline:
       - - {x: -7.5000005, y: -7}
         - {x: -7.5000005, y: 7}
@@ -2552,6 +2617,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -18.5, y: 13.500001}
         - {x: -45.5, y: 42.5}
@@ -2593,6 +2659,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -22, y: -25}
         - {x: -23, y: -24}
@@ -2630,6 +2697,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 40, y: 40, z: 40, w: 40}
+      customData: 
       outline:
       - - {x: -44, y: -46}
         - {x: -47, y: -39}
@@ -2673,6 +2741,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49999997, y: 0.5040661}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 48.999996, y: -58.52468}
         - {x: -63.000004, y: -58.52468}
@@ -2723,6 +2792,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -22.5, y: -4}
         - {x: -22.5, y: 4}
@@ -2752,6 +2822,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 10, y: 12, z: 11, w: 11}
+      customData: 
       outline:
       - - {x: 16, y: -16}
         - {x: -16, y: -16}
@@ -2781,6 +2852,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 40, y: 40, z: 40, w: 40}
+      customData: 
       outline:
       - - {x: -44, y: -46}
         - {x: -47, y: -39}
@@ -2824,6 +2896,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.523871, y: 0.49543345}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -43.495792, y: -56.524685}
         - {x: -52.495792, y: -13.524685}
@@ -2875,6 +2948,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4954893, y: 0.50459355}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -36.5, y: -54.500004}
         - {x: -55.5, y: -37.500004}
@@ -2916,6 +2990,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.45602563, y: 0.47956008}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 46.993, y: -49}
         - {x: -57.007, y: -49}
@@ -2947,6 +3022,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 13, y: 0, z: 30, w: 0}
+      customData: 
       outline:
       - - {x: 13, y: -42.5}
         - {x: -24, y: -42.5}
@@ -2980,6 +3056,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49545264, y: 0.50444645}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -40.49515, y: -53.524693}
         - {x: -54.495155, y: -49.52469}
@@ -3043,6 +3120,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49545264, y: 0.50444645}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -40.49515, y: -53.524693}
         - {x: -54.495155, y: -49.52469}
@@ -3106,6 +3184,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4954893, y: 0.50459355}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -50.5, y: -42.500004}
         - {x: -55.5, y: -26.500006}
@@ -3147,6 +3226,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5001223, y: 0.50854534}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -35.986313, y: -51.009872}
         - {x: -55.986313, y: -13.009872}
@@ -3190,6 +3270,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -3.5, y: -30.5}
         - {x: -19.5, y: -30.5}
@@ -3223,6 +3304,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 56, y: 13, z: 17, w: 74}
+      customData: 
       outline:
       - - {x: -37.5, y: -44.5}
         - {x: -37.5, y: 44.5}
@@ -3252,6 +3334,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21, y: -31}
         - {x: -32, y: -16}
@@ -3301,6 +3384,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 26, y: 0, z: 26, w: 0}
+      customData: 
       outline:
       - - {x: 27.5, y: -60.000004}
         - {x: -27.5, y: -60.000004}
@@ -3334,6 +3418,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.47945014, y: 0.45997858}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 42.987717, y: -50}
         - {x: -49.012283, y: -50}
@@ -3375,6 +3460,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.47827947, y: 0.5119336}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -53.496838, y: -36.975582}
         - {x: -57.496838, y: 31.02442}
@@ -3435,6 +3521,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 14, y: 14, z: 14, w: 14}
+      customData: 
       outline:
       - - {x: -16.5, y: -16.5}
         - {x: -16.5, y: 16.5}
@@ -3464,6 +3551,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 11, y: 0, z: 11, w: 0}
+      customData: 
       outline:
       - - {x: -14.5, y: -50}
         - {x: -14.5, y: 50}
@@ -3493,6 +3581,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21, y: -31}
         - {x: -32, y: -16}
@@ -3542,6 +3631,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 9.5, y: -32}
         - {x: -22.5, y: -32}
@@ -3575,6 +3665,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5102359, y: 0.5099683}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21.499998, y: -25.492996}
         - {x: -24.499998, y: -20.492996}
@@ -3612,6 +3703,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4542783, y: 0.5001321}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 43.975315, y: -34.987602}
         - {x: 40.975315, y: -32.987602}
@@ -3765,6 +3857,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 45, y: 0, z: 30, w: 0}
+      customData: 
       outline:
       - - {x: 40.5, y: -72}
         - {x: -40.5, y: -72}
@@ -3794,6 +3887,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -21, y: -31}
         - {x: -32, y: -16}
@@ -3833,6 +3927,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 28, y: 0, z: 25, w: 0}
+      customData: 
       outline:
       - - {x: 28.5, y: -52.999996}
         - {x: -28.5, y: -52.999996}
@@ -3866,6 +3961,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5070868, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 14.03806, y: 18.5}
         - {x: 19.03806, y: 18.5}
@@ -3927,6 +4023,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -10.5, y: -26.499998}
         - {x: -26.499998, y: -9.5}
@@ -3964,6 +4061,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49999997, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -27.500004, y: -56.5}
         - {x: -53.500008, y: -40.5}
@@ -4005,6 +4103,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 57, y: -50}
         - {x: -57, y: -50}
@@ -4038,6 +4137,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 22, y: -22.5}
         - {x: -23, y: -22.5}
@@ -4084,6 +4184,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -18.5, y: 13.500001}
         - {x: -45.5, y: 42.5}
@@ -4125,6 +4226,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 34, y: 0, z: 25, w: 0}
+      customData: 
       outline:
       - - {x: 31.5, y: -72}
         - {x: -31.5, y: -72}
@@ -4154,6 +4256,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 43, y: 37, z: 33, w: 40}
+      customData: 
       outline:
       - - {x: -39.5, y: -35.5}
         - {x: -41.5, y: -32.5}
@@ -4206,6 +4309,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -17.5, y: -5.5}
         - {x: -17.5, y: 5.5}
@@ -4243,6 +4347,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4960613, y: 0.49993584}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 55.499996, y: -63.00808}
         - {x: 47.499996, y: -63.00808}
@@ -4306,6 +4411,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -47, y: -41}
         - {x: -47, y: 41}
@@ -4335,6 +4441,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50015986, y: 0.569825}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -41.983395, y: -50.024685}
         - {x: -51.983395, y: -29.024685}
@@ -4383,6 +4490,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -61.5, y: -51.5}
         - {x: -73.5, y: -8.5}
@@ -4414,6 +4522,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -28, y: -36}
         - {x: -36, y: -34}
@@ -4451,6 +4560,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -60.000004, y: -5}
         - {x: -72, y: 20}
@@ -4491,6 +4601,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -33.5, y: 25.5}
         - {x: -45.5, y: 39.5}
@@ -4534,6 +4645,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 33, y: 0, z: 25, w: 0}
+      customData: 
       outline:
       - - {x: 30.5, y: -72}
         - {x: -30.5, y: -72}
@@ -4563,6 +4675,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.479314, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -38.983395, y: -49}
         - {x: -47.983395, y: -10}
@@ -4604,6 +4717,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49507657, y: 0.5057572}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 32.49308, y: 7.5}
         - {x: 34.49308, y: 5.5}
@@ -4715,6 +4829,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -36, y: -6}
         - {x: -36, y: 6}
@@ -4744,6 +4859,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -29.499998, y: -52.499996}
         - {x: -56.5, y: -43.5}
@@ -4803,6 +4919,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50464743, y: 0.49130866}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -44.47532, y: -59.024685}
         - {x: -56.47532, y: -54.02468}
@@ -4860,6 +4977,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.49971795, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -28.516607, y: -32.5}
         - {x: -29.516605, y: -31.5}
@@ -4895,6 +5013,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 68.5, y: -74.5}
         - {x: -68.5, y: -74.5}
@@ -4926,6 +5045,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -10, y: -29.499998}
         - {x: -11, y: -28.5}
@@ -4990,6 +5110,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5002206, y: 0.4949417}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -42.975315, y: -49.5}
         - {x: -55.975315, y: -23.5}
@@ -5083,6 +5204,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5049083, y: 0.50016624}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -50.475315, y: -49.983395}
         - {x: -53.47532, y: -48.983395}
@@ -5144,6 +5266,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.48738927, y: 0.5223551}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -54.5, y: -39.991047}
         - {x: -59.500004, y: 13.008953}
@@ -5202,6 +5325,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50981426, y: 0.49931943}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -14.499999, y: -28.03806}
         - {x: -25.499998, y: -20.03806}
@@ -5239,6 +5363,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 23, y: 23, z: 23, w: 23}
+      customData: 
       outline:
       - - {x: 24, y: -24}
         - {x: -24, y: -24}
@@ -5270,6 +5395,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -2, y: -2}
         - {x: -2, y: 2}
@@ -5303,6 +5429,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -248.49998, y: -4.5}
         - {x: -248.49998, y: 4.5}
@@ -5332,6 +5459,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -4.5, y: -72}
         - {x: -64.5, y: -27.000002}
@@ -5367,6 +5495,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -43, y: -35.5}
         - {x: -50, y: -29.499998}
@@ -5406,6 +5535,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -125, y: -15.000001}
         - {x: -125, y: 15.000001}
@@ -5435,6 +5565,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 40, y: 40, z: 40, w: 40}
+      customData: 
       outline:
       - - {x: -44, y: -46}
         - {x: -47, y: -39}
@@ -5478,6 +5609,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 20, y: 20, z: 20, w: 20}
+      customData: 
       outline:
       - - {x: 25.5, y: -25.5}
         - {x: -25.5, y: -25.5}
@@ -5507,6 +5639,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 54.000004, y: -55}
         - {x: -54.000004, y: -55}
@@ -5538,6 +5671,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 25, y: 0, z: 25, w: 0}
+      customData: 
       outline:
       - - {x: 27.000002, y: -49}
         - {x: -27.000002, y: -49}
@@ -5561,6 +5695,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 
@@ -5570,127 +5705,128 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      Carnival_Medal: 21300042
-      Challenge4: 21300010
-      UICommon_ItemBG_0: 21300108
-      UICommon_RedNode_Wear: 21300062
-      UICommon_InfoBG2: 21300170
-      MonthCard_Special: 21300210
-      Currency_Exp: 21300124
-      UICommon_ButtonIcon_Setting: 21300092
-      Challenge1: 21300148
-      ic_gift_close: 21300178
-      Star_Enhance: 21300164
-      home_score_line: 21300218
-      UICommon_ItemBG_4: 21300100
-      UICommon_LineTilte: 21300194
-      UICommon_Qmark: 21300066
-      equip_choose_3: 21300120
-      DailyStore_Discount_1: 21300166
-      Challenge2: 21300192
-      UICommon_InfoBG: 21300048
-      equip_choose_2: 21300070
-      UICommon_Time_Arrow: 21300104
-      Currency_DiamondBoxSmall: 21300112
-      Icon_Heart_BG: 21300018
-      UICommon_ItemBG_1: 21300038
-      UICommon_Back: 21300176
-      UICommon_GreenNode_Up: 21300064
-      DailyStore_Discount_3: 21300096
+      AdsIcon: 21300114
       BoxUI_PropBG: 21300140
+      BoxUI_Return: 21300158
+      Button_Rate: 21300014
+      Carnival_Medal: 21300042
+      Challenge1: 21300148
+      Challenge2: 21300192
+      Challenge3: 21300012
+      Challenge4: 21300010
+      Challenge5: 21300206
+      CommonUI_RoundBg: 21300228
+      Currency_BG: 21300032
+      Currency_BGOne: 21300094
+      Currency_DNA: 21300028
+      Currency_Diamond: 21300072
       Currency_DiamondBoxLarge: 21300122
-      UICommon_ItemBG_3: 21300226
-      UICommon_Time_Circle: 21300052
-      HydraIapIcon: 21300222
-      Star_Enhance_BG: 21300034
-      UICommon_BG: 21300128
-      Icon_Heart: 21300006
-      net_loading: 21300016
-      ic_gift_open: 21300110
+      Currency_DiamondBoxSmall: 21300112
+      Currency_Exp: 21300124
+      Currency_Gold: 21300008
       Currency_Power: 21300190
+      DailyPurchaseGift_MainIcon: 21300044
+      DailyStore_Discount_1: 21300166
+      DailyStore_Discount_2: 21300186
+      DailyStore_Discount_3: 21300096
+      Debris_01: 21300220
+      Debris_02: 21300040
+      Debris_04: 21300056
+      EquipBuyIcon: 21300106
+      GameTask_Get: 21300084
+      GuideUI_Arrow: 21300030
+      HydraIapIcon: 21300222
+      IapIcon: 21300230
+      Icon_Heart: 21300006
+      Icon_Heart_BG: 21300018
+      KillIcon: 21300058
+      MatNeededUI_JumpCell_bg: 21300214
+      MatNeededUI_MatIconBg: 21300078
+      MonthCard_Normal: 21300136
+      MonthCard_Special: 21300210
       OfflineEarningsIcon: 21300174
       OfflineEarnings_Quick: 21300050
-      UICommon_RewardBG: 21300022
-      UICommon_ItemBG_5: 21300088
-      UICommon_GreenNode: 21300082
-      Currency_DNA: 21300028
-      Debris_04: 21300056
-      UICommon_ItemBG_2: 21300004
-      UICommon_Button_Yellow_Small2: 21300232
-      Currency_Diamond: 21300072
-      UICommon_WhiteDot4x4: 21300216
-      UICommon_warning: 21300162
-      MonthCard_Normal: 21300136
-      UICommon_Button_Yellow_Small_ThickBorder: 21300132
-      UICommon_System_LevelInvest: 21300026
-      challenge_difficult_3: 21300198
-      CommonUI_RoundBg: 21300228
-      Currency_BGOne: 21300094
-      GameTask_Get: 21300084
-      UICommon_DailyTask: 21300102
-      DailyPurchaseGift_MainIcon: 21300044
       Pause_Continue: 21300200
-      challenge_difficult_1: 21300134
-      UICommon_Button_Gray_Small2: 21300046
-      equipCycle: 21300212
-      UICommon_AddIcon: 21300020
-      UICommon_RankIcon_01: 21300086
-      UICommon_RedNode_Up: 21300130
-      Button_Rate: 21300014
-      KillIcon: 21300058
-      UICommon_EquipLevelUp: 21300144
-      UICommon_ReduceIcon: 21300172
-      search: 21300098
-      Debris_02: 21300040
-      Sound_On: 21300156
-      BoxUI_Return: 21300158
-      UICommon_SideButton_BG: 21300068
-      ic_envelop_close: 21300074
-      UICommon_SuperBg: 21300160
-      UICommon_Button_Blue: 21300168
-      skill_touch: 21300202
-      UICommon_Button_Green: 21300188
-      IapIcon: 21300230
-      MatNeededUI_MatIconBg: 21300078
-      UICommon_RedNode_Combine: 21300142
-      UICommon_Arrow: 21300126
-      ic_envelop_open: 21300090
-      UICommon_FirstPayReward: 21300054
-      UICommon_ShopDiscountsBG: 21300116
-      Currency_Gold: 21300008
-      equip_choose_1: 21300118
-      UICommon_ButtonIcon_Mail: 21300080
-      UICommon_MidMoon: 21300208
-      DailyStore_Discount_2: 21300186
-      Currency_BG: 21300032
-      Challenge5: 21300206
-      MatNeededUI_JumpCell_bg: 21300214
-      UICommon_GiftPack: 21300184
-      Debris_01: 21300220
-      huadong: 21300024
-      GuideUI_Arrow: 21300030
-      Star_Normal: 21300076
-      UICommon_Close: 21300180
-      SelectItem_Bg: 21300000
-      UICommon_Button_Yellow: 21300150
       Pause_Home: 21300060
+      SelectItem_Bg: 21300000
+      Sound_On: 21300156
+      Star_Enhance: 21300164
+      Star_Enhance_BG: 21300034
+      Star_Normal: 21300076
       Tips_BG: 21300224
-      EquipBuyIcon: 21300106
-      UICommon_RedNode: 21300152
       UICommon_Add: 21300146
-      UICommon_blackmask: 21300138
-      UICommon_Button_Yellow_Small: 21300154
-      equip_choose_11: 21300196
-      AdsIcon: 21300114
+      UICommon_AddIcon: 21300020
+      UICommon_Arrow: 21300126
+      UICommon_BG: 21300128
+      UICommon_Back: 21300176
+      UICommon_ButtonIcon_Mail: 21300080
+      UICommon_ButtonIcon_Setting: 21300092
+      UICommon_Button_Blue: 21300168
+      UICommon_Button_Gray_Small2: 21300046
+      UICommon_Button_Green: 21300188
       UICommon_Button_Red: 21300002
-      challenge_difficult_2: 21300036
-      Challenge3: 21300012
+      UICommon_Button_Yellow: 21300150
+      UICommon_Button_Yellow_Small: 21300154
+      UICommon_Button_Yellow_Small2: 21300232
+      UICommon_Button_Yellow_Small_ThickBorder: 21300132
+      UICommon_Close: 21300180
+      UICommon_DailyTask: 21300102
+      UICommon_EquipLevelUp: 21300144
+      UICommon_FirstPayReward: 21300054
+      UICommon_GiftPack: 21300184
+      UICommon_GreenNode: 21300082
+      UICommon_GreenNode_Up: 21300064
+      UICommon_InfoBG: 21300048
+      UICommon_InfoBG2: 21300170
+      UICommon_ItemBG_0: 21300108
+      UICommon_ItemBG_1: 21300038
+      UICommon_ItemBG_2: 21300004
+      UICommon_ItemBG_3: 21300226
+      UICommon_ItemBG_4: 21300100
+      UICommon_ItemBG_5: 21300088
+      UICommon_LineTilte: 21300194
+      UICommon_MidMoon: 21300208
+      UICommon_Qmark: 21300066
+      UICommon_RankIcon_01: 21300086
+      UICommon_RedNode: 21300152
+      UICommon_RedNode_Combine: 21300142
+      UICommon_RedNode_Up: 21300130
+      UICommon_RedNode_Wear: 21300062
+      UICommon_ReduceIcon: 21300172
+      UICommon_RewardBG: 21300022
+      UICommon_ShopDiscountsBG: 21300116
+      UICommon_SideButton_BG: 21300068
       UICommon_SpeedUpBg: 21300182
+      UICommon_SuperBg: 21300160
+      UICommon_System_LevelInvest: 21300026
+      UICommon_Time_Arrow: 21300104
+      UICommon_Time_Circle: 21300052
+      UICommon_WhiteDot4x4: 21300216
+      UICommon_blackmask: 21300138
+      UICommon_warning: 21300162
+      challenge_difficult_1: 21300134
+      challenge_difficult_2: 21300036
+      challenge_difficult_3: 21300198
+      equipCycle: 21300212
+      equip_choose_1: 21300118
+      equip_choose_11: 21300196
+      equip_choose_2: 21300070
+      equip_choose_3: 21300120
+      home_score_line: 21300218
+      huadong: 21300024
+      ic_envelop_close: 21300074
+      ic_envelop_open: 21300090
+      ic_gift_close: 21300178
+      ic_gift_open: 21300110
+      net_loading: 21300016
       net_wifi: 21300204
-  spritePackingTag: 
+      search: 21300098
+      skill_touch: 21300202
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

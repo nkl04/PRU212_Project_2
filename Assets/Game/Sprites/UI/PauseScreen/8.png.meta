@@ -39,7 +39,7 @@ TextureImporter:
       213: 21300022
     second: MainUI_PiggyIcon1
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -56,11 +56,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -99,8 +100,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,6 +113,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -126,6 +143,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.49893913}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -248, y: -53.508083}
         - {x: -253, y: -12.508087}
@@ -415,6 +433,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.49882066}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -220, y: -113.52469}
         - {x: -226, y: -86.52469}
@@ -658,6 +677,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5008953, y: 0.49904254}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -208.52467, y: 194.5166}
         - {x: -209.52467, y: 208.51659}
@@ -950,6 +970,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5002025, y: 0.4957245}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -59.975323, y: -45.500004}
         - {x: -60.97532, y: -27.500006}
@@ -1018,6 +1039,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5044129, y: 0.49514312}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -38.47532, y: -51.5}
         - {x: -59.475323, y: -32.5}
@@ -1075,6 +1097,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 287.5, y: -114.5}
         - {x: 243.5, y: -114.5}
@@ -1356,6 +1379,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -120.00001, y: 9}
         - {x: -129, y: 18}
@@ -1471,6 +1495,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -381.5, y: -150.5}
         - {x: -387.5, y: -136.5}
@@ -1927,6 +1952,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -351, y: -124}
         - {x: -354, y: -109}
@@ -2314,6 +2340,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5001634, y: 0.5002246}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -57.980087, y: -27.975319}
         - {x: -60.980087, y: -2.975319}
@@ -2390,6 +2417,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50101894, y: 0.49886087}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: 195.52466, y: -49.500015}
         - {x: 171.52466, y: -135.50002}
@@ -2665,6 +2693,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.50022876, y: 0.50024223}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline:
       - - {x: -43.97532, y: -50.97532}
         - {x: -53.975323, y: -37.97532}
@@ -2714,6 +2743,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 
@@ -2723,22 +2753,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      PiggyIconMedium3: 21300000
       MainUI_PiggyIcon1: 21300022
-      Piggy_LightBG: 21300016
-      PiggyIconMedium2: 21300020
-      PiggyIconMedium1: 21300002
-      MainUI_PiggyIcon4: 21300006
-      PiggyIconMedium4: 21300004
-      MainUI_PiggyIcon3: 21300018
       MainUI_PiggyIcon2: 21300008
+      MainUI_PiggyIcon3: 21300018
+      MainUI_PiggyIcon4: 21300006
       PiggyIconLarge1: 21300010
-      Piggy_ValueBG: 21300012
       PiggyIconLarge2: 21300014
-  spritePackingTag: 
+      PiggyIconMedium1: 21300002
+      PiggyIconMedium2: 21300020
+      PiggyIconMedium3: 21300000
+      PiggyIconMedium4: 21300004
+      Piggy_LightBG: 21300016
+      Piggy_ValueBG: 21300012
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

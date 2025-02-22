@@ -3,14 +3,6 @@ using UnityEngine;
 
 public class Shuriken : Weapon
 {
-    protected override void Start()
-    {
-        Projectile_Shuriken projectile_Shuriken = _weaponInfo.bulletPrefab.GetComponent<Projectile_Shuriken>();
-        if (projectile_Shuriken != null)
-        {
-            // projectile_Shuriken.SetSprite(_weaponInfo._sprite);
-        }
-    }
     public override void Attack()
     {
         if (Player == null)
@@ -33,10 +25,13 @@ public class Shuriken : Weapon
 
             Projectile_Shuriken projectile_Shuriken = shurikenBulletObj.GetComponent<Projectile_Shuriken>();
 
-            projectile_Shuriken.SetSpeed(_weaponInfo._speed);
-            projectile_Shuriken.SetDamage(_weaponInfo._damage + Player.PlayerInfo._baseDamage);
+            if (_weaponInfo is ConfigEquipmentWeapon config)
+            {
+                projectile_Shuriken.SetSpeed(config._speed);
+                projectile_Shuriken.SetDamage(config._damage + Player.PlayerInfo._baseDamage);
+                projectile_Shuriken.Direction = direction;
+            }
 
-            projectile_Shuriken.Direction = direction;
 
             shurikenBulletObj.SetActive(true);
         }

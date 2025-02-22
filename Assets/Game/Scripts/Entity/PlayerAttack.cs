@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Image attackWeaponRate;
 
     private Weapon _weapon;
-    private float _attackRange;
+    [SerializeField] private float _detectRange;
     private float timer = 0;
 
     /// <summary>
@@ -20,8 +20,8 @@ public class PlayerAttack : MonoBehaviour
     public void AutomaticAttack()
     {
         timer += Time.deltaTime;
-        attackWeaponRate.fillAmount = timer / _weapon._weaponInfo._attackSpeed;
-        if (timer >= _weapon._weaponInfo._attackSpeed)
+        attackWeaponRate.fillAmount = timer / _weapon._weaponInfo._coolDown;
+        if (timer >= _weapon._weaponInfo._coolDown)
         {
             timer = 0;
             _weapon.Attack();
@@ -35,7 +35,6 @@ public class PlayerAttack : MonoBehaviour
 
         _weapon = weapon;
         _weapon.Player = player;
-        _attackRange = weapon._weaponInfo._range;
     }
 
     /// <summary>
@@ -44,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
     public Enemy_Base GetTheNeareastEnemy(Transform transform)
     {
         Transform playerTransform = transform;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, _attackRange);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, _detectRange);
         Enemy_Base nearestEnemy = null;
         float minDistance = float.MaxValue;
 
@@ -63,5 +62,4 @@ public class PlayerAttack : MonoBehaviour
         }
         return nearestEnemy;
     }
-
 }

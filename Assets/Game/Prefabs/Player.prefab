@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6907794548704509220}
   - component: {fileID: 3851613480177223388}
   - component: {fileID: 463418759594796745}
+  - component: {fileID: 7584340208924236225}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handPosition: {fileID: 6781855487046847941}
   attackWeaponRate: {fileID: 0}
+  _detectRange: 0
 --- !u!114 &6907794548704509220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +200,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25e9fae642e8c2b4693b5bee054830f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7584340208924236225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790080238803046482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0292fe613e29ae14e9b6e05d27f728a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6938557950088800963
@@ -312,10 +326,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7033909604900271252}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.3831671, w: 0.92367905}
+  m_LocalPosition: {x: 0.14, y: -0.056, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543249319667459219}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45.06}
