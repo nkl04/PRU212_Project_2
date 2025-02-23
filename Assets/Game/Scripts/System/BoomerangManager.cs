@@ -2,55 +2,48 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomerangManager : MonoBehaviour
+public class BoomerangManager : MonoBehaviour, IWeaponManager
 {
-    [SerializeField] private GameObject boomerangPrefab;
+    [SerializeField] private GameObject boomerangWeaponPrefab;
+    private Boomerang boomerangWeapon;
 
-    private List<GameObject> boomerangList;
-    public void ExecuteLevel1()
+    public void ExecuteLevel(int level)
     {
-        GameObject boomerangGameObj = ObjectPooler.Instance.GetObjectFromPool(boomerangPrefab.name);
-        boomerangGameObj.transform.position = transform.position;
-        boomerangGameObj.SetActive(true);
-
-        boomerangList.Add(boomerangGameObj);
-    }
-
-    public void ExecuteLevel2()
-    {
-        GameObject boomerangGameObj = ObjectPooler.Instance.GetObjectFromPool(boomerangPrefab.name);
-        boomerangGameObj.transform.position = transform.position;
-        boomerangGameObj.SetActive(true);
-
-        boomerangList.Add(boomerangGameObj);
-    }
-
-    public void ExecuteLevel3()
-    {
-        foreach (GameObject boomerang in boomerangList)
+        switch (level)
         {
-            //doublet damage
+            case 1:
+                GameObject boomerangWeaponGameObj = ObjectPooler.Instance.GetObjectFromPool(boomerangWeaponPrefab.name);
+                boomerangWeaponGameObj.transform.position = Vector3.zero;
+                boomerangWeaponGameObj.SetActive(true);
+                boomerangWeapon = boomerangWeaponGameObj.GetComponent<Boomerang>();
+                boomerangWeapon.oneTimeBulletAmount = 1;
+                break;
+            case 2:
+                if (boomerangWeapon != null)
+                {
+                    boomerangWeapon.oneTimeBulletAmount = 2;
+                }
+                break;
+            case 3:
+                if (boomerangWeapon != null)
+                {
+                    boomerangWeapon.Multiplier = 2;
+                }
+                break;
+            case 4:
+                if (boomerangWeapon != null)
+                {
+                    //add size
 
+                }
+                break;
+            case 5:
+                if (boomerangWeapon != null)
+                {
+                    //add size
+
+                }
+                break;
         }
     }
-
-    public void ExecuteLevel4()
-    {
-        foreach (GameObject boomerang in boomerangList)
-        {
-            // add size
-
-            // more damage
-        }
-    }
-
-    public void ExecuteLevel5()
-    {
-        foreach (GameObject boomerang in boomerangList)
-        {
-            // Reverse polarity.
-
-        }
-    }
-
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 public class ConfigPlayer : ConfigEntity
 {
     [Header("Gear")]
-    public ConfigWeapon weaponInfo;
+    public ConfigWeapon defaultWeaponInfo;
 }

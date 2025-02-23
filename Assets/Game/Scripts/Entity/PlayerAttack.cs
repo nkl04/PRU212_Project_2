@@ -24,13 +24,13 @@ public class PlayerAttack : MonoBehaviour
         if (timer >= _weapon._weaponInfo._coolDown)
         {
             timer = 0;
-            _weapon.Attack();
+            _weapon.StartAttack();
         }
     }
 
     public void SetUpWeapon(PlayerController player)
     {
-        GameObject weaponObj = Instantiate(player.PlayerInfo.weaponInfo.weapon.gameObject, handPosition);
+        GameObject weaponObj = Instantiate(player.PlayerInfo.defaultWeaponInfo.weapon.gameObject, handPosition);
         Weapon weapon = weaponObj.GetComponent<Weapon>();
 
         _weapon = weapon;

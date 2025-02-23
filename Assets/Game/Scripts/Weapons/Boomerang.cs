@@ -2,7 +2,7 @@
 
 public class Boomerang : Weapon
 {
-    public override void Attack()
+    protected override void Attack()
     {
         if (Player == null)
         {
@@ -26,11 +26,10 @@ public class Boomerang : Weapon
             if (_weaponInfo is ConfigSkillWeapon copnfig)
             {
                 projectile_Boomerang.SetSpeed(copnfig._speed);
-                projectile_Boomerang.SetDamage(copnfig.ATK_Multiplier * Player.PlayerInfo._baseDamage);
+                projectile_Boomerang.SetDamage(copnfig.ATK_Multiplier * Multiplier * Player.PlayerInfo._baseDamage);
                 projectile_Boomerang.Range = (copnfig._range);
             }
             boomerangGameObj.SetActive(true);
         }
-
     }
 }

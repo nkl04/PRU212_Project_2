@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1369c29bc0f753144ad38565085cbad7, type: 3}
   m_Name: ConfigEnemy_Dog
   m_EditorClassIdentifier: 
-  _name: 
-  _baseMaxHealth: 0
-  _baseDamage: 0
-  _baseSpeed: 0
-  _baseAttackRate: 0
-  RewardList: []
+  _name: Dog
+  _baseMaxHealth: 15
+  _baseDamage: 10
+  _baseSpeed: 10
+  _baseAttackRate: 2
+  RewardList:
+  - RewardPrefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
+    Amount: 1
+    DropRate: 80

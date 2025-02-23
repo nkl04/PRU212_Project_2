@@ -3564,51 +3564,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554544108}
   m_CullTransparentMesh: 1
---- !u!1 &562284182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 562284184}
-  - component: {fileID: 562284183}
-  m_Layer: 0
-  m_Name: BoomerangManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &562284183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562284182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5dd58fa2a521e84b8792be951d9ab72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boomerangPrefab: {fileID: 0}
---- !u!4 &562284184
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562284182}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563821847
 GameObject:
   m_ObjectHideFlags: 0
@@ -11390,13 +11345,27 @@ MonoBehaviour:
     hasMax: 0
     max: 0
     parent: {fileID: 0}
-  - tag: Bullet_Shuriken
+  - tag: Projectile_Boomerang
+    prefab: {fileID: 3234293312000643693, guid: 04ead3f6ad1ac6b44983beff8675f6fc, type: 3}
+    size: 5
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
+  - tag: Projectile_Shuriken
     prefab: {fileID: 1050196645887753514, guid: 25b1056788d323a419f1b17dd7605a4a, type: 3}
     size: 5
     expandable: 1
     hasMax: 0
     max: 0
     parent: {fileID: 0}
+  - tag: Weapon_Boomerang
+    prefab: {fileID: 2588350662329825112, guid: b16a0f2324d80194aa6cbf75edc836ee, type: 3}
+    size: 5
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 1680685741}
   - tag: Diamond
     prefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
     size: 5
@@ -14482,6 +14451,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670137503}
   m_CullTransparentMesh: 1
+--- !u!4 &1680685741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1463495197041302624, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+  m_PrefabInstance: {fileID: 7690262213572516093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1709806300
 GameObject:
   m_ObjectHideFlags: 0
@@ -18544,63 +18518,6 @@ RectTransform:
   m_AnchoredPosition: {x: 163, y: -33.4137}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &250991175007776748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098874721141343608, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338492942125864763, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
-      propertyPath: m_Name
-      value: Boomerang
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eefe01a8f606b7a4dba23d9c36d83a01, type: 3}
 --- !u!1001 &7690262213572516093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18653,6 +18570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5620486855386221830, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: _detectRange
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6855161506196043713, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
       propertyPath: m_Size.x
       value: 0.5452974
@@ -18685,6 +18606,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8925774791368250198, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      propertyPath: boomerangWeapon
+      value: 
+      objectReference: {fileID: 7674834411791653616, guid: b16a0f2324d80194aa6cbf75edc836ee, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18710,5 +18635,3 @@ SceneRoots:
   - {fileID: 659956091}
   - {fileID: 997219498}
   - {fileID: 397756207}
-  - {fileID: 562284184}
-  - {fileID: 250991175007776748}

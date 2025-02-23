@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1369c29bc0f753144ad38565085cbad7, type: 3}
-  m_Name: ConfigEnemy_Zombie_Big
+  m_Script: {fileID: 11500000, guid: c215825e287b2a34aab829e174c365b4, type: 3}
+  m_Name: ConfigSkillHolder
   m_EditorClassIdentifier: 
-  _name: Big Zombie
-  _baseMaxHealth: 1000
-  _baseDamage: 20
-  _baseSpeed: 3
-  _baseAttackRate: 2
-  RewardList: []
+  skillConfigs:
+  - {fileID: 11400000, guid: f1bd7576ee0d2824184cb125792a5a91, type: 2}

@@ -6,11 +6,14 @@ public class UIManager : Singleton<UIManager>
 {
     private ExpBar expBar;
     private PlayerController playerController;
+    [SerializeField] private PopUpSkillSelect popUpSkillSelect;
 
     private void Start()
     {
         expBar = FindFirstObjectByType<ExpBar>();
         playerController = FindFirstObjectByType<PlayerController>();
+
+        popUpSkillSelect.gameObject.SetActive(false);
 
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
         EventHandlers.OnLevelUpEvent += UpdateLevel;
@@ -26,5 +29,12 @@ public class UIManager : Singleton<UIManager>
         // exp max based on the level of player
         float fillAmount = exp / maxExp;
         expBar.SetFillAmount(fillAmount);
+    }
+
+    public void UpdatePopUpSkill((ConfigSkill, int)[] configLevelSkillArray)
+    {
+        popUpSkillSelect.SetSkills(configLevelSkillArray);
+
+        popUpSkillSelect.gameObject.SetActive(true);
     }
 }

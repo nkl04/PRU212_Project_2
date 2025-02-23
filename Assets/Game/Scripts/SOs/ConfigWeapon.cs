@@ -6,6 +6,7 @@ public class ConfigWeapon : ScriptableObject
     public float _coolDown;
     public float _speed;
     public float _range;
+    public float _attackRate;
     public Sprite _sprite;
     public GameObject bulletPrefab;
     public Weapon weapon;
