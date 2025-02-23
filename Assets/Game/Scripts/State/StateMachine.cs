@@ -6,13 +6,13 @@ public class StateMachine<T> where T : State
 
     public void ChangeState(T newState)
     {
-        currentState?.Exit();
+        currentState?.ExitStates();
         currentState = newState;
         currentState.Enter();
     }
 
     public void Update()
     {
-        currentState?.Execute();
+        currentState?.UpdateStates();
     }
 }

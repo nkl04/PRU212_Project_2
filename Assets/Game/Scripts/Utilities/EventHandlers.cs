@@ -22,6 +22,11 @@ public class EventHandlers
         OnLevelUpEvent?.Invoke(level);
     }
 
+    public static event Action<GameState> OnGameStateChangeEvent;
 
+    public static void CallOnGameStateChangeEvent(GameState gameState)
+    {
+        OnGameStateChangeEvent?.Invoke(gameState);
+    }
 
 }
