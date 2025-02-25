@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dd58fa2a521e84b8792be951d9ab72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomerangWeaponPrefab: {fileID: 2588350662329825112, guid: b16a0f2324d80194aa6cbf75edc836ee, type: 3}
+  weaponPrefab: {fileID: 2588350662329825112, guid: b16a0f2324d80194aa6cbf75edc836ee, type: 3}

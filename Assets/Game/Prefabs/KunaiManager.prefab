@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f32029e22eb01c44a00cdb3e7727ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kunaiWeaponPrefab: {fileID: 1326907296032549542, guid: a7bc6e1dddd4ab44a920ce6eab5f24f1, type: 3}
+  weaponPrefab: {fileID: 1326907296032549542, guid: a7bc6e1dddd4ab44a920ce6eab5f24f1, type: 3}

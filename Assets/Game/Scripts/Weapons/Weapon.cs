@@ -4,7 +4,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public PlayerController Player { get; set; }
     public ConfigWeapon _weaponInfo { get => weaponInfo; }
-    public int oneTimeBulletAmount { get; set; } = 2;
+    public int oneTimeBulletAmount { get; set; } = 1;
     public int Multiplier { get; set; } = 1;
     [SerializeField] protected ConfigWeapon weaponInfo;
     private SpriteRenderer spriteRenderer;

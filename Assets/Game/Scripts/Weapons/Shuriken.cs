@@ -11,7 +11,7 @@ public class Shuriken : Weapon
             return;
         }
 
-        Enemy_Base nearestEnemy = Player.PlayerAttack.GetTheNeareastEnemy(Player.transform);
+        Enemy_Base nearestEnemy = Player.PlayerAttack.GetTheNearestEnemy(Player.transform);
 
         if (nearestEnemy != null)
         {
@@ -36,6 +36,5 @@ public class Shuriken : Weapon
             shurikenBulletObj.SetActive(true);
         }
     }
-
 
 }

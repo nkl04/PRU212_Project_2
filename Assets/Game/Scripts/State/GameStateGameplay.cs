@@ -4,18 +4,18 @@ public class GameStateGameplay : GameState
 {
     public GameStateGameplay(GameManager gameManager, StateMachine<GameState> stateMachine) : base(gameManager, stateMachine)
     {
-        if (gameManager.IsPaused)
-        {
-            SetSubState(gameManager.GameStatePause);
-        }
-        else if (gameManager.IsPlayerLevelUp && !gameManager.IsPaused)
-        {
-            SetSubState(gameManager.GameStateSkillSelection);
-        }
     }
 
     public override void CheckChangeState()
     {
+        if (gameManager.IsPaused)
+        {
+            stateMachine.ChangeState(gameManager.GameStatePause);
+        }
+        else if (gameManager.IsEndLevel)
+        {
+            stateMachine.ChangeState(gameManager.GameStateLevelEnd);
+        }
     }
 
     public override void Enter()

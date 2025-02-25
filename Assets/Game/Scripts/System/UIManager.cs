@@ -35,6 +35,8 @@ public class UIManager : Singleton<UIManager>
     {
         popUpSkillSelect.SetSkills(configLevelSkillArray);
 
+        Time.timeScale = 0;
+
         popUpSkillSelect.gameObject.SetActive(true);
     }
 }

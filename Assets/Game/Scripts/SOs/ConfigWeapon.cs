@@ -10,6 +10,7 @@ public class ConfigWeapon : ScriptableObject
     public Sprite _sprite;
     public GameObject bulletPrefab;
     public Weapon weapon;
+    public ConfigSkill configSkill;
 
     private void OnValidate()
     {

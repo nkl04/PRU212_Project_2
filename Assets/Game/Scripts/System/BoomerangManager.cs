@@ -2,21 +2,24 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomerangManager : MonoBehaviour, IWeaponManager
+public class BoomerangManager : WeaponManager
 {
-    [SerializeField] private GameObject boomerangWeaponPrefab;
     private Boomerang boomerangWeapon;
-
-    public void ExecuteLevel(int level)
+    public override void ExecuteLevel(int level)
     {
         switch (level)
         {
             case 1:
-                GameObject boomerangWeaponGameObj = ObjectPooler.Instance.GetObjectFromPool(boomerangWeaponPrefab.name);
-                boomerangWeaponGameObj.transform.position = Vector3.zero;
-                boomerangWeaponGameObj.SetActive(true);
+                if (PlayerController == null)
+                {
+                    Debug.Log("Player is null");
+                    return;
+                }
+                GameObject boomerangWeaponGameObj = Instantiate(weaponPrefab, PlayerController.SkillWeaponTransform);
                 boomerangWeapon = boomerangWeaponGameObj.GetComponent<Boomerang>();
                 boomerangWeapon.oneTimeBulletAmount = 1;
+                Debug.Log(PlayerController == null);
+                PlayerController.PlayerAttack.AddWeapon(boomerangWeapon);
                 break;
             case 2:
                 if (boomerangWeapon != null)

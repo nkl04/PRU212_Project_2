@@ -12,95 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af10ddbd07b72d47a998ae482b3494d, type: 3}
   m_Name: ConfigSkillKunai
   m_EditorClassIdentifier: 
-  skillName: Shuriken
+  skillName: Kunai
   SkillLevelList:
   - level: 1
-    description: Throws 1 boomerang
-    icon: {fileID: 21300000, guid: 0cf3f348b5505264ba50c8ecc6d38dd8, type: 3}
-    execute:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8173890337489619831, guid: a3078ee7e7e00444eb16cfba8b5165ea, type: 3}
-          m_TargetAssemblyTypeName: BoomerangManager, Assembly-CSharp
-          m_MethodName: ExecuteLevel1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - level: 2
-    description: +1 boomerang
-    icon: {fileID: 21300000, guid: 0cf3f348b5505264ba50c8ecc6d38dd8, type: 3}
-    execute:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8173890337489619831, guid: a3078ee7e7e00444eb16cfba8b5165ea, type: 3}
-          m_TargetAssemblyTypeName: BoomerangManager, Assembly-CSharp
-          m_MethodName: ExecuteLevel2
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    description: Throws 1 kunai
+    icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
+  - level: 1
+    description: +1 Kunai Adds damage
+    icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   - level: 3
-    description: Boomerang damage doubled
-    icon: {fileID: 21300000, guid: 0cf3f348b5505264ba50c8ecc6d38dd8, type: 3}
-    execute:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8173890337489619831, guid: a3078ee7e7e00444eb16cfba8b5165ea, type: 3}
-          m_TargetAssemblyTypeName: BoomerangManager, Assembly-CSharp
-          m_MethodName: ExecuteLevel3
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    description: +1 Kunai Adds damage
+    icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   - level: 4
-    description: Adds boomerang size
-    icon: {fileID: 21300000, guid: 0cf3f348b5505264ba50c8ecc6d38dd8, type: 3}
-    execute:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8173890337489619831, guid: a3078ee7e7e00444eb16cfba8b5165ea, type: 3}
-          m_TargetAssemblyTypeName: BoomerangManager, Assembly-CSharp
-          m_MethodName: ExecuteLevel4
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    description: +1 Kunai Adds damage
+    icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   - level: 5
-    description: Adds boomerang size Adds boomerang damage
-    icon: {fileID: 21300000, guid: 0cf3f348b5505264ba50c8ecc6d38dd8, type: 3}
-    execute:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 8173890337489619831, guid: a3078ee7e7e00444eb16cfba8b5165ea, type: 3}
-          m_TargetAssemblyTypeName: BoomerangManager, Assembly-CSharp
-          m_MethodName: ExecuteLevel5
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    description: +1 Kunai Adds damage
+    icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
+  weaponManager: {fileID: 8340857492316483690, guid: 98708caa1717b2643afbc4f01c752b41, type: 3}

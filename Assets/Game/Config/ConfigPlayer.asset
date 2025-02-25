@@ -16,4 +16,4 @@ MonoBehaviour:
   _baseMaxHealth: 100
   _baseDamage: 10
   _baseSpeed: 4
-  weaponInfo: {fileID: 11400000, guid: e320cf8a15cb4d645898a4ea02996d01, type: 2}
+  defaultWeaponManager: {fileID: 689361920674665574, guid: 98708caa1717b2643afbc4f01c752b41, type: 3}

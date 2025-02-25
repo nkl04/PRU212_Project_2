@@ -10,7 +10,7 @@ public class Boomerang : Weapon
             return;
         }
 
-        Enemy_Base nearestEnemy = Player.PlayerAttack.GetTheNeareastEnemy(Player.transform);
+        Enemy_Base nearestEnemy = Player.PlayerAttack.GetTheNearestEnemy(Player.transform);
 
         if (nearestEnemy != null)
         {
@@ -32,4 +32,6 @@ public class Boomerang : Weapon
             boomerangGameObj.SetActive(true);
         }
     }
+
+
 }

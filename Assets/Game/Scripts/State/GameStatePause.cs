@@ -8,13 +8,9 @@ public class GameStatePause : GameState
 
     public override void CheckChangeState()
     {
-        if (!gameManager.IsPaused && !gameManager.IsPlayerLevelUp)
+        if (gameManager.IsPaused)
         {
-            stateMachine.ChangeState(gameManager.GameStatePlaying);
-        }
-        else if (!gameManager.IsPaused && gameManager.IsPlayerLevelUp)
-        {
-            stateMachine.ChangeState(gameManager.GameStateSkillSelection);
+            stateMachine.ChangeState(gameManager.GameStatePause);
         }
     }
 

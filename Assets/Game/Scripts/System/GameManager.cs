@@ -12,10 +12,9 @@ public class GameManager : Singleton<GameManager>
     public GameStateMainMenu GameStateMainMenu { get; private set; }
     public GameStateGameplay GameStateGameplay { get; private set; }
     public GameStatePause GameStatePause { get; private set; }
-    public GameStateSkillSelection GameStateSkillSelection { get; private set; }
     public GameStateLevelEnd GameStateLevelEnd { get; private set; }
-    public GameStatePlaying GameStatePlaying { get; private set; }
     public bool IsPaused { get; set; } = false;
+    public bool IsEndLevel { get; set; } = false;
     public bool IsPlayerLevelUp { get; set; } = false;
 
     private new void Awake()
@@ -26,15 +25,17 @@ public class GameManager : Singleton<GameManager>
         GameStateMainMenu = new GameStateMainMenu(this, stateMachine);
         GameStateGameplay = new GameStateGameplay(this, stateMachine);
         GameStatePause = new GameStatePause(this, stateMachine);
-        GameStateSkillSelection = new GameStateSkillSelection(this, stateMachine);
         GameStateLevelEnd = new GameStateLevelEnd(this, stateMachine);
-        GameStatePlaying = new GameStatePlaying(this, stateMachine);
 
         stateMachine = new StateMachine<GameState>();
 
-        stateMachine.ChangeState(GameStateGameplay);
+        UpdateState(GameStateGameplay);
     }
 
+    public void UpdateState(GameState gameState)
+    {
+        stateMachine.ChangeState(gameState);
+    }
     private void Update()
     {
         stateMachine.Update();

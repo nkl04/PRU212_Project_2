@@ -2,37 +2,10 @@ using UnityEngine;
 
 public abstract class State
 {
-    protected State superState;
-    protected State subState;
     public abstract void Enter();
     public abstract void Execute();
     public abstract void Exit();
     public abstract void CheckChangeState();
-    public void UpdateStates()
-    {
-        Execute();
-        if (subState != null)
-        {
-            subState.Execute();
-        }
-    }
-    public void ExitStates()
-    {
-        Exit();
-        if (subState != null)
-        {
-            subState.Exit();
-        }
-    }
-    protected void SetSuperState(State state)
-    {
-        superState = state;
-    }
-    protected void SetSubState(State state)
-    {
-        subState = state;
-        state.SetSuperState(this);
-    }
 }
 
 public abstract class PlayerState : State

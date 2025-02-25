@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class KunaiManager : MonoBehaviour, IWeaponManager
-{
-    [SerializeField] private GameObject kunaiWeaponPrefab;
-    private Shuriken kunaiWeapon;
 
-    public void ExecuteLevel(int level)
+public class KunaiManager : WeaponManager
+{
+    private Shuriken kunaiWeapon;
+    public override void ExecuteLevel(int level)
     {
         switch (level)
         {
             case 1:
-                GameObject kunaiWeaponGameObj = ObjectPooler.Instance.GetObjectFromPool(kunaiWeaponPrefab.name);
+                GameObject kunaiWeaponGameObj = Instantiate(weaponPrefab, PlayerController.HandPosition);
                 kunaiWeaponGameObj.SetActive(true);
                 kunaiWeapon = kunaiWeaponGameObj.GetComponent<Shuriken>();
                 kunaiWeapon.oneTimeBulletAmount = 1;
+                PlayerController.PlayerAttack.AddWeapon(kunaiWeapon);
                 break;
             case 2:
                 if (kunaiWeapon != null)

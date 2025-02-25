@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public PlayerStateMoving PlayerStateRun { get; private set; }
     public PlayerStateDie PlayerStateDie { get; private set; }
     public StateMachine<PlayerState> StateMachine => stateMachine;
+    public Transform SkillWeaponTransform => skillWeaponTransform;
+    public Transform HandPosition => handPosition;
+
+    [SerializeField] private Transform skillWeaponTransform;
+    [SerializeField] private Transform handPosition;
 
     private StateMachine<PlayerState> stateMachine;
 
@@ -33,7 +38,7 @@ public class PlayerController : MonoBehaviour
         PlayerStats = GetComponent<PlayerStats>();
 
         PlayerHealth.SetMaxHealth(playerInfo._baseMaxHealth);
-        PlayerAttack.SetUpWeapon(this);
+
     }
     private void Start()
     {
@@ -47,6 +52,9 @@ public class PlayerController : MonoBehaviour
         gameInput.OnMoveCanceled += PlayerMovement.OnMove;
 
         stateMachine.ChangeState(PlayerStateIdle);
+
+        SkillManager.Instance.AddConfigSkill(PlayerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
+        SkillManager.Instance.LevelUpSkill(PlayerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
     }
 
     private void Update()
