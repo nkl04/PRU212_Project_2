@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile_Shuriken : Projectile
 {
     public Vector2 Direction { get; set; }
-    private void Update()
+    protected override void Update()
     {
         if (Direction != null)
         {

@@ -9,6 +9,7 @@ public class Projectile_Boomerang : Projectile
     private float acceleration = 0.1f;
     private Vector3 direction;
     [SerializeField] private float rotateSpeed;
+    private float lifeTimeCounter;
 
     private void OnEnable()
     {
@@ -17,9 +18,11 @@ public class Projectile_Boomerang : Projectile
         isReturning = false;
 
         direction = transform.up;
+        lifeTimeCounter = lifeTime;
     }
 
-    private void Update()
+
+    protected override void Update()
     {
         if (!isReturning)
         {
@@ -29,6 +32,7 @@ public class Projectile_Boomerang : Projectile
         {
             speed = speed + acceleration * Time.deltaTime;
         }
+        lifeTimeCounter -= Time.deltaTime;
 
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
 
@@ -40,16 +44,10 @@ public class Projectile_Boomerang : Projectile
             direction = -direction;
         }
 
-        if (!IsVisible() && isReturning)
+        if (lifeTimeCounter <= 0)
         {
             gameObject.SetActive(false);
         }
-    }
-
-    private bool IsVisible()
-    {
-        Vector3 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
-        return viewportPos.x > 0 && viewportPos.x < 1 && viewportPos.y > 0 && viewportPos.y < 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

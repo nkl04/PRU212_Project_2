@@ -33,11 +33,16 @@ public class SkillManager : Singleton<SkillManager>
         var upgradableSkills = skillLevels
             .Where(pair => pair.Key.SkillLevelList.Count > pair.Value + 1)
             .OrderBy(_ => UnityEngine.Random.value)
-            .Take(2)
+            .Take(3)
             .Select(pair => (pair.Key, pair.Value + 1))
             .ToArray();
-
-        Debug.Log(upgradableSkills);
+        #region Debug Skill
+        Debug.Log($"<color=yellow>Random select Skills:</color>");
+        foreach (var skill in upgradableSkills)
+        {
+            Debug.Log($"<color=yellow>Skill: {skill.Key.skillName}, Next Level: {skill.Item2}</color>");
+        }
+        #endregion
         UIManager.Instance.UpdatePopUpSkill(upgradableSkills);
     }
     public void LevelUpSkill(ConfigSkill skillConfig)
@@ -57,7 +62,7 @@ public class SkillManager : Singleton<SkillManager>
             if (weaponManagers.TryGetValue(skillConfig, out WeaponManager weaponManager))
             {
                 weaponManager.ExecuteLevel(skillLevels[skillConfig]);
-                Debug.Log($"{skillConfig.skillName} leveled up to level {skillLevels[skillConfig]}");
+                Debug.Log($"<color=green>Upgrade skill: {skillConfig.skillName} leveled up to level {skillLevels[skillConfig]}</color>");
             }
             else
             {

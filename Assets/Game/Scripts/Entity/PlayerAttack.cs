@@ -39,13 +39,21 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public void AutomaticAttack()
     {
-        foreach (var weapon in _weapons)
+        if (_weapons.Count == 0) return;
+
+        for (int i = 0; i < _weapons.Count; i++)
         {
+            var weapon = _weapons[i];
+
             if (!_attackTimers.ContainsKey(weapon))
                 _attackTimers[weapon] = 0;
 
             _attackTimers[weapon] += Time.deltaTime;
-            attackWeaponRate.fillAmount = _attackTimers[weapon] / weapon._weaponInfo._coolDown;
+
+            if (i == 0)
+            {
+                attackWeaponRate.fillAmount = _attackTimers[weapon] / weapon._weaponInfo._coolDown;
+            }
 
             if (_attackTimers[weapon] >= weapon._weaponInfo._coolDown)
             {
@@ -54,6 +62,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
 
     public void AddWeapon(Weapon newWeapon)
     {

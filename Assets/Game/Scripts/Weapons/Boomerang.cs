@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Boomerang : Weapon
+public class Boomerang : LaunchWeapon
 {
     protected override void Attack()
     {
@@ -26,7 +26,8 @@ public class Boomerang : Weapon
             if (_weaponInfo is ConfigSkillWeapon copnfig)
             {
                 projectile_Boomerang.SetSpeed(copnfig._speed);
-                projectile_Boomerang.SetDamage(copnfig.ATK_Multiplier * Multiplier * Player.PlayerInfo._baseDamage);
+                projectile_Boomerang.SetDamage(ATKMultiplier * Player.PlayerInfo._baseDamage);
+                projectile_Boomerang.SetLifeTime(copnfig.lifeTime);
                 projectile_Boomerang.Range = (copnfig._range);
             }
             boomerangGameObj.SetActive(true);

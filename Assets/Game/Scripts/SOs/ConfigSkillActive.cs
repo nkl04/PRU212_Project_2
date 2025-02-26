@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConfigSkillActive : ScriptableObject
+[CreateAssetMenu(fileName = "New Active Skill Config", menuName = "Scriptable Objects/Config Skill Active", order = 1)]
+public class ConfigSkillActive : ConfigSkill
 {
+    public List<float> ATKMuliplier;
 }

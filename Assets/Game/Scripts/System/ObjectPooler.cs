@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,6 +47,52 @@ public class ObjectPooler : Singleton<ObjectPooler>
         }
         return null;
     }
+
+    /// <summary>
+    /// Get amount of objects from pool with specific tag and amount regardless of state
+    /// </summary>
+    /// <param name="tag"></param>
+    /// <param name="amount"></param>
+    /// <returns></returns>
+    public GameObject[] GetAnyObjectsFromPool(string tag, int amount)
+    {
+        List<GameObject> objects = new List<GameObject>();
+        int count = 0;
+
+        // Lấy các object chưa active từ pool
+        foreach (GameObject obj in poolDictionary[tag])
+        {
+            if (obj)
+            {
+                objects.Add(obj);
+                count++;
+
+                if (count >= amount)
+                    return objects.ToArray();
+            }
+        }
+
+        foreach (Pool pool in poolList)
+        {
+            if (pool.tag == tag)
+            {
+                if (!pool.expandable)
+                    return objects.ToArray();
+
+                while (objects.Count < amount)
+                {
+                    GameObject newObj = Instantiate(pool.prefab, pool.parent ? pool.parent : this.transform);
+                    newObj.SetActive(false);
+                    poolDictionary[tag].Add(newObj);
+                    objects.Add(newObj);
+                }
+                break;
+            }
+        }
+
+        return objects.ToArray();
+    }
+
 
 #if UNITY_EDITOR
     private void OnValidate()

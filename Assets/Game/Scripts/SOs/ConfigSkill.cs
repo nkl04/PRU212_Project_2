@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "New Active Skill Config", menuName = "Scriptable Objects/Config Skill Active")]
+[CreateAssetMenu(fileName = "New Skill Config", menuName = "Scriptable Objects/Config Skill", order = 0)]
 public class ConfigSkill : ScriptableObject
 {
     public string skillName;

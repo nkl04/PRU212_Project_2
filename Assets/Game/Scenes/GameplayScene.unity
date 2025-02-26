@@ -2155,11 +2155,11 @@ Transform:
   m_GameObject: {fileID: 364922727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 519420032}
+  m_Father: {fileID: 2129816795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380891015
 GameObject:
@@ -2477,7 +2477,7 @@ Canvas:
   m_GameObject: {fileID: 397756203}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3403,8 +3403,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 364922730}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420034
@@ -10481,6 +10480,7 @@ MonoBehaviour:
   skillSelectPanels:
   - {fileID: 693892780}
   - {fileID: 1956478859}
+  - {fileID: 1244546061}
 --- !u!1 &779313994
 GameObject:
   m_ObjectHideFlags: 0
@@ -11510,6 +11510,13 @@ MonoBehaviour:
     parent: {fileID: 0}
   - tag: Projectile_Shuriken
     prefab: {fileID: 1050196645887753514, guid: 25b1056788d323a419f1b17dd7605a4a, type: 3}
+    size: 2
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
+  - tag: Projectile_Guardian
+    prefab: {fileID: 4657954328060706587, guid: 04982928e18da6d469fb7b48e085969e, type: 3}
     size: 2
     expandable: 1
     hasMax: 0
@@ -18807,7 +18814,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 3748447245669293117, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
     - {fileID: 4240158024400944882, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3689444488384242205, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 364922730}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 228a6d0af1e2e164b9de91e4fc1a9e94, type: 3}
 --- !u!1660057539 &9223372036854775807

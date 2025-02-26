@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ConfigBoomerang
   m_EditorClassIdentifier: 
   _name: Boomerang
-  _coolDown: 3
+  _coolDown: 4
   _speed: 20
   _range: 6.5
   _attackRate: 0.4
   _sprite: {fileID: 21300000, guid: b306cab070c333c47be1d39deab2aef6, type: 3}
   bulletPrefab: {fileID: 3234293312000643693, guid: 04ead3f6ad1ac6b44983beff8675f6fc, type: 3}
   weapon: {fileID: 7674834411791653616, guid: b16a0f2324d80194aa6cbf75edc836ee, type: 3}
-  ATK_Multiplier: 2.4
+  configSkill: {fileID: 11400000, guid: 12b3f27464990d241b6cb24ba5111bb8, type: 2}
+  lifeTime: 2

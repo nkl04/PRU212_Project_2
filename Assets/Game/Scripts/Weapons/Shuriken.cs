@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shuriken : Weapon
+public class Shuriken : ShootWeapon
 {
     protected override void Attack()
     {

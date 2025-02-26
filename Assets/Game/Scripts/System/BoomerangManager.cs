@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoomerangManager : WeaponManager
 {
-    private Boomerang boomerangWeapon;
+    private Boomerang weapon;
     public override void ExecuteLevel(int level)
     {
         switch (level)
@@ -16,35 +16,41 @@ public class BoomerangManager : WeaponManager
                     return;
                 }
                 GameObject boomerangWeaponGameObj = Instantiate(weaponPrefab, PlayerController.SkillWeaponTransform);
-                boomerangWeapon = boomerangWeaponGameObj.GetComponent<Boomerang>();
-                boomerangWeapon.oneTimeBulletAmount = 1;
-                Debug.Log(PlayerController == null);
-                PlayerController.PlayerAttack.AddWeapon(boomerangWeapon);
+                weapon = boomerangWeaponGameObj.GetComponent<Boomerang>();
+                weapon.oneTimeBulletAmount = 1;
+                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                PlayerController.PlayerAttack.AddWeapon(weapon);
                 break;
             case 2:
-                if (boomerangWeapon != null)
+                if (weapon != null)
                 {
-                    boomerangWeapon.oneTimeBulletAmount = 2;
+                    weapon.oneTimeBulletAmount = 2;
+                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
                 }
                 break;
             case 3:
-                if (boomerangWeapon != null)
+                if (weapon != null)
                 {
-                    boomerangWeapon.Multiplier = 2;
+                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
                 }
                 break;
             case 4:
-                if (boomerangWeapon != null)
+                if (weapon != null)
                 {
                     //add size
+
+
+                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
 
                 }
                 break;
             case 5:
-                if (boomerangWeapon != null)
+                if (weapon != null)
                 {
                     //add size
 
+
+                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
                 }
                 break;
         }
