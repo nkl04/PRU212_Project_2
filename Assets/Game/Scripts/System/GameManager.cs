@@ -6,13 +6,6 @@ public class GameManager : Singleton<GameManager>
 {
     public ConfigLevel SelectedLevel => selectedLevel;
     [SerializeField] private ConfigLevel selectedLevel;
-
-    private StateMachine<GameState> stateMachine;
-    public GameStateSplash GameStateSplash { get; private set; }
-    public GameStateMainMenu GameStateMainMenu { get; private set; }
-    public GameStateGameplay GameStateGameplay { get; private set; }
-    public GameStatePause GameStatePause { get; private set; }
-    public GameStateLevelEnd GameStateLevelEnd { get; private set; }
     public bool IsPaused { get; set; } = false;
     public bool IsEndLevel { get; set; } = false;
     public bool IsPlayerLevelUp { get; set; } = false;
@@ -20,25 +13,38 @@ public class GameManager : Singleton<GameManager>
     private new void Awake()
     {
         base.Awake();
-
-        GameStateSplash = new GameStateSplash(this, stateMachine);
-        GameStateMainMenu = new GameStateMainMenu(this, stateMachine);
-        GameStateGameplay = new GameStateGameplay(this, stateMachine);
-        GameStatePause = new GameStatePause(this, stateMachine);
-        GameStateLevelEnd = new GameStateLevelEnd(this, stateMachine);
-
-        stateMachine = new StateMachine<GameState>();
-
-        UpdateState(GameStateGameplay);
     }
 
-    public void UpdateState(GameState gameState)
+    public void UpdateGameState(GameState gameState)
     {
-        stateMachine.ChangeState(gameState);
-    }
-    private void Update()
-    {
-        stateMachine.Update();
-    }
+        switch (gameState)
+        {
+            case GameState.MainMenu:
+                Time.timeScale = 1;
+                break;
+            case GameState.Gameplay:
+                Time.timeScale = 1;
+                break;
+            case GameState.Pause:
+                Time.timeScale = 0;
+                break;
+            case GameState.LevelEnd:
+                Time.timeScale = 0;
+                break;
+            case GameState.Splash:
+                Time.timeScale = 1;
+                break;
+        }
 
+        EventHandlers.CallOnGameStateUpdateEvent(gameState);
+    }
+}
+
+public enum GameState
+{
+    MainMenu,
+    Gameplay,
+    Pause,
+    LevelEnd,
+    Splash
 }

@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class EventHandlers
 {
-    public static event Action<float, float> OnExpCollectedEvent;
+    //===================================================SYSTEM========================================================//
+    public static event Action<GameState> OnGameStateUpdateEvent;
 
+    public static void CallOnGameStateUpdateEvent(GameState gamestate)
+    {
+        OnGameStateUpdateEvent?.Invoke(gamestate);
+    }
+
+    //===================================================PLAYER========================================================//
+    public static event Action<float, float> OnExpCollectedEvent;
     public static void CallOnExpCollectedEvent(float exp, float maxExp)
     {
         OnExpCollectedEvent?.Invoke(exp, maxExp);
     }
 
-    public static event Action<Enemy_Base> OnEnemyDeadEvent;
-    public static void CallOnEnemyDeadEvent(Enemy_Base enemy)
-    {
-        OnEnemyDeadEvent?.Invoke(enemy);
-    }
 
     public static event Action<int> OnLevelUpEvent;
     public static void CallOnLevelUpEvent(int level)
@@ -22,11 +25,12 @@ public class EventHandlers
         OnLevelUpEvent?.Invoke(level);
     }
 
-    public static event Action<GameState> OnGameStateChangeEvent;
-
-    public static void CallOnGameStateChangeEvent(GameState gameState)
+    //===================================================ENEMY========================================================//
+    public static event Action<Enemy_Base> OnEnemyDeadEvent;
+    public static void CallOnEnemyDeadEvent(Enemy_Base enemy)
     {
-        OnGameStateChangeEvent?.Invoke(gameState);
+        OnEnemyDeadEvent?.Invoke(enemy);
     }
+
 
 }

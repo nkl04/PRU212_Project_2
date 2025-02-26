@@ -31,15 +31,3 @@ public abstract class EnemyState : State
         this.stateMachine = stateMachine;
     }
 }
-
-public abstract class GameState : State
-{
-    protected GameManager gameManager;
-    protected StateMachine<GameState> stateMachine;
-
-    public GameState(GameManager gameManager, StateMachine<GameState> stateMachine)
-    {
-        this.gameManager = gameManager;
-        this.stateMachine = stateMachine;
-    }
-}
