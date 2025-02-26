@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeManager : Singleton<TimeManager>
+public class TimeManager : MonoBehaviour
 {
     private int _minutes;
     private int _seconds;

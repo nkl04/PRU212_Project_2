@@ -43,7 +43,8 @@ public class SkillManager : Singleton<SkillManager>
             Debug.Log($"<color=yellow>Skill: {skill.Key.skillName}, Next Level: {skill.Item2}</color>");
         }
         #endregion
-        UIManager.Instance.UpdatePopUpSkill(upgradableSkills);
+
+        EventHandlers.CallOnRandomSkillsEvent(upgradableSkills);
     }
     public void LevelUpSkill(ConfigSkill skillConfig)
     {

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,36 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private ExpBar expBar;
 
+    private PopUpSkillSelect popUpSkillSelect;
+    private void Start()
+    {
+        EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
+        EventHandlers.OnExpCollectedEvent += UpdateExpBar;
+        EventHandlers.OnLevelUpEvent += UpdateLevel;
+
+        popUpSkillSelect = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
+    }
+
+    private void UpdateLevel(int level)
+    {
+        expBar.SetLevelText(level);
+    }
+
+    private void UpdateExpBar(float exp, float maxExp)
+    {
+        // exp max based on the level of player
+        float fillAmount = exp / maxExp;
+        expBar.SetFillAmount(fillAmount);
+    }
+
+    private void UpdatePopUpSkill((ConfigSkill, int)[] obj)
+    {
+        popUpSkillSelect.SetSkills(obj);
+
+        Time.timeScale = 0;
+
+        popUpSkillSelect.gameObject.SetActive(true);
+    }
     public void OnTapPause()
     {
         GameManager.Instance.UpdateGameState(GameState.Pause);
@@ -25,7 +56,6 @@ public class GameplayController : MonoBehaviour
 
         Debug.Log("<color=orange>=> PAUSE <=</color>");
     }
-
     public void OnTapResume()
     {
         GameManager.Instance.UpdateGameState(GameState.Gameplay);
