@@ -22,11 +22,17 @@ public class GameplayController : MonoBehaviour
     private PopUpSkillSelect popUpSkillSelect;
     private void Start()
     {
+        popUpSkillSelect = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
+
         EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
         EventHandlers.OnLevelUpEvent += UpdateLevel;
+        EventHandlers.OnSkillSelectedEvent += OnSkillSelected;
+    }
 
-        popUpSkillSelect = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
+    private void OnSkillSelected(ConfigSkill skill, int level)
+    {
+        popUpSkillSelect.SetCurrentSkillIcon(skill, skill.SkillLevelList[level - 1].icon);
     }
 
     private void UpdateLevel(int level)
@@ -43,11 +49,11 @@ public class GameplayController : MonoBehaviour
 
     private void UpdatePopUpSkill((ConfigSkill, int)[] obj)
     {
+        popUpSelectSkill.gameObject.SetActive(true);
+
         popUpSkillSelect.SetSkills(obj);
 
         Time.timeScale = 0;
-
-        popUpSkillSelect.gameObject.SetActive(true);
     }
     public void OnTapPause()
     {

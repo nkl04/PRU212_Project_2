@@ -3,17 +3,22 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SkillManager : Singleton<SkillManager>
+public class SkillManager : MonoBehaviour
 {
+    public static SkillManager Instance { get; private set; }
     [SerializeField] private ConfigSkillHolder _skillHolder;
     [SerializeField] private PlayerController playerController;
+
     private Dictionary<ConfigSkill, int> skillLevels;
     private Dictionary<ConfigSkill, WeaponManager> weaponManagers;
-    protected override void Awake()
+    private HashSet<ConfigSkill> currentSkills;
+    private void Awake()
     {
-        base.Awake();
+        Instance = this;
+
         skillLevels = new Dictionary<ConfigSkill, int>();
         weaponManagers = new Dictionary<ConfigSkill, WeaponManager>();
+        currentSkills = new HashSet<ConfigSkill>();
 
         foreach (var skillConfig in _skillHolder.skillConfigs)
         {
@@ -37,7 +42,7 @@ public class SkillManager : Singleton<SkillManager>
             .Select(pair => (pair.Key, pair.Value + 1))
             .ToArray();
         #region Debug Skill
-        Debug.Log($"<color=yellow>Random select Skills:</color>");
+        Debug.Log($"<color=yellow>================> Random select Skills <==============</color>");
         foreach (var skill in upgradableSkills)
         {
             Debug.Log($"<color=yellow>Skill: {skill.Key.skillName}, Next Level: {skill.Item2}</color>");
@@ -63,6 +68,9 @@ public class SkillManager : Singleton<SkillManager>
             if (weaponManagers.TryGetValue(skillConfig, out WeaponManager weaponManager))
             {
                 weaponManager.ExecuteLevel(skillLevels[skillConfig]);
+
+                EventHandlers.CallOnSkillSelectedEvent(skillConfig, skillLevels[skillConfig]);
+
                 Debug.Log($"<color=green>Upgrade skill: {skillConfig.skillName} leveled up to level {skillLevels[skillConfig]}</color>");
             }
             else
@@ -92,7 +100,6 @@ public class SkillManager : Singleton<SkillManager>
 
         Debug.Log($"{skillConfig.skillName} added to skill manager");
     }
-
     public void ResetSkill(ConfigSkill skillConfig)
     {
         if (skillConfig == null || !skillLevels.ContainsKey(skillConfig))
@@ -104,7 +111,6 @@ public class SkillManager : Singleton<SkillManager>
         skillLevels[skillConfig] = 0;
         Debug.Log($"{skillConfig.skillName} reset to level 1");
     }
-
     public int GetSkillLevel(ConfigSkill skillConfig)
     {
         if (skillConfig == null || !skillLevels.ContainsKey(skillConfig))

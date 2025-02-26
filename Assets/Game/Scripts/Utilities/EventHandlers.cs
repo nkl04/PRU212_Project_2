@@ -31,6 +31,13 @@ public class EventHandlers
         OnRandomSkillsEvent?.Invoke(configskill_level_pair);
     }
 
+    public static event Action<ConfigSkill, int> OnSkillSelectedEvent;
+
+    public static void CallOnSkillSelectedEvent(ConfigSkill configSkill, int level)
+    {
+        OnSkillSelectedEvent?.Invoke(configSkill, level);
+    }
+
     //===================================================ENEMY========================================================//
     public static event Action<Enemy_Base> OnEnemyDeadEvent;
     public static void CallOnEnemyDeadEvent(Enemy_Base enemy)

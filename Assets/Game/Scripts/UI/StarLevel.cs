@@ -1,5 +1,6 @@
-using UnityEngine;
-
+﻿using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 public class StarLevel : MonoBehaviour
 {
     [SerializeField] private Transform[] stars;
@@ -14,6 +15,22 @@ public class StarLevel : MonoBehaviour
         {
             stars[i].GetChild(1).gameObject.SetActive(true);
         }
+
+        StarAnimation(stars[starLevel - 1].GetChild(1));
+    }
+
+    public void StarAnimation(Transform starActiveVisual)
+    {
+        Image image = starActiveVisual.GetComponent<Image>();
+
+        Color color = image.color;
+        color.a = 1f;
+        image.color = color;
+
+        image.DOFade(0f, 0.5f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine)
+            .SetUpdate(true);
     }
 
 
