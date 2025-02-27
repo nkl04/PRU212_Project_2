@@ -16106,19 +16106,19 @@ MonoBehaviour:
   - {fileID: 1956478859}
   - {fileID: 1244546061}
   activeSkillIcon:
-  - {fileID: 2020659542}
-  - {fileID: 1729743183}
-  - {fileID: 693147348}
-  - {fileID: 833412358}
-  - {fileID: 1565459364}
-  - {fileID: 1955558156}
+  - {fileID: 2020659541}
+  - {fileID: 1729743182}
+  - {fileID: 693147347}
+  - {fileID: 833412357}
+  - {fileID: 1565459363}
+  - {fileID: 1955558155}
   passiveSkillIcon:
-  - {fileID: 1360713595}
-  - {fileID: 292218812}
-  - {fileID: 706569035}
-  - {fileID: 873504647}
-  - {fileID: 751742086}
-  - {fileID: 1524536909}
+  - {fileID: 1360713594}
+  - {fileID: 292218811}
+  - {fileID: 706569034}
+  - {fileID: 873504646}
+  - {fileID: 751742085}
+  - {fileID: 1524536908}
 --- !u!1 &771092975
 GameObject:
   m_ObjectHideFlags: 0

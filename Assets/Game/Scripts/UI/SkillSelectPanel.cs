@@ -15,24 +15,17 @@ public class SkillSelectPanel : MonoBehaviour
 
     public void SetSkill(ConfigSkill configSkill, int level)
     {
-        try
-        {
-            skillName.text = configSkill.skillName;
-            iconImage.sprite = configSkill.SkillLevelList[level].icon;
-            description.text = configSkill.SkillLevelList[level].description;
-            starLevel.SetStarLevel(level);
 
-            Button.onClick.RemoveAllListeners();
-            Button.onClick.AddListener(() =>
-            {
-                SkillManager.Instance.LevelUpSkill(configSkill);
-            });
-        }
-        catch (Exception ex)
+        skillName.text = configSkill.skillName;
+        iconImage.sprite = configSkill.SkillLevelList[level].icon;
+        description.text = configSkill.SkillLevelList[level].description;
+        starLevel.SetStarLevel(level);
+
+        Button.onClick.RemoveAllListeners();
+        Button.onClick.AddListener(() =>
         {
-            Debug.LogException(ex);
-            return;
-        }
+            SkillManager.Instance.LevelUpSkill(configSkill);
+        });
     }
 
     public void SetNewTextActive(bool value)

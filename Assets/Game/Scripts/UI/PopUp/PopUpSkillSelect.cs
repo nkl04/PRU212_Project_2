@@ -9,71 +9,32 @@ using UnityEngine.UI;
 public class PopUpSkillSelect : MonoBehaviour
 {
     [SerializeField] private SkillSelectPanel[] skillSelectPanels;
-    [SerializeField] private List<Image> activeSkillIcon;
-    [SerializeField] private List<Image> passiveSkillIcon;
+    [SerializeField] private List<Transform> activeSkillIcon;
+    [SerializeField] private List<Transform> passiveSkillIcon;
     public void SetSkills((ConfigSkill, int)[] configLevelSkillArray)
     {
-        try
+        for (int i = 0; i < skillSelectPanels.Length; i++)
         {
-            for (int i = 0; i < skillSelectPanels.Length; i++)
-            {
-                skillSelectPanels[i].SetSkill(configLevelSkillArray[i].Item1, configLevelSkillArray[i].Item2);
-                skillSelectPanels[i].SetNewTextActive(configLevelSkillArray[i].Item2 <= 1);
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogException(ex);
-            return;
+            skillSelectPanels[i].SetSkill(configLevelSkillArray[i].Item1, configLevelSkillArray[i].Item2);
+            skillSelectPanels[i].SetNewTextActive(configLevelSkillArray[i].Item2 <= 1);
         }
     }
 
     public void SetCurrentSkillIcons(Dictionary<ConfigSkill, int> currentSkills)
     {
-        try
-        {
-            ClearSkillIcons(activeSkillIcon);
-            ClearSkillIcons(passiveSkillIcon);
+        var passiveSkills = currentSkills.Where(skill => skill.Key is ConfigSkillPassive).ToList();
+        var activeSkills = currentSkills.Where(skill => !(skill.Key is ConfigSkillPassive)).ToList();
 
-            var passiveSkills = currentSkills.Where(skill => skill.Key is ConfigSkillPassive).ToList();
-            var activeSkills = currentSkills.Where(skill => !(skill.Key is ConfigSkillPassive)).ToList();
-
-            UpdateSkillIcons(activeSkillIcon, activeSkills);
-            UpdateSkillIcons(passiveSkillIcon, passiveSkills);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogException(ex);
-        }
+        UpdateSkillIcons(activeSkillIcon, activeSkills);
+        UpdateSkillIcons(passiveSkillIcon, passiveSkills);
     }
 
-    private void UpdateSkillIcons(List<Image> skillIcons, List<KeyValuePair<ConfigSkill, int>> skills)
+    private void UpdateSkillIcons(List<Transform> skillIcons, List<KeyValuePair<ConfigSkill, int>> skills)
     {
-        if (skillIcons == null || skills == null) return;
-
         for (int i = 0; i < skills.Count && i < skillIcons.Count; i++)
         {
-            skillIcons[i].sprite = skills[i].Key.SkillLevelList[skills[i].Value].icon;
+            skillIcons[i].GetComponent<Image>().sprite = skills[i].Key.SkillLevelList[skills[i].Value].icon;
             skillIcons[i].gameObject.SetActive(true);
-        }
-    }
-
-
-    public void ClearSkillIcons(List<Image> imageList)
-    {
-        try
-        {
-            if (imageList == null) return;
-            foreach (var child in imageList)
-            {
-                child.sprite = null;
-                child.gameObject.SetActive(false);
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogException(ex);
-            return;
         }
     }
 

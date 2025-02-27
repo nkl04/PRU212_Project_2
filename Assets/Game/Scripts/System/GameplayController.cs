@@ -23,10 +23,13 @@ public class GameplayController : MonoBehaviour
 
     private PopUpSkillSelect _popUpSelectSkill;
     private PopUpPause _popUpPause;
-    private void Start()
+    private void Awake()
     {
         _popUpSelectSkill = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
         _popUpPause = popUpPause.GetComponent<PopUpPause>();
+    }
+    private void Start()
+    {
 
         EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
