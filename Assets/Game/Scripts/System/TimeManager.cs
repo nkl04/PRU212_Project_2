@@ -23,4 +23,10 @@ public class TimeManager : MonoBehaviour
         _minutes = Mathf.FloorToInt(_elapsedTime / 60);
         clock.UpdateClock(_minutes, _seconds);
     }
+
+    //get time
+    public (int, int) GetTime()
+    {
+        return (_minutes, _seconds);
+    }
 }

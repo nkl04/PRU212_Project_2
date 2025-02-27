@@ -25,6 +25,12 @@ public class EventHandlers
     {
         OnLevelUpEvent?.Invoke(level);
     }
+
+    public static event Action OnPlayerDeadEvent;
+    public static void CallOnPlayerDeadEvent()
+    {
+        OnPlayerDeadEvent?.Invoke();
+    }
     //===================================================SKILL========================================================//
     public static event Action<(ConfigSkill, int)[]> OnRandomSkillsEvent;
     public static void CallOnRandomSkillsEvent((ConfigSkill, int)[] configskill_level_pair)

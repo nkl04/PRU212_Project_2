@@ -28,7 +28,7 @@ public class GameManager : Singleton<GameManager>
             case GameState.Pause:
                 Time.timeScale = 0;
                 break;
-            case GameState.LevelEnd:
+            case GameState.End:
                 Time.timeScale = 0;
                 break;
             case GameState.Splash:
@@ -45,6 +45,6 @@ public enum GameState
     MainMenu,
     Gameplay,
     Pause,
-    LevelEnd,
+    End,
     Splash
 }
