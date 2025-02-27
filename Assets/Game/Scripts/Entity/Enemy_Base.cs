@@ -79,4 +79,12 @@ public abstract class Enemy_Base : MonoBehaviour
 
     protected virtual void OnTriggerExit2D(Collider2D other)
     { }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+    }
+
+    protected virtual void OnCollisionExit2D(Collision2D collision)
+    {
+    }
 }

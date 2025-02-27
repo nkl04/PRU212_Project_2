@@ -21,13 +21,6 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private ExpBar expBar;
 
-    private PopUpSkillSelect _popUpSelectSkill;
-    private PopUpPause _popUpPause;
-    private void Awake()
-    {
-        _popUpSelectSkill = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
-        _popUpPause = popUpPause.GetComponent<PopUpPause>();
-    }
     private void Start()
     {
 
@@ -39,8 +32,8 @@ public class GameplayController : MonoBehaviour
 
     private void OnSkillSelected(Dictionary<ConfigSkill, int> dictionary)
     {
-        _popUpSelectSkill.SetCurrentSkillIcons(dictionary);
-        _popUpPause.SetCurrentSkillIcons(dictionary);
+        popUpSelectSkill.GetComponent<PopUpSkillSelect>().SetCurrentSkillIcons(dictionary);
+        popUpPause.GetComponent<PopUpPause>().SetCurrentSkillIcons(dictionary);
     }
 
     private void UpdateLevel(int level)
@@ -59,7 +52,7 @@ public class GameplayController : MonoBehaviour
     {
         popUpSelectSkill.gameObject.SetActive(true);
 
-        _popUpSelectSkill.SetSkills(obj);
+        popUpSelectSkill.GetComponent<PopUpSkillSelect>().SetSkills(obj);
 
         Time.timeScale = 0;
     }

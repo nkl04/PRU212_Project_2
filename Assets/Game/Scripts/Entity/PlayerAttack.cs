@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerAttack : MonoBehaviour
 {
+    public bool CanAttack { get; set; } = true;
     private PlayerController playerController;
 
     [Header("HandPosition")]
@@ -31,7 +32,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        AutomaticAttack();
+        if (CanAttack)
+        {
+            AutomaticAttack();
+        }
     }
 
     /// <summary>

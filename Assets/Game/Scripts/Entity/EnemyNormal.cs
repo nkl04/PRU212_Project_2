@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class EnemyNormal : Enemy_Base
 {
-    protected override void OnTriggerEnter2D(Collider2D other)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        base.OnTriggerEnter2D(other);
-
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             CanFollowPlayer = false;
             CanAttackPlayer = true;
         }
     }
 
-    protected override void OnTriggerExit2D(Collider2D other)
+    protected override void OnCollisionExit2D(Collision2D collision)
     {
-        base.OnTriggerExit2D(other);
-
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             CanFollowPlayer = true;
             CanAttackPlayer = false;
