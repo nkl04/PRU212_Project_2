@@ -11,14 +11,14 @@ public class SkillManager : MonoBehaviour
 
     private Dictionary<ConfigSkill, int> skillLevels;
     private Dictionary<ConfigSkill, WeaponManager> weaponManagers;
-    private HashSet<ConfigSkill> currentSkills;
+    private Dictionary<ConfigSkill, int> currentSkills;
     private void Awake()
     {
         Instance = this;
 
         skillLevels = new Dictionary<ConfigSkill, int>();
         weaponManagers = new Dictionary<ConfigSkill, WeaponManager>();
-        currentSkills = new HashSet<ConfigSkill>();
+        currentSkills = new Dictionary<ConfigSkill, int>();
 
         foreach (var skillConfig in _skillHolder.skillConfigs)
         {
@@ -67,9 +67,11 @@ public class SkillManager : MonoBehaviour
 
             if (weaponManagers.TryGetValue(skillConfig, out WeaponManager weaponManager))
             {
+                currentSkills[skillConfig] = skillLevels[skillConfig];
+
                 weaponManager.ExecuteLevel(skillLevels[skillConfig]);
 
-                EventHandlers.CallOnSkillSelectedEvent(skillConfig, skillLevels[skillConfig]);
+                EventHandlers.CallOnSkillSelectedEvent(currentSkills);
 
                 Debug.Log($"<color=green>Upgrade skill: {skillConfig.skillName} leveled up to level {skillLevels[skillConfig]}</color>");
             }

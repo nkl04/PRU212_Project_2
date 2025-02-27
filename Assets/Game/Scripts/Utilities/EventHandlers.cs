@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EventHandlers
@@ -31,11 +32,11 @@ public class EventHandlers
         OnRandomSkillsEvent?.Invoke(configskill_level_pair);
     }
 
-    public static event Action<ConfigSkill, int> OnSkillSelectedEvent;
+    public static event Action<Dictionary<ConfigSkill, int>> OnSkillSelectedEvent;
 
-    public static void CallOnSkillSelectedEvent(ConfigSkill configSkill, int level)
+    public static void CallOnSkillSelectedEvent(Dictionary<ConfigSkill, int> dictionary)
     {
-        OnSkillSelectedEvent?.Invoke(configSkill, level);
+        OnSkillSelectedEvent?.Invoke(dictionary);
     }
 
     //===================================================ENEMY========================================================//

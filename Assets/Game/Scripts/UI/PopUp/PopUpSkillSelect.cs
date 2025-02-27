@@ -1,7 +1,8 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,26 +28,47 @@ public class PopUpSkillSelect : MonoBehaviour
         }
     }
 
-    public void SetCurrentSkillIcon(ConfigSkill configSkill, Sprite icon)
+    public void SetCurrentSkillIcons(Dictionary<ConfigSkill, int> currentSkills)
     {
         try
         {
-            Image nextIcon;
-            if (configSkill is ConfigSkillPassive)
-            {
-                nextIcon = passiveSkillIcon.FirstOrDefault(x => x != null && x.gameObject != null && !x.gameObject.activeSelf);
-            }
-            else
-            {
-                nextIcon = activeSkillIcon.FirstOrDefault(x => x != null && x.gameObject != null && !x.gameObject.activeSelf);
-            }
+            ClearSkillIcons(activeSkillIcon);
+            ClearSkillIcons(passiveSkillIcon);
 
-            if (nextIcon != null)
-            {
-                nextIcon.sprite = icon;
-                nextIcon.gameObject.SetActive(true);
-            }
+            var passiveSkills = currentSkills.Where(skill => skill.Key is ConfigSkillPassive).ToList();
+            var activeSkills = currentSkills.Where(skill => !(skill.Key is ConfigSkillPassive)).ToList();
 
+            UpdateSkillIcons(activeSkillIcon, activeSkills);
+            UpdateSkillIcons(passiveSkillIcon, passiveSkills);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+    }
+
+    private void UpdateSkillIcons(List<Image> skillIcons, List<KeyValuePair<ConfigSkill, int>> skills)
+    {
+        if (skillIcons == null || skills == null) return;
+
+        for (int i = 0; i < skills.Count && i < skillIcons.Count; i++)
+        {
+            skillIcons[i].sprite = skills[i].Key.SkillLevelList[skills[i].Value].icon;
+            skillIcons[i].gameObject.SetActive(true);
+        }
+    }
+
+
+    public void ClearSkillIcons(List<Image> imageList)
+    {
+        try
+        {
+            if (imageList == null) return;
+            foreach (var child in imageList)
+            {
+                child.sprite = null;
+                child.gameObject.SetActive(false);
+            }
         }
         catch (Exception ex)
         {

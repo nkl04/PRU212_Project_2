@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +21,12 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private ExpBar expBar;
 
-    private PopUpSkillSelect popUpSkillSelect;
+    private PopUpSkillSelect _popUpSelectSkill;
+    private PopUpPause _popUpPause;
     private void Start()
     {
-        popUpSkillSelect = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
+        _popUpSelectSkill = popUpSelectSkill.GetComponent<PopUpSkillSelect>();
+        _popUpPause = popUpPause.GetComponent<PopUpPause>();
 
         EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
@@ -30,9 +34,10 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnSkillSelectedEvent += OnSkillSelected;
     }
 
-    private void OnSkillSelected(ConfigSkill skill, int level)
+    private void OnSkillSelected(Dictionary<ConfigSkill, int> dictionary)
     {
-        popUpSkillSelect.SetCurrentSkillIcon(skill, skill.SkillLevelList[level - 1].icon);
+        _popUpSelectSkill.SetCurrentSkillIcons(dictionary);
+        _popUpPause.SetCurrentSkillIcons(dictionary);
     }
 
     private void UpdateLevel(int level)
@@ -51,7 +56,7 @@ public class GameplayController : MonoBehaviour
     {
         popUpSelectSkill.gameObject.SetActive(true);
 
-        popUpSkillSelect.SetSkills(obj);
+        _popUpSelectSkill.SetSkills(obj);
 
         Time.timeScale = 0;
     }

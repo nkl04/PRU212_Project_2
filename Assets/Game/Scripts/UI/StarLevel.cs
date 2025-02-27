@@ -5,6 +5,7 @@ public class StarLevel : MonoBehaviour
 {
     [SerializeField] private Transform[] stars;
 
+    [SerializeField] private bool hasAnimation;
     private int starLevel;
     public void SetStarLevel(int level)
     {
@@ -15,8 +16,10 @@ public class StarLevel : MonoBehaviour
         {
             stars[i].GetChild(1).gameObject.SetActive(true);
         }
-
-        StarAnimation(stars[starLevel - 1].GetChild(1));
+        if (hasAnimation)
+        {
+            StarAnimation(stars[starLevel - 1].GetChild(1));
+        }
     }
 
     public void StarAnimation(Transform starActiveVisual)
