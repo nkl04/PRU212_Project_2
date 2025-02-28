@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingBar : MonoBehaviour
@@ -23,6 +24,9 @@ public class LoadingBar : MonoBehaviour
             fill.fillAmount += 0.01f;
             yield return new WaitForSeconds(0.05f);
         }
+
+        // loading done
+        SceneManager.LoadScene(Utilities.Scene.MainMenu);
     }
 
     private void Update()

@@ -7,8 +7,11 @@ using UnityEngine.UI;
 
 public class GameplayController : MonoBehaviour
 {
-    [SerializeField] private TimeManager timeManager;
     [SerializeField] private KillCount killCount;
+    private int _minutes;
+    private int _seconds;
+    private float _elapsedTime;
+    private bool isPaused = false;
 
     [Header("Buttons")]
     [SerializeField] private Button pauseBtn;
@@ -29,27 +32,32 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
         EventHandlers.OnLevelUpEvent += UpdateLevel;
-        EventHandlers.OnSkillSelectedEvent += OnSkillSelected;
-        EventHandlers.OnPlayerDeadEvent += OnPlayerDead;
+        EventHandlers.OnSkillSelectedEvent += UpdateSelectSkillPopUp;
+        EventHandlers.OnPlayerDeadEvent += UpdateLosePopUp;
     }
-    private void OnSkillSelected(Dictionary<ConfigSkill, int> dictionary)
+    private void Update()
+    {
+        if (!isPaused)
+        {
+            UpdateTime();
+        }
+    }
+
+    private void UpdateSelectSkillPopUp(Dictionary<ConfigSkill, int> dictionary)
     {
         popUpSelectSkillTransform.GetComponent<PopUpSkillSelect>().SetCurrentSkillIcons(dictionary);
         popUpPauseTransform.GetComponent<PopUpPause>().SetCurrentSkillIcons(dictionary);
     }
-
     private void UpdateLevel(int level)
     {
         expBar.SetLevelText(level);
     }
-
     private void UpdateExpBar(float exp, float maxExp)
     {
         // exp max based on the level of player
         float fillAmount = exp / maxExp;
         expBar.SetFillAmount(fillAmount);
     }
-
     private void UpdatePopUpSkill((ConfigSkill, int)[] obj)
     {
         popUpSelectSkillTransform.gameObject.SetActive(true);
@@ -58,6 +66,14 @@ public class GameplayController : MonoBehaviour
 
         Time.timeScale = 0;
     }
+    private void UpdateLosePopUp()
+    {
+        GameManager.Instance.UpdateGameState(GameState.End);
+        PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
+        popUpLose.SetData((_minutes, _seconds), "Chapter 1", 0, killCount.GetKillCount());
+        popUpLoseTransform.gameObject.SetActive(true);
+    }
+
     public void OnTapPause()
     {
         GameManager.Instance.UpdateGameState(GameState.Pause);
@@ -72,21 +88,18 @@ public class GameplayController : MonoBehaviour
 
         Debug.Log("<color=cyan>=> RESUME <=</color>");
     }
-
     public void OnTapConfirm()
     {
 
     }
 
-    private void OnPlayerDead()
+    private void UpdateTime()
     {
-        GameManager.Instance.UpdateGameState(GameState.End);
-        PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
-        popUpLose.SetData(timeManager.GetTime(), "Chapter 1", 0, killCount.GetKillCount());
-        popUpLoseTransform.gameObject.SetActive(true);
+        _elapsedTime += Time.deltaTime;
+        _seconds = Mathf.FloorToInt(_elapsedTime % 60);
+        _minutes = Mathf.FloorToInt(_elapsedTime / 60);
+        clock.UpdateClock(_minutes, _seconds);
     }
-
-
 
 
 }

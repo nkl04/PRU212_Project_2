@@ -30,4 +30,11 @@ public class Utilities
             public const string Die = "Die";
         }
     }
+
+    public static class Scene
+    {
+        public const string MainMenu = "MainMenuScene";
+        public const string Gameplay = "GameplayScene";
+        public const string LevelSelection = "SplashScene";
+    }
 }
