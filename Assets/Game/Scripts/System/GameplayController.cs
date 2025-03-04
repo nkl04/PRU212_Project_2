@@ -35,6 +35,14 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnSkillSelectedEvent += UpdateSelectSkillPopUp;
         EventHandlers.OnPlayerDeadEvent += UpdateLosePopUp;
     }
+    private void OnDestroy()
+    {
+        EventHandlers.OnRandomSkillsEvent -= UpdatePopUpSkill;
+        EventHandlers.OnExpCollectedEvent -= UpdateExpBar;
+        EventHandlers.OnLevelUpEvent -= UpdateLevel;
+        EventHandlers.OnSkillSelectedEvent -= UpdateSelectSkillPopUp;
+        EventHandlers.OnPlayerDeadEvent -= UpdateLosePopUp;
+    }
     private void Update()
     {
         if (!isPaused)
@@ -48,6 +56,7 @@ public class GameplayController : MonoBehaviour
         popUpSelectSkillTransform.GetComponent<PopUpSkillSelect>().SetCurrentSkillIcons(dictionary);
         popUpPauseTransform.GetComponent<PopUpPause>().SetCurrentSkillIcons(dictionary);
     }
+
     private void UpdateLevel(int level)
     {
         expBar.SetLevelText(level);
@@ -73,7 +82,6 @@ public class GameplayController : MonoBehaviour
         popUpLose.SetData((_minutes, _seconds), "Chapter 1", 0, killCount.GetKillCount());
         popUpLoseTransform.gameObject.SetActive(true);
     }
-
     public void OnTapPause()
     {
         GameManager.Instance.UpdateGameState(GameState.Pause);
@@ -92,7 +100,6 @@ public class GameplayController : MonoBehaviour
     {
 
     }
-
     private void UpdateTime()
     {
         _elapsedTime += Time.deltaTime;
@@ -100,6 +107,4 @@ public class GameplayController : MonoBehaviour
         _minutes = Mathf.FloorToInt(_elapsedTime / 60);
         clock.UpdateClock(_minutes, _seconds);
     }
-
-
 }

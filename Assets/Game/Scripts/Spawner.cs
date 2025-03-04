@@ -2,6 +2,5 @@ using UnityEngine;
 
 public abstract class Spawner : MonoBehaviour
 {
-    [SerializeField] protected GameObject prefab;
-    public abstract void Spawn();
+    public abstract void Spawn(Wave wave);
 }

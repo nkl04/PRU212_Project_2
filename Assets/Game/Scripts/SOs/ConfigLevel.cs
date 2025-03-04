@@ -6,6 +6,8 @@ using UnityEngine;
 public class ConfigLevel : ScriptableObject
 {
     public Sprite background;
+    [Tooltip("Duration of the level (seconds)")]
+    public int durations;
     public List<Wave> waveList;
 
     public Wave GetWave(int waveIndex)
@@ -25,5 +27,6 @@ public class ConfigLevel : ScriptableObject
     {
         return waveList.IndexOf(wave);
     }
-
 }
+
+

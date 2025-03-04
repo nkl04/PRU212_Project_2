@@ -13,6 +13,10 @@ public class KillCount : MonoBehaviour
         killCountText.text = killCount.ToString();
         EventHandlers.OnEnemyDeadEvent += OnEnemyDead;
     }
+    private void OnDestroy()
+    {
+        EventHandlers.OnEnemyDeadEvent -= OnEnemyDead;
+    }
 
     private void OnEnemyDead(Enemy_Base enemy)
     {

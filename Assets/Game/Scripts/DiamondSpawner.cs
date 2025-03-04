@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class DiamondSpawner : Spawner
+public class DiamondSpawner
 {
+    [SerializeField] private GameObject prefab;
     private void Start()
     {
         Spawn();
     }
-    public override void Spawn()
+    public void Spawn()
     {
         // spawn diamond around the map
         if (prefab)

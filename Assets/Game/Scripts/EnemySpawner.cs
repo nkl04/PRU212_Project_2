@@ -1,49 +1,38 @@
-using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class EnemySpawner : Spawner
 {
-    [SerializeField] private float waveTime = 5000;
-    [SerializeField] private int waveEnemies = 10;
-    [SerializeField] private Camera theCamera;
-    private float _lastWaveAt;
-    private int _waveNumber;
-
+    private Camera theCamera;
     private void Start()
     {
         if (!theCamera)
         {
             theCamera = Camera.main;
         }
-
-        _lastWaveAt = -waveTime - 1;
     }
 
-    private void Update()
+    public override void Spawn(Wave wave)
     {
-        if (Utilities.CurrentMillis() - _lastWaveAt > waveTime)
+        Debug.Log($"Spawning wave at {wave.startTime}s");
+        float radius = theCamera.orthographicSize + 3;
+        Vector2 spawnCenter = theCamera.transform.position;
+
+        foreach (WaveEnemy waveEnemy in wave.waveEnemyList)
         {
-            Spawn();
+            StartCoroutine(SpawnEnemies(waveEnemy, radius, spawnCenter));
         }
     }
 
-    public override void Spawn()
+    private IEnumerator SpawnEnemies(WaveEnemy waveEnemy, float radius, Vector2 spawnCenter)
     {
-        if (prefab)
+        for (int i = 0; i < waveEnemy.enemyAmount; i++)
         {
-            var radius = theCamera.orthographicSize + 3;
-            var p = theCamera.transform.position;
-            var numEnemies = waveEnemies + _waveNumber;
-
-            for (var i = 0; i < numEnemies; i++)
-            {
-                var enemy = ObjectPooler.Instance.GetObjectFromPool(prefab.name);
-                enemy.transform.position = new Vector2(p.x, p.y) + Random.insideUnitCircle.normalized * radius;
-                enemy.SetActive(true);
-            }
-            _waveNumber++;
+            var enemy = ObjectPooler.Instance.GetObjectFromPool(waveEnemy.enemyPrefab.name);
+            enemy.transform.position = spawnCenter + Random.insideUnitCircle.normalized * radius;
+            enemy.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
         }
-
-        _lastWaveAt = Utilities.CurrentMillis();
     }
 }

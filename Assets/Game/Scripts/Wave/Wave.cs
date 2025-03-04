@@ -6,15 +6,26 @@ using UnityEngine;
 [Serializable]
 public class Wave
 {
-    public List<WaveEnemy> list;
-    public int enemyAmount;
+    [Tooltip("Time to start the wave (seconds)")]
+    public int startTime;
+    [Tooltip("Radious of the circle where the enemies will spawn")]
+    public float radiousSpawnCircle;
+    public SpawnStyle spawnStyle;
+    public float timeBetweenSpawns;
+    public List<WaveEnemy> waveEnemyList;
 }
 
+[Serializable]
 public class WaveEnemy
 {
     public GameObject enemyPrefab;
     public int enemyAmount;
 }
 
+public enum SpawnStyle
+{
+    Sequential,
+    Immediately
+}
 
 

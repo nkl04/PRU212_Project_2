@@ -8,6 +8,26 @@ public class Utilities
         return Time.time * 1000;
     }
 
+    public static string FormatTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        return FormatTime(minutes, seconds);
+    }
+
+    public static string FormatTime(int time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        return FormatTime(minutes, seconds);
+    }
+
+    public static string FormatTime(int minutes, int seconds)
+    {
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+
     public static class Tag
     {
         public const string Player = "Player";

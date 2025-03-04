@@ -35,6 +35,10 @@ public class PlayerStats : MonoBehaviour
         EventHandlers.OnLevelUpEvent += UpdateExp;
         UpdateExp(level);
     }
+    private void OnDestroy()
+    {
+        EventHandlers.OnLevelUpEvent -= UpdateExp;
+    }
 
     private void UpdateExp(int level)
     {

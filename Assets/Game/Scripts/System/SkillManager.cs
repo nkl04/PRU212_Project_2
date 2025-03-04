@@ -32,6 +32,10 @@ public class SkillManager : MonoBehaviour
 
         EventHandlers.OnLevelUpEvent += EventHandlers_OnLevelUpEvent;
     }
+    private void OnDestroy()
+    {
+        EventHandlers.OnLevelUpEvent -= EventHandlers_OnLevelUpEvent;
+    }
 
     private void EventHandlers_OnLevelUpEvent(int level)
     {
