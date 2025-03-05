@@ -15,19 +15,210 @@ MonoBehaviour:
   background: {fileID: 21300000, guid: 2d93dac7b99351e45b44d4d784086e18, type: 3}
   durations: 900
   waveList:
-  - startTime: 0
-    radiousSpawnCircle: 0
-    spawnStyle: 0
+  - startTime: 2
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
     waveEnemyList:
-    - enemyPrefab: {fileID: 6351221079286566527, guid: 20c8db1cb132538448c4a3fc40f21155, type: 3}
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
       enemyAmount: 10
-    - enemyPrefab: {fileID: 0}
-      enemyAmount: 0
-  - startTime: 0
-    radiousSpawnCircle: 0
-    spawnStyle: 0
+  - startTime: 5
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
     waveEnemyList:
-    - enemyPrefab: {fileID: 6351221079286566527, guid: 20c8db1cb132538448c4a3fc40f21155, type: 3}
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
       enemyAmount: 10
-    - enemyPrefab: {fileID: 0}
-      enemyAmount: 0
+  - startTime: 10
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 15
+  - startTime: 15
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 10
+  - startTime: 20
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 10
+  - startTime: 25
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 15
+  - startTime: 30
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 15
+  - startTime: 35
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 15
+  - startTime: 40
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 15
+  - startTime: 45
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 18
+  - startTime: 50
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 18
+  - startTime: 55
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 19
+  - startTime: 60
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 20
+  - startTime: 65
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 20
+  - startTime: 70
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 20
+  - startTime: 75
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 20
+  - startTime: 80
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 20
+  - startTime: 85
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 20
+  - startTime: 90
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 30
+  - startTime: 95
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 30
+  - startTime: 100
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 35
+  - startTime: 105
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 40
+  - startTime: 110
+    endTime: 0
+    radiousSpawnCircle: 12.23
+    offset: 2.9
+    spawnStyle: 1
+    timeBetweenSpawns: 0.4
+    waveEnemyList:
+    - enemyPrefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
+      enemyAmount: 50

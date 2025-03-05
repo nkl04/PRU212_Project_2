@@ -18,8 +18,11 @@ public class LevelSOEditor : Editor
     private Dictionary<int, bool> waveEnemyListFoldoutStates = new Dictionary<int, bool>();
     private Dictionary<int, bool> waveEnemyFoldoutStates = new Dictionary<int, bool>();
 
+    private int selectedWaveIndex = -1;
     private void OnEnable()
     {
+        SceneView.duringSceneGui += OnSceneGUI;
+
         backgroundProperty = serializedObject.FindProperty("background");
         durationProperty = serializedObject.FindProperty("durations");
         waveListProperty = serializedObject.FindProperty("waveList");
@@ -38,7 +41,9 @@ public class LevelSOEditor : Editor
             {
                 var element = waveListProperty.GetArrayElementAtIndex(index);
                 SerializedProperty startTime = element.FindPropertyRelative("startTime");
+                SerializedProperty endTime = element.FindPropertyRelative("endTime");
                 SerializedProperty radiousSpawnCircle = element.FindPropertyRelative("radiousSpawnCircle");
+                SerializedProperty offset = element.FindPropertyRelative("offset");
                 SerializedProperty spawnStyle = element.FindPropertyRelative("spawnStyle");
                 SerializedProperty timeBetweenSpawns = element.FindPropertyRelative("timeBetweenSpawns");
                 SerializedProperty waveEnemyList = element.FindPropertyRelative("waveEnemyList");
@@ -63,12 +68,6 @@ public class LevelSOEditor : Editor
 
                 if (foldoutStates[index])
                 {
-                    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), startTime, new GUIContent("Start Time"));
-                    rect.y += lineHeight + space;
-
-                    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), radiousSpawnCircle, new GUIContent("Radius Spawn Circle"));
-                    rect.y += lineHeight + space;
-
                     EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), spawnStyle, new GUIContent("Spawn Style"));
                     rect.y += lineHeight + space;
 
@@ -81,6 +80,23 @@ public class LevelSOEditor : Editor
                         EditorGUI.indentLevel--;
                     }
 
+                    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), startTime, new GUIContent("Start Time"));
+                    rect.y += lineHeight + space;
+
+                    if (_spawnStyle == SpawnStyle.Sequential)
+                    {
+                        EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), endTime, new GUIContent("End Time"));
+                        rect.y += lineHeight + space;
+                    }
+
+                    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), radiousSpawnCircle, new GUIContent("Radius Spawn Circle"));
+                    rect.y += lineHeight + space;
+
+                    EditorGUI.indentLevel++;
+                    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), offset, new GUIContent("Offset"));
+                    rect.y += lineHeight + space;
+                    EditorGUI.indentLevel--;
+
                     // Wave Enemy List Foldout
                     if (!waveEnemyListFoldoutStates.ContainsKey(index))
                         waveEnemyListFoldoutStates[index] = false;
@@ -90,11 +106,7 @@ public class LevelSOEditor : Editor
 
                     if (waveEnemyListFoldoutStates[index])
                     {
-                        if (!waveEnemyLists.ContainsKey(index))
-                        {
-                            waveEnemyLists[index] = CreateWaveEnemyList(waveEnemyList);
-                        }
-
+                        waveEnemyLists[index] = CreateWaveEnemyList(waveEnemyList, (SpawnStyle)spawnStyle.enumValueIndex);
                         waveEnemyLists[index].DoList(new Rect(rect.x, rect.y, rect.width, waveEnemyLists[index].GetHeight()));
                     }
 
@@ -107,7 +119,7 @@ public class LevelSOEditor : Editor
 
                 if (foldoutStates.ContainsKey(index) && foldoutStates[index])
                 {
-                    baseHeight += EditorGUIUtility.singleLineHeight * 5f;
+                    baseHeight += EditorGUIUtility.singleLineHeight * 7f;
 
                     var element = waveListProperty.GetArrayElementAtIndex(index);
                     SerializedProperty spawnStyle = element.FindPropertyRelative("spawnStyle");
@@ -126,9 +138,15 @@ public class LevelSOEditor : Editor
                 return baseHeight;
             }
         };
+
+        waveReorderableList.onSelectCallback = list =>
+        {
+            selectedWaveIndex = list.index;
+            Debug.Log($"Selected Wave {selectedWaveIndex + 1}");
+        };
     }
 
-    private ReorderableList CreateWaveEnemyList(SerializedProperty waveEnemyList)
+    private ReorderableList CreateWaveEnemyList(SerializedProperty waveEnemyList, SpawnStyle spawnStyle)
     {
         return new ReorderableList(serializedObject, waveEnemyList, true, true, true, true)
         {
@@ -155,7 +173,7 @@ public class LevelSOEditor : Editor
                       true
                   );
 
-                if (enemyPrefab.objectReferenceValue != null)
+                if (enemyPrefab.objectReferenceValue != null && spawnStyle == SpawnStyle.Immediately)
                 {
                     EditorGUI.LabelField(
                         new Rect(rect.x + rect.width * 0.65f, rect.y, rect.width * 0.35f, lineHeight),
@@ -164,13 +182,16 @@ public class LevelSOEditor : Editor
                 }
 
                 rect.y += lineHeight + space;
-
                 if (waveEnemyFoldoutStates[index])
                 {
                     EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), enemyPrefab, new GUIContent("Enemy Prefab"));
                     rect.y += lineHeight + space;
 
-                    EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), enemyAmount, new GUIContent("Enemy Amount"));
+                    if (spawnStyle == SpawnStyle.Immediately)
+                    {
+                        EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), enemyAmount, new GUIContent("Enemy Amount"));
+                        rect.y += lineHeight + space;
+                    }
                 }
                 EditorGUI.indentLevel--;
             },
@@ -179,11 +200,58 @@ public class LevelSOEditor : Editor
                 float baseHeight = EditorGUIUtility.singleLineHeight + 2f;
                 if (waveEnemyFoldoutStates.ContainsKey(index) && waveEnemyFoldoutStates[index])
                 {
-                    baseHeight += EditorGUIUtility.singleLineHeight * 3;
+                    baseHeight += EditorGUIUtility.singleLineHeight;
+                    if (spawnStyle == SpawnStyle.Immediately)
+                    {
+                        baseHeight += EditorGUIUtility.singleLineHeight;
+                    }
                 }
                 return baseHeight;
             }
         };
+    }
+    private void OnSceneGUI(SceneView sceneView)
+    {
+        if (selectedWaveIndex >= 0 && selectedWaveIndex < waveListProperty.arraySize)
+        {
+            var selectedWave = waveListProperty.GetArrayElementAtIndex(selectedWaveIndex);
+            var radiusProperty = selectedWave.FindPropertyRelative("radiousSpawnCircle");
+            var offsetProperty = selectedWave.FindPropertyRelative("offset");
+
+            float radius = radiusProperty.floatValue;
+            float offset = offsetProperty.floatValue;
+            Vector3 position = Vector3.zero;
+
+            Handles.color = Color.green;
+            Handles.DrawWireDisc(position, Vector3.forward, radius);
+
+            // Vẽ đường zic-zac xung quanh hình tròn
+            DrawZigZagCircle(position, radius, offset, 72);
+
+            SceneView.RepaintAll();
+        }
+    }
+    private void DrawZigZagCircle(Vector3 center, float radius, float offset, int segments)
+    {
+        Vector3[] points = new Vector3[segments * 2];
+
+        for (int i = 0; i < segments; i++)
+        {
+            float angle = (i / (float)segments) * Mathf.PI * 2;
+            float nextAngle = ((i + 1) / (float)segments) * Mathf.PI * 2;
+
+            // Xen kẽ giữa +offset và -offset
+            float dynamicRadius = radius + (i % 2 == 0 ? offset : -offset);
+
+            Vector3 point = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * dynamicRadius;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(nextAngle), Mathf.Sin(nextAngle), 0) * dynamicRadius;
+
+            points[i * 2] = point;
+            points[i * 2 + 1] = nextPoint;
+        }
+
+        Handles.color = Color.red;
+        Handles.DrawAAPolyLine(3, points);
     }
 
     public override void OnInspectorGUI()
@@ -201,5 +269,10 @@ public class LevelSOEditor : Editor
         waveReorderableList.DoLayoutList();
 
         serializedObject.ApplyModifiedProperties();
+    }
+
+    private void OnDisable()
+    {
+        SceneView.duringSceneGui -= OnSceneGUI;
     }
 }

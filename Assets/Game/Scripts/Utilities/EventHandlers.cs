@@ -12,6 +12,12 @@ public class EventHandlers
         OnGameStateUpdateEvent?.Invoke(gamestate);
     }
 
+    public static event Action<ConfigLevel> OnGameStartEvent;
+    public static void CallOnGameStartEvent(ConfigLevel configLevel)
+    {
+        OnGameStartEvent?.Invoke(configLevel);
+    }
+
     //===================================================PLAYER========================================================//
     public static event Action<float, float> OnExpCollectedEvent;
     public static void CallOnExpCollectedEvent(float exp, float maxExp)

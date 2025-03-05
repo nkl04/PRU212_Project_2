@@ -1,18 +1,18 @@
+using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+
     [SerializeField] private ConfigLevel _configLevel;
     [Space(10)]
-    [SerializeField] private Transform _backGround;
-    private EnemySpawner enemySpawner;
+    [SerializeField] private SpriteRenderer _backGround;
 
-    private void Awake()
-    {
-        enemySpawner = GetComponentInChildren<EnemySpawner>();
-    }
     private void Start()
     {
-        _backGround.GetComponent<SpriteRenderer>().sprite = _configLevel.background;
+        EventHandlers.CallOnGameStartEvent(_configLevel);
+        _backGround.sprite = _configLevel.background;
     }
 }
+

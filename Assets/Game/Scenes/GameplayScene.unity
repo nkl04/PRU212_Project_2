@@ -3745,7 +3745,6 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 779313996}
   - {fileID: 939902869}
-  - {fileID: 842239179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &252967255
@@ -3761,12 +3760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _configLevel: {fileID: 11400000, guid: ff7655ca4905982409ec7c4ffa91ae47, type: 2}
-  _backGround: {fileID: 260134320}
---- !u!4 &260134320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8665074466842711789, guid: 2779380635095134696fb54d0d79bb37, type: 3}
-  m_PrefabInstance: {fileID: 263160769912655204}
-  m_PrefabAsset: {fileID: 0}
+  _backGround: {fileID: 263160769912655205}
 --- !u!1 &261556261
 GameObject:
   m_ObjectHideFlags: 0
@@ -5975,6 +5969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: {fileID: 514354175}
+  enemySpawner: {fileID: 842239180}
   pauseBtn: {fileID: 1990647838}
   popUpSelectSkillTransform: {fileID: 767436663}
   popUpPauseTransform: {fileID: 2109806958}
@@ -17714,7 +17709,6 @@ GameObject:
   m_Component:
   - component: {fileID: 842239179}
   - component: {fileID: 842239180}
-  - component: {fileID: 842239181}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -17735,7 +17729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 252967254}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &842239180
 MonoBehaviour:
@@ -17749,23 +17743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc86ce8749a3d24a9e5aa55677a3f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6351221079286566527, guid: d57090c33553b0e41b4bc2dceaae9dcf, type: 3}
-  waveTime: 5000
-  waveEnemies: 10
-  theCamera: {fileID: 519420031}
---- !u!114 &842239181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842239178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a15dd0181c3d5644a081d14214db72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
 --- !u!1 &843578155
 GameObject:
   m_ObjectHideFlags: 0
@@ -18589,13 +18566,6 @@ MonoBehaviour:
     parent: {fileID: 0}
   - tag: Big Zombie
     prefab: {fileID: 6351221079286566527, guid: b4fceeeef777eea488fab3531f76d5a3, type: 3}
-    size: 5
-    expandable: 1
-    hasMax: 0
-    max: 0
-    parent: {fileID: 0}
-  - tag: Dog
-    prefab: {fileID: 6351221079286566527, guid: 20c8db1cb132538448c4a3fc40f21155, type: 3}
     size: 5
     expandable: 1
     hasMax: 0
@@ -36425,6 +36395,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2714389561047622595, guid: 2779380635095134696fb54d0d79bb37, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714389561047622595, guid: 2779380635095134696fb54d0d79bb37, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6684400219516565278, guid: 2779380635095134696fb54d0d79bb37, type: 3}
       propertyPath: player
       value: 
@@ -36473,11 +36451,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7868271064829582062, guid: 2779380635095134696fb54d0d79bb37, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2779380635095134696fb54d0d79bb37, type: 3}
+--- !u!212 &263160769912655205 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2714389561047622595, guid: 2779380635095134696fb54d0d79bb37, type: 3}
+  m_PrefabInstance: {fileID: 263160769912655204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7690262213572516093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36609,4 +36593,5 @@ SceneRoots:
   - {fileID: 7690262213572516093}
   - {fileID: 8052679552043256682}
   - {fileID: 397756207}
+  - {fileID: 842239179}
   - {fileID: 252967254}

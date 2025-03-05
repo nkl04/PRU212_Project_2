@@ -7,11 +7,16 @@ using UnityEngine.UI;
 
 public class GameplayController : MonoBehaviour
 {
-    [SerializeField] private KillCount killCount;
-    private int _minutes;
-    private int _seconds;
-    private float _elapsedTime;
+    private ConfigLevel configLevel;
+    private Wave currentWave;
+    private Wave nextWave;
+    private int minutes;
+    private int seconds;
+    private float eslapsedTime;
     private bool isPaused = false;
+
+    [SerializeField] private KillCount killCount;
+    [SerializeField] private EnemySpawner enemySpawner;
 
     [Header("Buttons")]
     [SerializeField] private Button pauseBtn;
@@ -27,6 +32,11 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private ExpBar expBar;
 
+    private void Awake()
+    {
+        EventHandlers.OnGameStartEvent += OnGameStart;
+    }
+
     private void Start()
     {
         EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
@@ -34,7 +44,9 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnLevelUpEvent += UpdateLevel;
         EventHandlers.OnSkillSelectedEvent += UpdateSelectSkillPopUp;
         EventHandlers.OnPlayerDeadEvent += UpdateLosePopUp;
+        EventHandlers.OnGameStateUpdateEvent += EventHandlers_OnGameStateUpdateEvent;
     }
+
     private void OnDestroy()
     {
         EventHandlers.OnRandomSkillsEvent -= UpdatePopUpSkill;
@@ -42,21 +54,74 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnLevelUpEvent -= UpdateLevel;
         EventHandlers.OnSkillSelectedEvent -= UpdateSelectSkillPopUp;
         EventHandlers.OnPlayerDeadEvent -= UpdateLosePopUp;
+        EventHandlers.OnGameStartEvent -= OnGameStart;
+        EventHandlers.OnGameStateUpdateEvent -= EventHandlers_OnGameStateUpdateEvent;
     }
+
     private void Update()
     {
-        if (!isPaused)
+        if (isPaused || currentWave == null) return;
+
+        UpdateTime();
+
+        if (eslapsedTime >= currentWave.startTime)
         {
-            UpdateTime();
+            enemySpawner.Spawn(currentWave);
+
+            if (currentWave.spawnStyle == SpawnStyle.Immediately)
+            {
+                // immediately spawn 
+                int index = configLevel.GetWaveIndex(currentWave);
+                if (index < configLevel.waveList.Count - 1)
+                {
+                    currentWave = configLevel.GetWave(index + 1);
+                }
+                else
+                {
+                    //Out of wave
+                    Debug.Log("No more wave");
+                    currentWave = null;
+                }
+            }
+            else
+            {
+                if (eslapsedTime >= currentWave.endTime)
+                {
+                    int index = configLevel.GetWaveIndex(currentWave);
+                    if (index < configLevel.waveList.Count - 1)
+                    {
+                        currentWave = configLevel.GetWave(index + 1);
+                    }
+                    else
+                    {
+                        //Out of wave
+                        Debug.Log("No more wave");
+                        currentWave = null;
+                    }
+                }
+            }
         }
     }
 
+
+    private void OnGameStart(ConfigLevel configLevel)
+    {
+        this.configLevel = configLevel;
+        if (this.configLevel != null)
+        {
+            currentWave = configLevel.GetWave(0);
+        }
+    }
+
+    private void EventHandlers_OnGameStateUpdateEvent(GameState obj)
+    {
+        isPaused = obj == GameState.Pause;
+    }
     private void UpdateSelectSkillPopUp(Dictionary<ConfigSkill, int> dictionary)
     {
         popUpSelectSkillTransform.GetComponent<PopUpSkillSelect>().SetCurrentSkillIcons(dictionary);
         popUpPauseTransform.GetComponent<PopUpPause>().SetCurrentSkillIcons(dictionary);
     }
-
     private void UpdateLevel(int level)
     {
         expBar.SetLevelText(level);
@@ -79,7 +144,7 @@ public class GameplayController : MonoBehaviour
     {
         GameManager.Instance.UpdateGameState(GameState.End);
         PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
-        popUpLose.SetData((_minutes, _seconds), "Chapter 1", 0, killCount.GetKillCount());
+        popUpLose.SetData((minutes, seconds), "Chapter 1", 0, killCount.GetKillCount());
         popUpLoseTransform.gameObject.SetActive(true);
     }
     public void OnTapPause()
@@ -100,11 +165,11 @@ public class GameplayController : MonoBehaviour
     {
 
     }
-    private void UpdateTime()
+    public void UpdateTime()
     {
-        _elapsedTime += Time.deltaTime;
-        _seconds = Mathf.FloorToInt(_elapsedTime % 60);
-        _minutes = Mathf.FloorToInt(_elapsedTime / 60);
-        clock.UpdateClock(_minutes, _seconds);
+        eslapsedTime += Time.deltaTime;
+        minutes = Mathf.FloorToInt(eslapsedTime / 60);
+        seconds = Mathf.FloorToInt(eslapsedTime % 60);
+        clock.UpdateClock(minutes, seconds);
     }
 }

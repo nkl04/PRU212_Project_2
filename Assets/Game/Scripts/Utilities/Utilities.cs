@@ -27,7 +27,6 @@ public class Utilities
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-
     public static class Tag
     {
         public const string Player = "Player";
