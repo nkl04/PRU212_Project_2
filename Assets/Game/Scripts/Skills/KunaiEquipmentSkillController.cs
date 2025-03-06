@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class KunaiManager : WeaponManager
+public class KunaiEquipmentSkillController : WeaponSkillController
 {
     private Shuriken weapon;
     public override void ExecuteLevel(int level)

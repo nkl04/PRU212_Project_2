@@ -4,5 +4,5 @@ using UnityEngine;
 public class ConfigPlayer : ConfigEntity
 {
     [Header("Gear")]
-    public WeaponManager defaultWeaponManager;
+    public WeaponSkillController defaultWeaponManager;
 }

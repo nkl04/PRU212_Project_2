@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerStats : MonoBehaviour
 {
-    private float exp = 0;
     public float Exp
     {
         get => exp; set
@@ -18,7 +17,6 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-    private int level = 1;
     public int Level
     {
         get => level;
@@ -27,6 +25,13 @@ public class PlayerStats : MonoBehaviour
             level = value;
         }
     }
+    public float MaxHealth { get; set; }
+    public float Damage { get; set; }
+    public float MoveSpeed { get; set; }
+    public float DamageReduction { get; set; } = 0;
+
+    private float exp = 0;
+    private int level = 1;
     private float expToNextLevel;
     private float expToNextLevelMultiplier = 1;
     private float expToNextLevelBase = 5;
@@ -39,7 +44,6 @@ public class PlayerStats : MonoBehaviour
     {
         EventHandlers.OnLevelUpEvent -= UpdateExp;
     }
-
     private void UpdateExp(int level)
     {
         expToNextLevel = expToNextLevelMultiplier * Mathf.Pow(level, 2) - expToNextLevelMultiplier * level + expToNextLevelBase;

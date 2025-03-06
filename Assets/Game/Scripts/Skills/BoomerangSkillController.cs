@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoomerangManager : WeaponManager
+public class BoomerangSkillController : WeaponSkillController
 {
     private Boomerang weapon;
     public override void ExecuteLevel(int level)

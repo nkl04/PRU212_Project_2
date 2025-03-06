@@ -26,7 +26,7 @@ public class Boomerang : LaunchWeapon
             if (_weaponInfo is ConfigSkillWeapon copnfig)
             {
                 projectile_Boomerang.SetSpeed(copnfig._speed);
-                projectile_Boomerang.SetDamage(ATKMultiplier * Player.PlayerInfo._baseDamage);
+                projectile_Boomerang.SetDamage(ATKMultiplier * Player.PlayerStats.Damage);
                 projectile_Boomerang.SetLifeTime(copnfig.lifeTime);
                 projectile_Boomerang.Range = (copnfig._range);
             }

@@ -29,4 +29,4 @@ MonoBehaviour:
   - level: 5
     description: +1 Kunai Adds damage
     icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
-  weaponManager: {fileID: 8340857492316483690, guid: 98708caa1717b2643afbc4f01c752b41, type: 3}
+  skillController: {fileID: 8340857492316483690, guid: 98708caa1717b2643afbc4f01c752b41, type: 3}

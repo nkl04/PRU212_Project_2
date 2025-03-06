@@ -35,10 +35,6 @@ public class GameplayController : MonoBehaviour
     private void Awake()
     {
         EventHandlers.OnGameStartEvent += OnGameStart;
-    }
-
-    private void Start()
-    {
         EventHandlers.OnRandomSkillsEvent += UpdatePopUpSkill;
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
         EventHandlers.OnLevelUpEvent += UpdateLevel;

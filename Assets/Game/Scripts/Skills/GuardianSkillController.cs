@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GuardianManager : WeaponManager
+public class GuardianSkillController : WeaponSkillController
 {
     private Guardian weapon;
     public override void ExecuteLevel(int level)

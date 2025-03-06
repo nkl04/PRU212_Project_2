@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public PlayerAttack PlayerAttack { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
     public PlayerStats PlayerStats { get; private set; }
-    public ConfigPlayer PlayerInfo { get => playerInfo; }
     public PlayerStateIdle PlayerStateIdle { get; private set; }
     public PlayerStateMoving PlayerStateRun { get; private set; }
     public PlayerStateDie PlayerStateDie { get; private set; }
@@ -37,7 +36,11 @@ public class PlayerController : MonoBehaviour
         PlayerHealth = GetComponent<PlayerHealth>();
         PlayerStats = GetComponent<PlayerStats>();
 
-        PlayerHealth.SetMaxHealth(playerInfo._baseMaxHealth);
+        PlayerStats.MaxHealth = playerInfo._baseMaxHealth;
+        PlayerStats.Damage = playerInfo._baseDamage;
+        PlayerStats.MoveSpeed = playerInfo._baseSpeed;
+
+        PlayerHealth.SetMaxHealth(PlayerStats.MaxHealth);
 
     }
     private void Start()
@@ -53,8 +56,8 @@ public class PlayerController : MonoBehaviour
 
         stateMachine.ChangeState(PlayerStateIdle);
 
-        SkillManager.Instance.AddConfigSkill(PlayerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
-        SkillManager.Instance.LevelUpSkill(PlayerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
+        SkillManager.Instance.AddConfigSkill(playerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
+        SkillManager.Instance.LevelUpSkill(playerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
     }
 
     private void Update()

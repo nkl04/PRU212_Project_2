@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     }
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        currentHealth -= damage * (1 - player.PlayerStats.DamageReduction);
         healthBar.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {

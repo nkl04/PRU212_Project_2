@@ -10,24 +10,23 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     private Dictionary<ConfigSkill, int> skillLevels;
-    private Dictionary<ConfigSkill, WeaponManager> weaponManagers;
+    private Dictionary<ConfigSkill, SkillController> skillControllers;
     private Dictionary<ConfigSkill, int> currentSkills;
     private void Awake()
     {
         Instance = this;
 
         skillLevels = new Dictionary<ConfigSkill, int>();
-        weaponManagers = new Dictionary<ConfigSkill, WeaponManager>();
+        skillControllers = new Dictionary<ConfigSkill, SkillController>();
         currentSkills = new Dictionary<ConfigSkill, int>();
 
         foreach (var skillConfig in _skillHolder.skillConfigs)
         {
             skillLevels[skillConfig] = 0;
-            GameObject weaponManagerObj = Instantiate(skillConfig.weaponManager, transform);
-            WeaponManager weaponManager = weaponManagerObj.GetComponent<WeaponManager>();
-            weaponManager.PlayerController = playerController;
-
-            weaponManagers[skillConfig] = weaponManager;
+            GameObject weaponManagerObj = Instantiate(skillConfig.skillController, transform);
+            SkillController skillController = weaponManagerObj.GetComponent<SkillController>();
+            skillController.PlayerController = playerController;
+            skillControllers[skillConfig] = skillController;
         }
 
         EventHandlers.OnLevelUpEvent += EventHandlers_OnLevelUpEvent;
@@ -69,11 +68,11 @@ public class SkillManager : MonoBehaviour
         {
             skillLevels[skillConfig]++;
 
-            if (weaponManagers.TryGetValue(skillConfig, out WeaponManager weaponManager))
+            if (skillControllers.TryGetValue(skillConfig, out SkillController skillController))
             {
                 currentSkills[skillConfig] = skillLevels[skillConfig];
 
-                weaponManager.ExecuteLevel(skillLevels[skillConfig]);
+                skillController.ExecuteLevel(skillLevels[skillConfig]);
 
                 EventHandlers.CallOnSkillSelectedEvent(currentSkills);
 
@@ -89,7 +88,6 @@ public class SkillManager : MonoBehaviour
             Debug.Log($"{skillConfig.skillName} is already at max level!");
         }
     }
-
     public void AddConfigSkill(ConfigSkill skillConfig)
     {
         if (skillConfig == null || skillLevels.ContainsKey(skillConfig))
@@ -99,10 +97,10 @@ public class SkillManager : MonoBehaviour
         }
 
         skillLevels[skillConfig] = 0;
-        GameObject weaponManagerObj = Instantiate(skillConfig.weaponManager, transform);
-        WeaponManager weaponManager = weaponManagerObj.GetComponent<WeaponManager>();
+        GameObject weaponManagerObj = Instantiate(skillConfig.skillController, transform);
+        WeaponSkillController weaponManager = weaponManagerObj.GetComponent<WeaponSkillController>();
         weaponManager.PlayerController = playerController;
-        weaponManagers[skillConfig] = weaponManager;
+        skillControllers[skillConfig] = weaponManager;
 
         Debug.Log($"{skillConfig.skillName} added to skill manager");
     }

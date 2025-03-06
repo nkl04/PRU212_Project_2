@@ -16,7 +16,7 @@ public class ConfigSkillHolder : ScriptableObject
     {
         skillConfigs.Clear();
 
-        string[] guids = AssetDatabase.FindAssets("t:ConfigSkill", new[] { "Assets/Game/Config/Base" });
+        string[] guids = AssetDatabase.FindAssets("t:ConfigSkill", new[] { "Assets/Game/Config/Skills" });
         foreach (string guid in guids)
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);

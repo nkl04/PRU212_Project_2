@@ -9,7 +9,7 @@ public class ConfigSkill : ScriptableObject
 {
     public string skillName;
     public List<SkillLevel> SkillLevelList;
-    public GameObject weaponManager;
+    public GameObject skillController;
 }
 
 [Serializable]
