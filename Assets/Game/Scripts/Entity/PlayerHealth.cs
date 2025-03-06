@@ -26,6 +26,11 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         }
     }
 
+    public void RestoreHealth(float restoreHealthMul)
+    {
+        currentHealth += maxHealth * restoreHealthMul;
+    }
+
     public void Die()
     {
         gameObject.SetActive(false);
