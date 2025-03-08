@@ -233,10 +233,10 @@ MonoBehaviour:
       enemyAmount: 50
   - startTime: 125
     endTime: 150
-    radiousSpawnCircle: 16.3
+    radiousSpawnCircle: 15.88
     offset: 2.9
     spawnStyle: 0
-    timeBetweenSpawns: 0.5
+    timeBetweenSpawns: 0.3
     waveEnemyList:
     - enemyPrefab: {fileID: 6351221079286566527, guid: 20c8db1cb132538448c4a3fc40f21155, type: 3}
       enemyAmount: 50
