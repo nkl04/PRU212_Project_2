@@ -33,8 +33,12 @@ public class LevelSOEditor : Editor
             {
                 EditorGUI.LabelField(rect, "Wave List");
                 EditorGUI.LabelField(
-                    new Rect(rect.x + rect.width * 0.65f, rect.y, rect.width * 0.35f, EditorGUIUtility.singleLineHeight),
+                    new Rect(rect.x + rect.width * 0.6f, rect.y, rect.width * 0.35f, EditorGUIUtility.singleLineHeight),
                     new GUIContent($"Start Time")
+                );
+                EditorGUI.LabelField(
+                    new Rect(rect.x + rect.width * 0.8f, rect.y, rect.width * 0.35f, EditorGUIUtility.singleLineHeight),
+                    new GUIContent($"End Time")
                 );
             },
             drawElementCallback = (rect, index, isActive, isFocused) =>
@@ -60,8 +64,13 @@ public class LevelSOEditor : Editor
                 foldoutStates[index] = EditorGUI.Foldout(new Rect(rect.x, rect.y, rect.width, lineHeight), foldoutStates[index], $"Wave {index + 1}", true);
 
                 EditorGUI.LabelField(
-                    new Rect(rect.x + rect.width * 0.65f, rect.y, rect.width * 0.35f, lineHeight),
+                    new Rect(rect.x + rect.width * 0.6f, rect.y, rect.width * 0.35f, lineHeight),
                     new GUIContent(Utilities.FormatTime(startTime.intValue))
+                );
+
+                EditorGUI.LabelField(
+                    new Rect(rect.x + rect.width * 0.8f, rect.y, rect.width * 0.35f, lineHeight),
+                    new GUIContent(spawnStyle.enumValueIndex == (int)SpawnStyle.Sequential ? Utilities.FormatTime(endTime.intValue) : "  -")
                 );
 
                 rect.y += lineHeight + space;

@@ -1,17 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 
 public class EnemySpawner : Spawner
 {
     private Camera theCamera;
     private Vector2 spawnCenter;
+    private Queue<SpawnTask> spawnQueue = new Queue<SpawnTask>();
+    private float lastSpawnTime = 0f;
+
     private void Start()
     {
-        if (!theCamera)
-        {
-            theCamera = Camera.main;
-        }
+        theCamera = Camera.main;
     }
 
     private void Update()
@@ -20,37 +19,29 @@ public class EnemySpawner : Spawner
         {
             spawnCenter = theCamera.transform.position;
         }
+
+        ProcessSpawnQueue();
     }
 
     public override void Spawn(Wave wave)
     {
-        StartCoroutine(SpawnWave(wave));
-    }
-
-    private IEnumerator SpawnWave(Wave wave)
-    {
         float radius = wave.radiousSpawnCircle;
         float offset = wave.offset;
 
-        if (wave.spawnStyle == SpawnStyle.Immediately)
+        foreach (WaveEnemy waveEnemy in wave.waveEnemyList)
         {
-            foreach (WaveEnemy waveEnemy in wave.waveEnemyList)
+            if (wave.spawnStyle == SpawnStyle.Immediately)
             {
-                StartCoroutine(SpawnImmediatelyEnemies(waveEnemy, radius, offset, 0));
+                AddEnemiesToQueue(waveEnemy, radius, offset, 0);
+            }
+            else
+            {
+                AddEnemiesToQueue(waveEnemy, radius, offset, wave.timeBetweenSpawns);
             }
         }
-        else
-        {
-            foreach (WaveEnemy waveEnemy in wave.waveEnemyList)
-            {
-                StartCoroutine(SpawnSequentlyEnemies(waveEnemy, radius, offset, wave.timeBetweenSpawns));
-            }
-        }
-
-        yield return null;
     }
 
-    private IEnumerator SpawnImmediatelyEnemies(WaveEnemy waveEnemy, float radius, float offset, float timeBetweenSpawns)
+    private void AddEnemiesToQueue(WaveEnemy waveEnemy, float radius, float offset, float timeBetweenSpawns)
     {
         float minRadius = radius - offset;
         float maxRadius = radius + offset;
@@ -64,28 +55,39 @@ public class EnemySpawner : Spawner
             }
             while (Vector2.Distance(spawnCenter, spawnPos) < minRadius);
 
-            var enemy = ObjectPooler.Instance.GetObjectFromPool(waveEnemy.enemyPrefab.name);
-            enemy.transform.position = spawnPos;
-            enemy.SetActive(true);
-
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            spawnQueue.Enqueue(new SpawnTask(waveEnemy.enemyPrefab.name, spawnPos, timeBetweenSpawns));
         }
     }
-    private IEnumerator SpawnSequentlyEnemies(WaveEnemy waveEnemy, float radius, float offset, float timeBetweenSpawns)
+
+    private void ProcessSpawnQueue()
     {
-        float minRadius = radius - offset;
-        float maxRadius = radius + offset;
+        if (spawnQueue.Count == 0) return;
 
-        Vector2 spawnPos;
-        while (true)
+        SpawnTask task = spawnQueue.Peek();
+        if (Time.time - lastSpawnTime >= task.timeBetweenSpawns)
         {
-            spawnPos = spawnCenter + Random.insideUnitCircle.normalized * Random.Range(minRadius, maxRadius);
+            var enemy = ObjectPooler.Instance.GetObjectFromPool(task.enemyPrefabName);
+            if (enemy != null)
+            {
+                enemy.transform.position = task.spawnPosition;
+                enemy.SetActive(true);
+            }
+            lastSpawnTime = Time.time;
+            spawnQueue.Dequeue();
+        }
+    }
 
-            var enemy = ObjectPooler.Instance.GetObjectFromPool(waveEnemy.enemyPrefab.name);
-            enemy.transform.position = spawnPos;
-            enemy.SetActive(true);
+    private class SpawnTask
+    {
+        public string enemyPrefabName;
+        public Vector2 spawnPosition;
+        public float timeBetweenSpawns;
 
-            yield return new WaitForSeconds(timeBetweenSpawns);
+        public SpawnTask(string enemyPrefabName, Vector2 spawnPosition, float timeBetweenSpawns)
+        {
+            this.enemyPrefabName = enemyPrefabName;
+            this.spawnPosition = spawnPosition;
+            this.timeBetweenSpawns = timeBetweenSpawns;
         }
     }
 }

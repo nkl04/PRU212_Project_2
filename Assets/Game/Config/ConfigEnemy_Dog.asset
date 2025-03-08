@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Dog
   _baseMaxHealth: 15
-  _baseDamage: 10
-  _baseSpeed: 10
+  _baseDamage: 3
+  _baseSpeed: 2.2
   _baseAttackRate: 2
   RewardList:
   - RewardPrefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
