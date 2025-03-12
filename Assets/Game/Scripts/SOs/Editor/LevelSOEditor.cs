@@ -22,7 +22,6 @@ public class LevelSOEditor : Editor
     private void OnEnable()
     {
         SceneView.duringSceneGui += OnSceneGUI;
-
         backgroundProperty = serializedObject.FindProperty("background");
         durationProperty = serializedObject.FindProperty("durations");
         waveListProperty = serializedObject.FindProperty("waveList");
@@ -266,7 +265,6 @@ public class LevelSOEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-
         EditorGUILayout.PropertyField(backgroundProperty);
 
         EditorGUILayout.BeginHorizontal();

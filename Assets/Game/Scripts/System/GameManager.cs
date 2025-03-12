@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public ConfigLevelHolder ConfigLevelHolder => configLevels;
+    public ConfigLevelIcon ConfigLevelIcons => configLevelIcons;
     public ConfigLevel SelectedLevel { get; set; }
     public bool IsPaused { get; set; } = false;
     public bool IsEndLevel { get; set; } = false;
     public bool IsPlayerLevelUp { get; set; } = false;
 
     [SerializeField] private ConfigLevelHolder configLevels;
+    [SerializeField] private ConfigLevelIcon configLevelIcons;
 
     private new void Awake()
     {

@@ -17,8 +17,8 @@ MonoBehaviour:
   waveList:
   - startTime: 2
     endTime: 0
-    radiousSpawnCircle: 12.23
-    offset: 2.9
+    radiousSpawnCircle: 20
+    offset: 3
     spawnStyle: 1
     timeBetweenSpawns: 0.4
     waveEnemyList:
@@ -80,8 +80,8 @@ MonoBehaviour:
       enemyAmount: 8
   - startTime: 35
     endTime: 0
-    radiousSpawnCircle: 12.23
-    offset: 2.9
+    radiousSpawnCircle: 12.39
+    offset: 2.94
     spawnStyle: 1
     timeBetweenSpawns: 0.4
     waveEnemyList:
@@ -98,8 +98,8 @@ MonoBehaviour:
       enemyAmount: 8
   - startTime: 45
     endTime: 0
-    radiousSpawnCircle: 12.23
-    offset: 2.9
+    radiousSpawnCircle: 20
+    offset: 3
     spawnStyle: 1
     timeBetweenSpawns: 0.4
     waveEnemyList:
