@@ -1,5 +1,7 @@
 using ControlFreak2;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : Singleton<GameManager>
@@ -28,6 +30,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case GameState.Gameplay:
                 Time.timeScale = 1;
+                HandleGamePlayState();
                 break;
             case GameState.Pause:
                 Time.timeScale = 0;
@@ -41,6 +44,11 @@ public class GameManager : Singleton<GameManager>
         }
 
         EventHandlers.CallOnGameStateUpdateEvent(gameState);
+    }
+
+    private void HandleGamePlayState()
+    {
+        SceneManager.LoadSceneAsync("GameplayScene");
     }
 }
 

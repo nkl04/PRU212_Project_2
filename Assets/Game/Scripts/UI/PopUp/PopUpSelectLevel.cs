@@ -10,12 +10,24 @@ public class PopUpSelectLevel : MonoBehaviour
     [SerializeField] private GameObject scrollBar;
     [SerializeField] private Transform levelContainer;
     [SerializeField] private GameObject levelIconPrefab;
+    [SerializeField] private Button selectButon;
     private float[] pos;
     private float scrollPos;
+    private int selectedIndex;
+    private MainMenuController mainMenuController;
+    private void Awake()
+    {
+        mainMenuController = FindFirstObjectByType<MainMenuController>();
+    }
 
     private void Start()
     {
-
+        selectButon.onClick.AddListener(() =>
+        {
+            selectedConfigLevel = GameManager.Instance.ConfigLevelHolder.levels[(selectedIndex)];
+            mainMenuController.SelectedConfigLevel = selectedConfigLevel;
+            gameObject.SetActive(false);
+        });
     }
 
     public void SetUpIcon(int levelAmount)
@@ -54,6 +66,7 @@ public class PopUpSelectLevel : MonoBehaviour
             if (scrollPos < pos[i] + (distance / 2) && scrollPos > pos[i] - (distance / 2))
             {
                 levelContainer.GetChild(i).localScale = Vector2.Lerp(levelContainer.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
+                selectedIndex = i;
                 for (int j = 0; j < pos.Length; j++)
                 {
                     if (j != i)
