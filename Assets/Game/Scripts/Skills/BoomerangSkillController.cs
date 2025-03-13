@@ -18,39 +18,38 @@ public class BoomerangSkillController : WeaponSkillController
                 GameObject boomerangWeaponGameObj = Instantiate(weaponPrefab, PlayerController.SkillWeaponTransform);
                 weapon = boomerangWeaponGameObj.GetComponent<Boomerang>();
                 weapon.oneTimeBulletAmount = 1;
-                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
                 PlayerController.PlayerAttack.AddWeapon(weapon);
                 break;
             case 2:
                 if (weapon != null)
                 {
                     weapon.oneTimeBulletAmount = 2;
-                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                    weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
                 }
                 break;
             case 3:
                 if (weapon != null)
                 {
-                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                    //add size
+                    weapon.AddProjectileSize(1.2f);
+                    weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
                 }
                 break;
             case 4:
                 if (weapon != null)
                 {
                     //add size
-
-
-                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
-
+                    weapon.AddProjectileSize(1.3f);
+                    weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
                 }
                 break;
             case 5:
                 if (weapon != null)
                 {
                     //add size
-
-
-                    weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                    weapon.AddProjectileSize(1.4f);
+                    weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
                 }
                 break;
         }

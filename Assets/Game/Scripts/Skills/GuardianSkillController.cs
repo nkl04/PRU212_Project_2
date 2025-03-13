@@ -23,28 +23,31 @@ public class GuardianSkillController : WeaponSkillController
                     obj.transform.SetParent(weapon.ProjectileSystem);
                 }
                 weapon.SetUpSaw();
-                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
-                Debug.Log(weapon.ATKMultiplier);
+                weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
                 PlayerController.PlayerAttack.AddWeapon(weapon);
                 break;
             case 2:
                 Instantiate(weapon._weaponInfo.bulletPrefab, weapon.ProjectileSystem);
-                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
+                weapon.RotateSpeed *= 1.1f;
                 weapon.SetUpSaw();
                 break;
             case 3:
                 Instantiate(weapon._weaponInfo.bulletPrefab, weapon.ProjectileSystem);
-                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
+                weapon.RotateSpeed *= 1.2f;
                 weapon.SetUpSaw();
                 break;
             case 4:
                 Instantiate(weapon._weaponInfo.bulletPrefab, weapon.ProjectileSystem);
-                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
+                weapon.RotateSpeed *= 1.3f;
                 weapon.SetUpSaw();
                 break;
             case 5:
                 Instantiate(weapon._weaponInfo.bulletPrefab, weapon.ProjectileSystem);
-                weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                weapon.ATKMultiplier = weapon._weaponInfo.configSkillActive.ATKMuliplier[level - 1];
+                weapon.RotateSpeed *= 1.4f;
                 weapon.SetUpSaw();
                 break;
         }

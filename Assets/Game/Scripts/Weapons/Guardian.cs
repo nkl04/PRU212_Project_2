@@ -4,13 +4,18 @@ public class Guardian : OrbitingWeapon
 {
     public Transform ProjectileSystem => projectileSystem;
     [SerializeField] private Transform projectileSystem;
+    public float RotateSpeed { get; set; }
 
+    private void Awake()
+    {
+        RotateSpeed = weaponInfo._speed;
+    }
     private void Update()
     {
         // Luôn luôn quay vòng tròn
         if (projectileSystem != null)
         {
-            projectileSystem.Rotate(Vector3.forward, weaponInfo._speed * Time.deltaTime);
+            projectileSystem.Rotate(Vector3.forward, RotateSpeed * Time.deltaTime);
         }
     }
 

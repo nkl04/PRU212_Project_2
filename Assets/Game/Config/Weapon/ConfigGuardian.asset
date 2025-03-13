@@ -20,5 +20,5 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: bca93cbec6c71fb4287f42f8d06bd98f, type: 3}
   bulletPrefab: {fileID: 4657954328060706587, guid: 04982928e18da6d469fb7b48e085969e, type: 3}
   weapon: {fileID: 4623624535600721299, guid: 40428f34b378e6f4d91a72f4704340b7, type: 3}
-  configSkill: {fileID: 11400000, guid: 318c34b322540dc43b1919e70be4423b, type: 2}
+  configSkillActive: {fileID: 11400000, guid: 318c34b322540dc43b1919e70be4423b, type: 2}
   lifeTime: 5

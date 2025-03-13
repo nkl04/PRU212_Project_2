@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
 
         stateMachine.ChangeState(PlayerStateIdle);
 
-        SkillManager.Instance.AddConfigSkill(playerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
-        SkillManager.Instance.LevelUpSkill(playerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkill);
+        SkillManager.Instance.AddConfigSkill(playerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkillActive);
+        SkillManager.Instance.LevelUpSkill(playerInfo.defaultWeaponManager.Weapon._weaponInfo.configSkillActive);
 
         //PlayerStats.Damage += ((ConfigEquipmentWeapon)playerInfo.defaultWeaponManager.Weapon._weaponInfo)._damage;
     }

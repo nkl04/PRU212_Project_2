@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af10ddbd07b72d47a998ae482b3494d, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ba3992243b70d49be7757cf28a2b05, type: 3}
   m_Name: ConfigSkillKunai
   m_EditorClassIdentifier: 
   skillName: Kunai
@@ -17,16 +17,22 @@ MonoBehaviour:
   - level: 1
     description: Throws 1 kunai
     icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
-  - level: 1
-    description: +1 Kunai Adds damage
+  - level: 2
+    description: +1 Kunai\nAdds damage
     icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   - level: 3
-    description: +1 Kunai Adds damage
+    description: +1 Kunai\nAdds damage
     icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   - level: 4
-    description: +1 Kunai Adds damage
+    description: +1 Kunai\nAdds damage
     icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   - level: 5
-    description: +1 Kunai Adds damage
+    description: +1 Kunai\nAdds damage
     icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
   skillController: {fileID: 8340857492316483690, guid: 98708caa1717b2643afbc4f01c752b41, type: 3}
+  ATKMuliplier:
+  - 1.5
+  - 2
+  - 3
+  - 4
+  - 5.5

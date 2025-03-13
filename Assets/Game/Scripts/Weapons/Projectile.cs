@@ -9,6 +9,12 @@ public abstract class Projectile : MonoBehaviour
     protected float damage;
     protected float lifeTime;
     protected SpriteRenderer spriteRenderer;
+    private Vector3 initScale;
+    private void Awake()
+    {
+        initScale = transform.localScale;
+        Debug.Log(initScale);
+    }
     protected abstract void Update();
     public void SetDamage(float damage)
     {
@@ -29,6 +35,11 @@ public abstract class Projectile : MonoBehaviour
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = sprite;
+    }
+
+    public void SetSizeMultiple(float multiple)
+    {
+        transform.localScale = initScale * multiple;
     }
 
     protected void DisableSelf()

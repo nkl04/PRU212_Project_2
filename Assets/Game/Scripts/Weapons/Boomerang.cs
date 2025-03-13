@@ -2,6 +2,11 @@
 
 public class Boomerang : LaunchWeapon
 {
+    private float sizeMultiple = 1;
+    public void AddProjectileSize(float multiple)
+    {
+        sizeMultiple = multiple;
+    }
     protected override void Attack()
     {
         if (Player == null)
@@ -29,6 +34,7 @@ public class Boomerang : LaunchWeapon
                 projectile_Boomerang.SetDamage(ATKMultiplier * Player.PlayerStats.Damage);
                 projectile_Boomerang.SetLifeTime(copnfig.lifeTime);
                 projectile_Boomerang.Range = (copnfig._range);
+                projectile_Boomerang.SetSizeMultiple(sizeMultiple);
             }
             boomerangGameObj.SetActive(true);
         }

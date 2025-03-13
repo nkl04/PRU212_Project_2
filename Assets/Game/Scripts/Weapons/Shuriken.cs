@@ -28,7 +28,7 @@ public class Shuriken : ShootWeapon
             if (_weaponInfo is ConfigEquipmentWeapon config)
             {
                 projectile_Shuriken.SetSpeed(config._speed);
-                projectile_Shuriken.SetDamage(config._damage + Player.PlayerStats.Damage);
+                projectile_Shuriken.SetDamage(config._damage * ATKMultiplier);
                 projectile_Shuriken.Direction = direction;
             }
 
