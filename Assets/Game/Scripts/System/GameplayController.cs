@@ -32,6 +32,9 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private ExpBar expBar;
 
+    [Header("Animation")]
+    [SerializeField] private Transform fadeAnimTransform;
+
     private void Awake()
     {
         EventHandlers.OnGameStartEvent += OnGameStart;
@@ -52,6 +55,12 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnPlayerDeadEvent -= UpdateLosePopUp;
         EventHandlers.OnGameStartEvent -= OnGameStart;
         EventHandlers.OnGameStateUpdateEvent -= EventHandlers_OnGameStateUpdateEvent;
+    }
+
+    private void Start()
+    {
+        fadeAnimTransform.gameObject.SetActive(true);
+        fadeAnimTransform.GetComponent<FadeAnimation>().FadeOut();
     }
 
     private void Update()

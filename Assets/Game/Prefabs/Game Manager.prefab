@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configLevels: {fileID: 11400000, guid: a073a4db446415d439abdbd888e0cc7c, type: 2}
   configLevelIcons: {fileID: 11400000, guid: 146712a949aadd54a9a9f311217c0990, type: 2}
+  fadeAnimGameObj: {fileID: 0}
