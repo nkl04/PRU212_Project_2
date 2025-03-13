@@ -35,6 +35,7 @@ public class PopUpSelectLevel : MonoBehaviour
         for (int i = 0; i < levelAmount; i++)
         {
             GameObject levelIcon = Instantiate(levelIconPrefab, levelContainer);
+            levelIcon.GetComponent<Image>().sprite = GameManager.Instance.ConfigLevelIcons.levelIcons[i];
         }
     }
 
