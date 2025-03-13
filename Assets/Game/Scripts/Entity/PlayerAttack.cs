@@ -22,7 +22,6 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
-
     }
 
     private void Start()

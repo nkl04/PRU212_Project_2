@@ -24,6 +24,7 @@ public class GuardianSkillController : WeaponSkillController
                 }
                 weapon.SetUpSaw();
                 weapon.ATKMultiplier = ((ConfigSkillActive)weapon._weaponInfo.configSkill).ATKMuliplier[level - 1];
+                Debug.Log(weapon.ATKMultiplier);
                 PlayerController.PlayerAttack.AddWeapon(weapon);
                 break;
             case 2:

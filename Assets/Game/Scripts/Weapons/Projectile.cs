@@ -1,4 +1,7 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public abstract class Projectile : MonoBehaviour
 {
@@ -31,5 +34,16 @@ public abstract class Projectile : MonoBehaviour
     protected void DisableSelf()
     {
         gameObject.SetActive(false);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            GameObject damagePopup = ObjectPooler.Instance.GetObjectFromPool("DamagePopup");
+            damagePopup.transform.position = collision.transform.position;
+            damagePopup.GetComponent<DamagePopup>().SetText(damage.ToString());
+            damagePopup.SetActive(true);
+        }
     }
 }

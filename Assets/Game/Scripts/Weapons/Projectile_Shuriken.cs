@@ -11,8 +11,9 @@ public class Projectile_Shuriken : Projectile
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         if (collision.CompareTag("Enemy"))
         {
             EnemyHealth_Base enemyHealth = collision.GetComponent<EnemyHealth_Base>();

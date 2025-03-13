@@ -26,6 +26,8 @@ public class Guardian : OrbitingWeapon
     {
         foreach (Transform child in projectileSystem)
         {
+            child.GetComponent<Projectile_Guardian>().SetDamage(ATKMultiplier * Player.PlayerStats.Damage);
+            Debug.Log(ATKMultiplier * Player.PlayerStats.Damage);
             child.gameObject.SetActive(true);
         }
     }
