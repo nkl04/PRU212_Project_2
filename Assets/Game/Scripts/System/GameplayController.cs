@@ -43,7 +43,6 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnLevelUpEvent += UpdateLevel;
         EventHandlers.OnSkillSelectedEvent += UpdateSelectSkillPopUp;
         EventHandlers.OnPlayerDeadEvent += UpdateLosePopUp;
-        EventHandlers.OnGameStateUpdateEvent += EventHandlers_OnGameStateUpdateEvent;
     }
 
     private void OnDestroy()
@@ -54,7 +53,6 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnSkillSelectedEvent -= UpdateSelectSkillPopUp;
         EventHandlers.OnPlayerDeadEvent -= UpdateLosePopUp;
         EventHandlers.OnGameStartEvent -= OnGameStart;
-        EventHandlers.OnGameStateUpdateEvent -= EventHandlers_OnGameStateUpdateEvent;
     }
 
     private void Start()
@@ -71,39 +69,18 @@ public class GameplayController : MonoBehaviour
 
         if (eslapsedTime >= currentWave.startTime)
         {
-            enemySpawner.Spawn(currentWave);
+            enemySpawner.SetWave(currentWave);
 
-            if (currentWave.spawnStyle == SpawnStyle.Immediately)
+            int index = configLevel.GetWaveIndex(currentWave);
+            if (index < configLevel.waveList.Count - 1)
             {
-                // immediately spawn 
-                int index = configLevel.GetWaveIndex(currentWave);
-                if (index < configLevel.waveList.Count - 1)
-                {
-                    currentWave = configLevel.GetWave(index + 1);
-                }
-                else
-                {
-                    //Out of wave
-                    Debug.Log("No more wave");
-                    currentWave = null;
-                }
+                currentWave = configLevel.GetWave(index + 1);
             }
             else
             {
-                if (eslapsedTime >= currentWave.endTime)
-                {
-                    int index = configLevel.GetWaveIndex(currentWave);
-                    if (index < configLevel.waveList.Count - 1)
-                    {
-                        currentWave = configLevel.GetWave(index + 1);
-                    }
-                    else
-                    {
-                        //Out of wave
-                        Debug.Log("No more wave");
-                        currentWave = null;
-                    }
-                }
+                //Out of wave
+                Debug.Log("No more wave");
+                currentWave = null;
             }
         }
     }
@@ -118,10 +95,6 @@ public class GameplayController : MonoBehaviour
         }
     }
 
-    private void EventHandlers_OnGameStateUpdateEvent(GameState obj)
-    {
-        isPaused = obj == GameState.Pause;
-    }
     private void UpdateSelectSkillPopUp(Dictionary<ConfigSkill, int> dictionary)
     {
         popUpSelectSkillTransform.GetComponent<PopUpSkillSelect>().SetCurrentSkillIcons(dictionary);
@@ -154,14 +127,16 @@ public class GameplayController : MonoBehaviour
     }
     public void OnTapPause()
     {
-        GameManager.Instance.UpdateGameState(GameState.Pause);
+        Time.timeScale = 0;
+        isPaused = true;
         popUpPauseTransform.gameObject.SetActive(true);
 
         Debug.Log("<color=orange>=> PAUSE <=</color>");
     }
     public void OnTapResume()
     {
-        GameManager.Instance.UpdateGameState(GameState.Gameplay);
+        Time.timeScale = 1;
+        isPaused = false;
         popUpPauseTransform.gameObject.SetActive(false);
 
         Debug.Log("<color=cyan>=> RESUME <=</color>");

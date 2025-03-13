@@ -32,9 +32,6 @@ public class GameManager : Singleton<GameManager>
                 Time.timeScale = 1;
                 HandleGamePlayState();
                 break;
-            case GameState.Pause:
-                Time.timeScale = 0;
-                break;
             case GameState.End:
                 Time.timeScale = 0;
                 break;

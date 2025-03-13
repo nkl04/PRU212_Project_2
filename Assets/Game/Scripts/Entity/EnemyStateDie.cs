@@ -12,6 +12,7 @@ public class EnemyStateDie : EnemyState
 
     public override void Enter()
     {
+        enemy.Collider2D.enabled = false;
         //drop reward 
         enemy.EnemyRewardDrop.DropReward();
         //call on enemy dead event

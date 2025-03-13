@@ -13,7 +13,6 @@ public abstract class Projectile : MonoBehaviour
     private void Awake()
     {
         initScale = transform.localScale;
-        Debug.Log(initScale);
     }
     protected abstract void Update();
     public void SetDamage(float damage)

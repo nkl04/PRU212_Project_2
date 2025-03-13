@@ -93,7 +93,7 @@ public class PlayerAttack : MonoBehaviour
         foreach (var collider in colliders)
         {
             Enemy_Base enemy = collider.GetComponent<Enemy_Base>();
-            if (enemy != null)
+            if (enemy != null && !enemy.EnemyHealth.IsDead)
             {
                 float distance = Vector2.Distance(transform.position, enemy.transform.position);
                 if (distance < minDistance)

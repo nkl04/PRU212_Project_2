@@ -69,7 +69,7 @@ public class LevelSOEditor : Editor
 
                 EditorGUI.LabelField(
                     new Rect(rect.x + rect.width * 0.8f, rect.y, rect.width * 0.35f, lineHeight),
-                    new GUIContent(spawnStyle.enumValueIndex == (int)SpawnStyle.Sequential ? Utilities.FormatTime(endTime.intValue) : "  -")
+                    new GUIContent(spawnStyle.enumValueIndex == (int)SpawnStyle.Sequentially ? Utilities.FormatTime(endTime.intValue) : "  -")
                 );
 
                 rect.y += lineHeight + space;
@@ -80,7 +80,7 @@ public class LevelSOEditor : Editor
                     rect.y += lineHeight + space;
 
                     SpawnStyle _spawnStyle = (SpawnStyle)spawnStyle.enumValueIndex;
-                    if (_spawnStyle == SpawnStyle.Sequential)
+                    if (_spawnStyle == SpawnStyle.Sequentially)
                     {
                         EditorGUI.indentLevel++;
                         EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), timeBetweenSpawns, new GUIContent("Time Between Spawns"));
@@ -91,7 +91,7 @@ public class LevelSOEditor : Editor
                     EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), startTime, new GUIContent("Start Time"));
                     rect.y += lineHeight + space;
 
-                    if (_spawnStyle == SpawnStyle.Sequential)
+                    if (_spawnStyle == SpawnStyle.Sequentially)
                     {
                         EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, lineHeight), endTime, new GUIContent("End Time"));
                         rect.y += lineHeight + space;
@@ -132,7 +132,7 @@ public class LevelSOEditor : Editor
                     var element = waveListProperty.GetArrayElementAtIndex(index);
                     SerializedProperty spawnStyle = element.FindPropertyRelative("spawnStyle");
 
-                    if ((SpawnStyle)spawnStyle.enumValueIndex == SpawnStyle.Sequential)
+                    if ((SpawnStyle)spawnStyle.enumValueIndex == SpawnStyle.Sequentially)
                     {
                         baseHeight += EditorGUIUtility.singleLineHeight;
                     }

@@ -2,6 +2,7 @@
 
 public abstract class Enemy_Base : MonoBehaviour
 {
+    public Collider2D Collider2D => bodyCollider2d;
     public EnemyStateIdle EnemyStateIdle { get; private set; }
     public EnemyStateRun EnemyStateRun { get; private set; }
     public EnemyStateAttack EnemyStateAttack { get; private set; }
@@ -21,6 +22,7 @@ public abstract class Enemy_Base : MonoBehaviour
     [Header("Enemy Info")]
     [SerializeField] protected ConfigEnemy enemyInfo;
     [SerializeField] protected Transform visual;
+    protected Collider2D bodyCollider2d;
 
     protected StateMachine<EnemyState> stateMachine;
 
@@ -48,6 +50,8 @@ public abstract class Enemy_Base : MonoBehaviour
         EnemyAttack = GetComponent<EnemyAttack_Base>();
         EnemyRewardDrop = GetComponent<EnemyRewardDrop>();
         Animator = GetComponent<Animator>();
+
+        bodyCollider2d = GetComponent<Collider2D>();
 
         EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
         Target = FindFirstObjectByType<PlayerController>();

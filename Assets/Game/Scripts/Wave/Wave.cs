@@ -26,7 +26,7 @@ public class WaveEnemy
 
 public enum SpawnStyle
 {
-    Sequential,
+    Sequentially,
     Immediately
 }
 

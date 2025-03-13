@@ -12,7 +12,7 @@ public class FadeAnimation : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
         seq.AppendInterval(1f)
-           .Append(skullTransform.DOScale(5f, 0.6f).SetEase(Ease.OutCubic))
+           .Append(skullTransform.DOScale(3f, 0.6f).SetEase(Ease.OutCubic))
            .Append(skullTransform.DOScale(70f, 0.25f).SetEase(Ease.InCubic))
            .OnComplete(() =>
            {

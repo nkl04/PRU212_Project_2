@@ -24,6 +24,7 @@ public class EnemyStateIdle : EnemyState
 
     public override void Enter()
     {
+        enemy.Collider2D.enabled = true;
     }
 
     public override void Execute()

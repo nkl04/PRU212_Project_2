@@ -5804,7 +5804,7 @@ RectTransform:
   - {fileID: 704377807}
   - {fileID: 427396862}
   - {fileID: 1779375023}
-  - {fileID: 1419207212}
+  - {fileID: 66582897195002191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5834,7 +5834,7 @@ MonoBehaviour:
   clock: {fileID: 490599071}
   killText: {fileID: 460228321}
   expBar: {fileID: 109438579}
-  fadeAnimTransform: {fileID: 1419207212}
+  fadeAnimTransform: {fileID: 66582897195002191}
 --- !u!1 &406991645
 GameObject:
   m_ObjectHideFlags: 0
@@ -24313,11 +24313,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044255a8ae7ca2045813bb9ceb6684be, type: 3}
---- !u!224 &1419207212 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 66582896331967332, guid: 044255a8ae7ca2045813bb9ceb6684be, type: 3}
-  m_PrefabInstance: {fileID: 1419207211}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1425524820
 GameObject:
   m_ObjectHideFlags: 0
@@ -36682,6 +36677,11 @@ RectTransform:
   m_AnchoredPosition: {x: 163, y: -33.4137}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &66582897195002191 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 66582896331967332, guid: 044255a8ae7ca2045813bb9ceb6684be, type: 3}
+  m_PrefabInstance: {fileID: 1419207211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &263160769912655204
 PrefabInstance:
   m_ObjectHideFlags: 0

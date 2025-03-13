@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyHealth_Base : MonoBehaviour, IAttackable
 {
+    public bool IsDead => currentHealth <= 0;
     private Enemy_Base enemy;
     private float maxHealth;
     private float currentHealth;
