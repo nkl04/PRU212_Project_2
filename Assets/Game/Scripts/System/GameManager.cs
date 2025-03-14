@@ -19,15 +19,18 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private ConfigLevelIcon configLevelIcons;
 
     private Dictionary<ConfigLevel, bool> finishedLevelDictionary;
+    private Dictionary<ConfigLevel, (int, int)> levelBestTimeDictionary;
 
     private new void Awake()
     {
         base.Awake();
 
         finishedLevelDictionary = new Dictionary<ConfigLevel, bool>();
+        levelBestTimeDictionary = new Dictionary<ConfigLevel, (int, int)>();
         foreach (var item in configLevels.levels)
         {
             finishedLevelDictionary.Add(item, false);
+            levelBestTimeDictionary.Add(item, (0, 0));
         }
     }
 
@@ -73,9 +76,35 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadSceneAsync("GameplayScene");
     }
 
-    public void FinishLevel(int index)
+    public void FinishLevel(int levelIndex)
     {
-        finishedLevelDictionary[configLevels.levels[index]] = true;
+        finishedLevelDictionary[configLevels.levels[levelIndex]] = true;
+    }
+
+    public bool IsFinishLevel(int levelIndex)
+    {
+        return finishedLevelDictionary[configLevels.levels[levelIndex]];
+    }
+
+    public (int, int) GetBestTimeInLevel(ConfigLevel configLevel)
+    {
+        return levelBestTimeDictionary[configLevel];
+    }
+
+    public void UpdateBestTimeInLevel(ConfigLevel configLevel, (int minute, int second) bestTime)
+    {
+        levelBestTimeDictionary[configLevel] = bestTime;
+    }
+
+    public bool IsBestTimeInLevel(ConfigLevel configLevel, (int minute, int second) time)
+    {
+        if (!levelBestTimeDictionary.TryGetValue(configLevel, out var currentBestTime) ||
+            time.minute < currentBestTime.Item1 ||
+            (time.minute == currentBestTime.Item1 && time.second < currentBestTime.Item2))
+        {
+            return false;
+        }
+        return true;
     }
 }
 

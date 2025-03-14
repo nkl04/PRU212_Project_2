@@ -123,6 +123,11 @@ public class GameplayController : MonoBehaviour
         }
         else if (state == GameState.End)
         {
+            if (GameManager.Instance.IsBestTimeInLevel(configLevel, (minutes, seconds)))
+            {
+                GameManager.Instance.UpdateBestTimeInLevel(configLevel, (minutes, seconds));
+            }
+
             UpdateLosePopUp();
         }
     }
@@ -153,14 +158,17 @@ public class GameplayController : MonoBehaviour
     private void UpdateLosePopUp()
     {
         PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
-        popUpLose.SetData((minutes, seconds), "Chapter " + configLevel.levelIndex, 0, killCount.GetKillCount());
+        popUpLose.SetData((minutes, seconds),
+                            "Chapter " + configLevel.levelIndex + 1,
+                            GameManager.Instance.GetBestTimeInLevel(configLevel),
+                            killCount.GetKillCount());
         popUpLoseTransform.gameObject.SetActive(true);
     }
 
     public void UpdateWinPopUp()
     {
         PopUpWin popUpWin = popUpWinTransform.GetComponent<PopUpWin>();
-        popUpWin.SetData(configLevel.levelIndex, killCount.GetKillCount());
+        popUpWin.SetData(configLevel.levelIndex + 1, killCount.GetKillCount());
         popUpWinTransform.gameObject.SetActive(true);
     }
     public void OnTapPause()

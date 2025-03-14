@@ -8,6 +8,7 @@ using static UnityEngine.Splines.SplineInstantiate;
 [CanEditMultipleObjects]
 public class LevelSOEditor : Editor
 {
+    private SerializedProperty indexLevelProperty;
     private SerializedProperty levelNameProperty;
     private SerializedProperty backgroundProperty;
     private SerializedProperty durationProperty;
@@ -23,7 +24,8 @@ public class LevelSOEditor : Editor
     private void OnEnable()
     {
         SceneView.duringSceneGui += OnSceneGUI;
-        levelNameProperty = serializedObject.FindProperty("levelIndex");
+        indexLevelProperty = serializedObject.FindProperty("levelIndex");
+        levelNameProperty = serializedObject.FindProperty("levelName");
         backgroundProperty = serializedObject.FindProperty("background");
         durationProperty = serializedObject.FindProperty("durations");
         waveListProperty = serializedObject.FindProperty("waveList");
@@ -267,6 +269,7 @@ public class LevelSOEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        EditorGUILayout.PropertyField(indexLevelProperty);
         EditorGUILayout.PropertyField(levelNameProperty);
         EditorGUILayout.PropertyField(backgroundProperty);
         EditorGUILayout.BeginHorizontal();

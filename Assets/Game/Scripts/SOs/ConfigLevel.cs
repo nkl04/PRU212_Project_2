@@ -6,6 +6,7 @@ using UnityEngine;
 public class ConfigLevel : ScriptableObject
 {
     public int levelIndex;
+    public string levelName;
     public Sprite background;
     [Tooltip("Duration of the level (seconds)")]
     public int durations;

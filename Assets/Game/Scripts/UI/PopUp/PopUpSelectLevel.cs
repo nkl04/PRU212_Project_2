@@ -26,6 +26,7 @@ public class PopUpSelectLevel : MonoBehaviour
         {
             selectedConfigLevel = GameManager.Instance.ConfigLevelHolder.levels[(selectedIndex)];
             mainMenuController.SelectedConfigLevel = selectedConfigLevel;
+            mainMenuController.SetUpSelectLevelMainMenu(selectedConfigLevel);
             gameObject.SetActive(false);
         });
     }
