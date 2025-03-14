@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        gameInput = FindFirstObjectByType<GameInput>();
+
         Animator = GetComponent<Animator>();
         stateMachine = new StateMachine<PlayerState>();
 
@@ -41,11 +43,9 @@ public class PlayerController : MonoBehaviour
         PlayerStats.MoveSpeed = playerInfo._baseSpeed;
 
         PlayerHealth.SetMaxHealth(PlayerStats.MaxHealth);
-
     }
     private void Start()
     {
-        gameInput = GameInput.Instance;
 
         PlayerStateIdle = new PlayerStateIdle(this, stateMachine);
         PlayerStateRun = new PlayerStateMoving(this, stateMachine);

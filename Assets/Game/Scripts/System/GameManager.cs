@@ -46,12 +46,21 @@ public class GameManager : Singleton<GameManager>
             case GameState.End:
                 Time.timeScale = 0;
                 break;
+            case GameState.Win:
+                Time.timeScale = 0;
+                HandleWinState();
+                break;
             case GameState.Splash:
                 Time.timeScale = 1;
                 break;
         }
 
         EventHandlers.CallOnGameStateUpdateEvent(gameState);
+    }
+
+    private void HandleWinState()
+    {
+        FinishLevel(SelectedLevel.levelIndex);
     }
 
     private void HandleMainMenuState()
@@ -76,6 +85,7 @@ public enum GameState
     Gameplay,
     Pause,
     End,
+    Win,
     Splash
 }
 

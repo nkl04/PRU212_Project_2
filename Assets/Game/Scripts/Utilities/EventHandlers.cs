@@ -18,12 +18,6 @@ public class EventHandlers
         OnGameStartEvent?.Invoke(configLevel);
     }
 
-    public static event Action<ConfigLevel> OnGameWinEvent;
-    public static void CallOnGameWinEvent(ConfigLevel configLevel)
-    {
-        OnGameWinEvent?.Invoke(configLevel);
-    }
-
     //===================================================PLAYER========================================================//
     public static event Action<float, float, Transform> OnExpCollectedEvent;
     public static void CallOnExpCollectedEvent(float exp, float maxExp, Transform player)
@@ -38,11 +32,6 @@ public class EventHandlers
         OnLevelUpEvent?.Invoke(level);
     }
 
-    public static event Action OnPlayerDeadEvent;
-    public static void CallOnPlayerDeadEvent()
-    {
-        OnPlayerDeadEvent?.Invoke();
-    }
     //===================================================SKILL========================================================//
     public static event Action<(ConfigSkill, int)[]> OnRandomSkillsEvent;
     public static void CallOnRandomSkillsEvent((ConfigSkill, int)[] configskill_level_pair)

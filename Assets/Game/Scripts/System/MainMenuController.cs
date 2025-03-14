@@ -17,11 +17,13 @@ public class MainMenuController : MonoBehaviour
         popUpSelectLevel = popUpSelectLevelGameObj.GetComponent<PopUpSelectLevel>();
         popUpSettings = popUpSettingsGameObj.GetComponent<PopUpSettings>();
 
-        fadeAnimTransform.gameObject.SetActive(false);
         popUpSettingsGameObj.SetActive(false);
         popUpSelectLevelGameObj.SetActive(false);
 
         SelectedConfigLevel = gameManager.ConfigLevelHolder.levels[0];
+
+        fadeAnimTransform.gameObject.SetActive(true);
+        fadeAnimTransform.GetComponent<FadeAnimation>().FadeOut(() => fadeAnimTransform.gameObject.SetActive(false));
     }
 
     private void Start()

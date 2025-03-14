@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     public void Die()
     {
         gameObject.SetActive(false);
-        EventHandlers.CallOnPlayerDeadEvent();
+        GameManager.Instance.UpdateGameState(GameState.End);
     }
 
     public void SetMaxHealth(float health)

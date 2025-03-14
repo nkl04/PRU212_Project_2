@@ -44,10 +44,17 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnExpCollectedEvent += UpdateExpBar;
         EventHandlers.OnLevelUpEvent += UpdateLevel;
         EventHandlers.OnSkillSelectedEvent += UpdateSelectSkillPopUp;
-        EventHandlers.OnPlayerDeadEvent += UpdateLosePopUp;
+        EventHandlers.OnGameStateUpdateEvent += EventHandlers_OnGameStateUpdateEvent;
 
         enemyManager = FindFirstObjectByType<EnemyManager>();
+
+        popUpLoseTransform.gameObject.SetActive(false);
+        popUpWinTransform.gameObject.SetActive(false);
+        popUpSelectSkillTransform.gameObject.SetActive(false);
+        popUpPauseTransform.gameObject.SetActive(false);
+
     }
+
 
     private void OnDestroy()
     {
@@ -55,8 +62,8 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnExpCollectedEvent -= UpdateExpBar;
         EventHandlers.OnLevelUpEvent -= UpdateLevel;
         EventHandlers.OnSkillSelectedEvent -= UpdateSelectSkillPopUp;
-        EventHandlers.OnPlayerDeadEvent -= UpdateLosePopUp;
         EventHandlers.OnGameStartEvent -= OnGameStart;
+        EventHandlers.OnGameStateUpdateEvent -= EventHandlers_OnGameStateUpdateEvent;
     }
 
     private void Start()
@@ -93,11 +100,7 @@ public class GameplayController : MonoBehaviour
 
         if (currentWave == null && enemyManager.IsClearEnemies())
         {
-            //finish level
-            isFinished = true;
-            UpdateWinPopUp();
-            //update finish level
-            GameManager.Instance.FinishLevel(configLevel.levelIndex);
+            GameManager.Instance.UpdateGameState(GameState.Win);
         }
     }
 
@@ -108,6 +111,19 @@ public class GameplayController : MonoBehaviour
         if (this.configLevel != null)
         {
             currentWave = configLevel.GetWave(0);
+        }
+    }
+
+    private void EventHandlers_OnGameStateUpdateEvent(GameState state)
+    {
+        if (state == GameState.Win)
+        {
+            isFinished = true;
+            UpdateWinPopUp();
+        }
+        else if (state == GameState.End)
+        {
+            UpdateLosePopUp();
         }
     }
 
@@ -136,7 +152,6 @@ public class GameplayController : MonoBehaviour
     }
     private void UpdateLosePopUp()
     {
-        GameManager.Instance.UpdateGameState(GameState.End);
         PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
         popUpLose.SetData((minutes, seconds), "Chapter " + configLevel.levelIndex, 0, killCount.GetKillCount());
         popUpLoseTransform.gameObject.SetActive(true);
@@ -144,9 +159,9 @@ public class GameplayController : MonoBehaviour
 
     public void UpdateWinPopUp()
     {
-        GameManager.Instance.UpdateGameState(GameState.End);
         PopUpWin popUpWin = popUpWinTransform.GetComponent<PopUpWin>();
         popUpWin.SetData(configLevel.levelIndex, killCount.GetKillCount());
+        popUpWinTransform.gameObject.SetActive(true);
     }
     public void OnTapPause()
     {
@@ -168,7 +183,26 @@ public class GameplayController : MonoBehaviour
     {
         // collect item
 
-        // redirect to main menu
+        //fade animation
+        fadeAnimTransform.gameObject.SetActive(true);
+        fadeAnimTransform.GetComponent<FadeAnimation>().FadeIn(() =>
+        {
+            // redirect to main menu
+            GameManager.Instance.UpdateGameState(GameState.MainMenu);
+        });
+    }
+
+    public void OnTapMuteSound()
+    {
+        AudioManager.Instance.MuteSound();
+    }
+    public void OnTapMuteMusic()
+    {
+        AudioManager.Instance.MuteMusic();
+    }
+
+    public void OnTapHome()
+    {
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
     public void UpdateTime()
