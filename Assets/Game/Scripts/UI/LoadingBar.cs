@@ -26,7 +26,7 @@ public class LoadingBar : MonoBehaviour
         }
 
         // loading done
-        SceneManager.LoadScene(Utilities.Scene.MainMenu);
+        GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
 
     private void Update()

@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         {
             case GameState.MainMenu:
                 Time.timeScale = 1;
+                HandleMainMenuState();
                 break;
             case GameState.Gameplay:
                 Time.timeScale = 1;
@@ -41,6 +42,11 @@ public class GameManager : Singleton<GameManager>
         }
 
         EventHandlers.CallOnGameStateUpdateEvent(gameState);
+    }
+
+    private void HandleMainMenuState()
+    {
+        SceneManager.LoadSceneAsync("MainMenuScene");
     }
 
     private void HandleGamePlayState()
