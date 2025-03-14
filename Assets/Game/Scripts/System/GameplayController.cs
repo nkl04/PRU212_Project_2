@@ -14,6 +14,8 @@ public class GameplayController : MonoBehaviour
     private int seconds;
     private float eslapsedTime;
     private bool isPaused = false;
+    private bool isFinished = false;
+    private EnemyManager enemyManager;
 
     [SerializeField] private KillCount killCount;
     [SerializeField] private EnemySpawner enemySpawner;
@@ -43,6 +45,8 @@ public class GameplayController : MonoBehaviour
         EventHandlers.OnLevelUpEvent += UpdateLevel;
         EventHandlers.OnSkillSelectedEvent += UpdateSelectSkillPopUp;
         EventHandlers.OnPlayerDeadEvent += UpdateLosePopUp;
+
+        enemyManager = FindFirstObjectByType<EnemyManager>();
     }
 
     private void OnDestroy()
@@ -63,25 +67,37 @@ public class GameplayController : MonoBehaviour
 
     private void Update()
     {
-        if (isPaused || currentWave == null) return;
+        if (isPaused || isFinished) return;
 
         UpdateTime();
 
-        if (eslapsedTime >= currentWave.startTime)
+        if (currentWave != null)
         {
-            enemySpawner.SetWave(currentWave);
+            if (eslapsedTime >= currentWave.startTime)
+            {
+                enemySpawner.SetWave(currentWave);
 
-            int index = configLevel.GetWaveIndex(currentWave);
-            if (index < configLevel.waveList.Count - 1)
-            {
-                currentWave = configLevel.GetWave(index + 1);
+                int index = configLevel.GetWaveIndex(currentWave);
+                if (index < configLevel.waveList.Count - 1)
+                {
+                    currentWave = configLevel.GetWave(index + 1);
+                }
+                else
+                {
+                    //Out of wave
+                    Debug.Log("No more wave");
+                    currentWave = null;
+                }
             }
-            else
-            {
-                //Out of wave
-                Debug.Log("No more wave");
-                currentWave = null;
-            }
+        }
+
+        if (currentWave == null && enemyManager.IsClearEnemies())
+        {
+            //finish level
+            isFinished = true;
+            UpdateWinPopUp();
+            //update finish level
+            GameManager.Instance.FinishLevel(configLevel.levelIndex);
         }
     }
 
@@ -122,8 +138,15 @@ public class GameplayController : MonoBehaviour
     {
         GameManager.Instance.UpdateGameState(GameState.End);
         PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
-        popUpLose.SetData((minutes, seconds), "Chapter 1", 0, killCount.GetKillCount());
+        popUpLose.SetData((minutes, seconds), "Chapter " + configLevel.levelIndex, 0, killCount.GetKillCount());
         popUpLoseTransform.gameObject.SetActive(true);
+    }
+
+    public void UpdateWinPopUp()
+    {
+        GameManager.Instance.UpdateGameState(GameState.End);
+        PopUpWin popUpWin = popUpWinTransform.GetComponent<PopUpWin>();
+        popUpWin.SetData(configLevel.levelIndex, killCount.GetKillCount());
     }
     public void OnTapPause()
     {
@@ -143,7 +166,10 @@ public class GameplayController : MonoBehaviour
     }
     public void OnTapConfirm()
     {
+        // collect item
 
+        // redirect to main menu
+        GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
     public void UpdateTime()
     {

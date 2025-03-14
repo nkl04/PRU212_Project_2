@@ -25,6 +25,7 @@ public abstract class Enemy_Base : MonoBehaviour
     protected Collider2D bodyCollider2d;
 
     protected StateMachine<EnemyState> stateMachine;
+    protected EnemyManager enemyManager;
 
     private void OnEnable()
     {
@@ -40,6 +41,11 @@ public abstract class Enemy_Base : MonoBehaviour
         {
             EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
         }
+
+        if (enemyManager != null)
+        {
+            enemyManager.RegisterEnemyGameObject(gameObject);
+        }
     }
 
     protected virtual void Awake()
@@ -51,10 +57,9 @@ public abstract class Enemy_Base : MonoBehaviour
         EnemyRewardDrop = GetComponent<EnemyRewardDrop>();
         Animator = GetComponent<Animator>();
 
-        bodyCollider2d = GetComponent<Collider2D>();
-
-        EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
+        enemyManager = FindFirstObjectByType<EnemyManager>();
         Target = FindFirstObjectByType<PlayerController>();
+        bodyCollider2d = GetComponent<Collider2D>();
     }
 
     protected virtual void Start()
@@ -64,6 +69,8 @@ public abstract class Enemy_Base : MonoBehaviour
         EnemyStateAttack = new EnemyStateAttack(this, stateMachine);
         EnemyStateDie = new EnemyStateDie(this, stateMachine);
 
+        EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
+        enemyManager.RegisterEnemyGameObject(gameObject);
         EnemyRewardDrop.SetReward(enemyInfo.RewardList);
         stateMachine.ChangeState(EnemyStateIdle);
     }
@@ -76,6 +83,7 @@ public abstract class Enemy_Base : MonoBehaviour
     protected virtual void OnDisable()
     {
         EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
+        enemyManager.UnregisterEnemyGameObject(gameObject);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

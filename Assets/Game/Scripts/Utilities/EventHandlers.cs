@@ -18,6 +18,12 @@ public class EventHandlers
         OnGameStartEvent?.Invoke(configLevel);
     }
 
+    public static event Action<ConfigLevel> OnGameWinEvent;
+    public static void CallOnGameWinEvent(ConfigLevel configLevel)
+    {
+        OnGameWinEvent?.Invoke(configLevel);
+    }
+
     //===================================================PLAYER========================================================//
     public static event Action<float, float, Transform> OnExpCollectedEvent;
     public static void CallOnExpCollectedEvent(float exp, float maxExp, Transform player)

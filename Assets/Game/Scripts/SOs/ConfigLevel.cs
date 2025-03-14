@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Config Level", menuName = "Scriptable Objects/Config Level")]
 public class ConfigLevel : ScriptableObject
 {
+    public int levelIndex;
     public Sprite background;
     [Tooltip("Duration of the level (seconds)")]
     public int durations;

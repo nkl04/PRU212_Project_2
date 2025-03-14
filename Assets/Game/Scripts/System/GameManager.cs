@@ -1,5 +1,7 @@
 using ControlFreak2;
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,9 +18,17 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private ConfigLevelHolder configLevels;
     [SerializeField] private ConfigLevelIcon configLevelIcons;
 
+    private Dictionary<ConfigLevel, bool> finishedLevelDictionary;
+
     private new void Awake()
     {
         base.Awake();
+
+        finishedLevelDictionary = new Dictionary<ConfigLevel, bool>();
+        foreach (var item in configLevels.levels)
+        {
+            finishedLevelDictionary.Add(item, false);
+        }
     }
 
     public void UpdateGameState(GameState gameState)
@@ -52,6 +62,11 @@ public class GameManager : Singleton<GameManager>
     private void HandleGamePlayState()
     {
         SceneManager.LoadSceneAsync("GameplayScene");
+    }
+
+    public void FinishLevel(int index)
+    {
+        finishedLevelDictionary[configLevels.levels[index]] = true;
     }
 }
 
