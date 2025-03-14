@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
         get => exp; set
         {
             exp = value;
-            EventHandlers.CallOnExpCollectedEvent(exp, expToNextLevel);
+            EventHandlers.CallOnExpCollectedEvent(exp, expToNextLevel, this.transform);
             if (exp >= expToNextLevel)
             {
                 Level++;

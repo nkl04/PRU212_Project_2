@@ -48,11 +48,11 @@ public class MainMenuController : MonoBehaviour
 
     public void OnTapSound()
     {
-
+        AudioManager.Instance.MuteSound();
     }
 
     public void OnTapMusic()
     {
-
+        AudioManager.Instance.MuteMusic();
     }
 }

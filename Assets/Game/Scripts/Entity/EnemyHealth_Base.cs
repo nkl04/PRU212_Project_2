@@ -15,6 +15,7 @@ public class EnemyHealth_Base : MonoBehaviour, IAttackable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        EventHandlers.CallOnEnemyHitEvent(enemy);
         if (currentHealth <= 0)
         {
             // change state to die

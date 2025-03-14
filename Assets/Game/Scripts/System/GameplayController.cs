@@ -104,7 +104,7 @@ public class GameplayController : MonoBehaviour
     {
         expBar.SetLevelText(level);
     }
-    private void UpdateExpBar(float exp, float maxExp)
+    private void UpdateExpBar(float exp, float maxExp, Transform p)
     {
         // exp max based on the level of player
         float fillAmount = exp / maxExp;

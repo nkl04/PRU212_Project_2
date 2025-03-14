@@ -32,7 +32,6 @@ public class EnergyDrinkSkillController : SupplySkillController
     {
         while (true)
         {
-            Debug.Log(restoreHealthMultiplier);
             PlayerController.PlayerHealth.RestoreHealth(restoreHealthMultiplier);
             yield return new WaitForSeconds(5f);
         }

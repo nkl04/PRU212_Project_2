@@ -19,10 +19,10 @@ public class EventHandlers
     }
 
     //===================================================PLAYER========================================================//
-    public static event Action<float, float> OnExpCollectedEvent;
-    public static void CallOnExpCollectedEvent(float exp, float maxExp)
+    public static event Action<float, float, Transform> OnExpCollectedEvent;
+    public static void CallOnExpCollectedEvent(float exp, float maxExp, Transform player)
     {
-        OnExpCollectedEvent?.Invoke(exp, maxExp);
+        OnExpCollectedEvent?.Invoke(exp, maxExp, player);
     }
 
 
@@ -58,5 +58,17 @@ public class EventHandlers
         OnEnemyDeadEvent?.Invoke(enemy);
     }
 
+    public static event Action<Enemy_Base> OnEnemyHitEvent;
+    public static void CallOnEnemyHitEvent(Enemy_Base enemy)
+    {
+        OnEnemyHitEvent?.Invoke(enemy);
+    }
+
+    //===================================================Weapon========================================================//
+    public static event Action<Weapon> OnWeaponAttackEvent;
+    public static void CallOnWeaponAttackEvent(Weapon weapon)
+    {
+        OnWeaponAttackEvent?.Invoke(weapon);
+    }
 
 }

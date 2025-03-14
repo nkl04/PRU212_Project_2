@@ -34,6 +34,8 @@ public class Shuriken : ShootWeapon
 
 
             shurikenBulletObj.SetActive(true);
+
+            EventHandlers.CallOnWeaponAttackEvent(this);
         }
     }
 
