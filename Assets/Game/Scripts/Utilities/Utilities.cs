@@ -56,4 +56,12 @@ public class Utilities
         public const string Gameplay = "GameplayScene";
         public const string LevelSelection = "SplashScene";
     }
+
+    public static class PlayerPrefs
+    {
+        public const string BEST_TIME = "BestTime";
+        public const string KILL_COUNT = "KillCount";
+        public const string SELECTED_LEVEL = "SelectedLevel";
+        public const string FINISHED_LEVELS = "FinishedLevelS";
+    }
 }

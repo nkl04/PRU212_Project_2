@@ -27,11 +27,8 @@ public class GameManager : Singleton<GameManager>
 
         finishedLevelDictionary = new Dictionary<ConfigLevel, bool>();
         levelBestTimeDictionary = new Dictionary<ConfigLevel, (int, int)>();
-        foreach (var item in configLevels.levels)
-        {
-            finishedLevelDictionary.Add(item, false);
-            levelBestTimeDictionary.Add(item, (0, 0));
-        }
+
+        LoadData();
     }
 
     public void UpdateGameState(GameState gameState)
@@ -75,27 +72,24 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadSceneAsync("GameplayScene");
     }
-
     public void FinishLevel(int levelIndex)
     {
         finishedLevelDictionary[configLevels.levels[levelIndex]] = true;
+        SaveData();
     }
-
     public bool IsFinishLevel(int levelIndex)
     {
         return finishedLevelDictionary[configLevels.levels[levelIndex]];
     }
-
     public (int, int) GetBestTimeInLevel(ConfigLevel configLevel)
     {
         return levelBestTimeDictionary[configLevel];
     }
-
     public void UpdateBestTimeInLevel(ConfigLevel configLevel, (int minute, int second) bestTime)
     {
         levelBestTimeDictionary[configLevel] = bestTime;
+        SaveData();
     }
-
     public bool IsBestTimeInLevel(ConfigLevel configLevel, (int minute, int second) time)
     {
         if (!levelBestTimeDictionary.TryGetValue(configLevel, out var currentBestTime) ||
@@ -105,6 +99,95 @@ public class GameManager : Singleton<GameManager>
             return false;
         }
         return true;
+    }
+
+    private void LoadData()
+    {
+        #region Load Selected Level
+        if (PlayerPrefs.HasKey(Utilities.PlayerPrefs.SELECTED_LEVEL))
+        {
+            int selectedLevelIndex = PlayerPrefs.GetInt(Utilities.PlayerPrefs.SELECTED_LEVEL);
+            SelectedLevel = configLevels.levels[selectedLevelIndex];
+        }
+        else
+        {
+            SelectedLevel = configLevels.levels[0];
+        }
+        #endregion
+
+        #region Load Finished Levels
+        if (PlayerPrefs.HasKey(Utilities.PlayerPrefs.FINISHED_LEVELS))
+        {
+            string json = PlayerPrefs.GetString(Utilities.PlayerPrefs.FINISHED_LEVELS);
+            Dictionary<int, bool> loadedData = JsonUtility.FromJson<SerializableFinishedLevels>(json).ToDictionary();
+
+            foreach (var item in configLevels.levels)
+            {
+                finishedLevelDictionary[item] = loadedData.ContainsKey(item.levelIndex) && loadedData[item.levelIndex];
+            }
+        }
+        else
+        {
+            foreach (var item in configLevels.levels)
+            {
+                finishedLevelDictionary[item] = false;
+            }
+        }
+        #endregion
+
+        #region Load Best Times
+        if (PlayerPrefs.HasKey(Utilities.PlayerPrefs.BEST_TIME))
+        {
+            string json = PlayerPrefs.GetString(Utilities.PlayerPrefs.BEST_TIME);
+            List<SerializableBestTime> loadedTimes = JsonUtility.FromJson<SerializableBestTimeList>(json).times;
+
+            foreach (var time in loadedTimes)
+            {
+                ConfigLevel level = configLevels.levels.Find(l => l.levelIndex == time.levelIndex);
+                if (level != null)
+                {
+                    levelBestTimeDictionary[level] = (time.minute, time.second);
+                }
+            }
+        }
+        else
+        {
+            foreach (var item in configLevels.levels)
+            {
+                levelBestTimeDictionary[item] = (0, 0);
+            }
+        }
+        #endregion
+    }
+
+    public void SaveData()
+    {
+        #region Save SelectedLevel
+        if (SelectedLevel != null)
+        {
+            PlayerPrefs.SetInt(Utilities.PlayerPrefs.SELECTED_LEVEL, SelectedLevel.levelIndex);
+        }
+        #endregion
+
+        #region Save Finished Levels
+        SerializableFinishedLevels finishedData = new SerializableFinishedLevels();
+        foreach (var pair in finishedLevelDictionary)
+        {
+            finishedData.levels[pair.Key.levelIndex] = pair.Value;
+        }
+        PlayerPrefs.SetString(Utilities.PlayerPrefs.FINISHED_LEVELS, JsonUtility.ToJson(finishedData));
+        #endregion
+
+        #region Save Best Times
+        SerializableBestTimeList bestTimes = new SerializableBestTimeList();
+        foreach (var pair in levelBestTimeDictionary)
+        {
+            bestTimes.times.Add(new SerializableBestTime(pair.Key.levelIndex, pair.Value.Item1, pair.Value.Item2));
+        }
+        PlayerPrefs.SetString(Utilities.PlayerPrefs.BEST_TIME, JsonUtility.ToJson(bestTimes));
+        #endregion
+
+        PlayerPrefs.Save();
     }
 }
 
@@ -118,4 +201,32 @@ public enum GameState
     Splash
 }
 
+[System.Serializable]
+public class SerializableFinishedLevels
+{
+    public Dictionary<int, bool> levels = new Dictionary<int, bool>();
+
+    public Dictionary<int, bool> ToDictionary() => levels;
+}
+
+[System.Serializable]
+public class SerializableBestTime
+{
+    public int levelIndex;
+    public int minute;
+    public int second;
+
+    public SerializableBestTime(int levelIndex, int minute, int second)
+    {
+        this.levelIndex = levelIndex;
+        this.minute = minute;
+        this.second = second;
+    }
+}
+
+[System.Serializable]
+public class SerializableBestTimeList
+{
+    public List<SerializableBestTime> times = new List<SerializableBestTime>();
+}
 

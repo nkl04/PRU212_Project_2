@@ -1736,7 +1736,7 @@ MonoBehaviour:
   scrollBar: {fileID: 2032651277}
   levelContainer: {fileID: 1121403141}
   levelIconPrefab: {fileID: 2230170935893398499, guid: 6c7b1a1ec1d2cd84d862f115fd8c7dc3, type: 3}
-  selectButon: {fileID: 891205368}
+  selectButton: {fileID: 891205368}
 --- !u!1 &748496331
 GameObject:
   m_ObjectHideFlags: 0

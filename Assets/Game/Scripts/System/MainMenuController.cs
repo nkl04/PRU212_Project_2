@@ -27,7 +27,7 @@ public class MainMenuController : MonoBehaviour
         popUpSettingsGameObj.SetActive(false);
         popUpSelectLevelGameObj.SetActive(false);
 
-        SelectedConfigLevel = gameManager.ConfigLevelHolder.levels[0];
+        SelectedConfigLevel = gameManager.SelectedLevel;
         SetUpSelectLevelMainMenu(SelectedConfigLevel);
 
         fadeAnimTransform.gameObject.SetActive(true);

@@ -4233,7 +4233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backGround: {fileID: 263160769912655205}
-  isDebug: 1
+  isDebug: 0
 --- !u!1 &261556261
 GameObject:
   m_ObjectHideFlags: 0
