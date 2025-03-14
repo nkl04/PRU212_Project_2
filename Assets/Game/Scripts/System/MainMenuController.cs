@@ -5,15 +5,22 @@ public class MainMenuController : MonoBehaviour
     public ConfigLevel SelectedConfigLevel { get; set; }
 
     [SerializeField] private GameObject popUpSelectLevelGameObj;
+    [SerializeField] private GameObject popUpSettingsGameObj;
     [SerializeField] private Transform fadeAnimTransform;
     private GameManager gameManager;
     private PopUpSelectLevel popUpSelectLevel;
+    private PopUpSettings popUpSettings;
 
     private void Awake()
     {
         gameManager = GameManager.Instance;
         popUpSelectLevel = popUpSelectLevelGameObj.GetComponent<PopUpSelectLevel>();
+        popUpSettings = popUpSettingsGameObj.GetComponent<PopUpSettings>();
+
         fadeAnimTransform.gameObject.SetActive(false);
+        popUpSettingsGameObj.SetActive(false);
+        popUpSelectLevelGameObj.SetActive(false);
+
         SelectedConfigLevel = gameManager.ConfigLevelHolder.levels[0];
     }
 
@@ -35,6 +42,16 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void OnTapSelectLevel()
+    {
+
+    }
+
+    public void OnTapSound()
+    {
+
+    }
+
+    public void OnTapMusic()
     {
 
     }
