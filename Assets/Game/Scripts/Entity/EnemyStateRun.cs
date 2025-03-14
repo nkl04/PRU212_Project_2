@@ -8,7 +8,7 @@ public class EnemyStateRun : EnemyState
 
     public override void CheckChangeState()
     {
-        if (!enemy.CanFollowPlayer || Vector2.Distance(enemy.transform.position, enemy.Target.transform.position) >= 30f)
+        if (!enemy.CanFollowPlayer || Vector2.Distance(enemy.transform.position, enemy.Target.transform.position) >= 25f)
         {
             stateMachine.ChangeState(enemy.EnemyStateIdle);
         }

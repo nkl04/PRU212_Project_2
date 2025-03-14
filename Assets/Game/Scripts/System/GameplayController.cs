@@ -17,6 +17,9 @@ public class GameplayController : MonoBehaviour
     private bool isFinished = false;
     private EnemyManager enemyManager;
 
+    private PopUpLose popUpLose;
+    private PopUpWin popUpWin;
+
     [SerializeField] private KillCount killCount;
     [SerializeField] private EnemySpawner enemySpawner;
 
@@ -24,10 +27,10 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private Button pauseBtn;
 
     [Header("PopUps")]
-    [SerializeField] private Transform popUpSelectSkillTransform;
-    [SerializeField] private Transform popUpPauseTransform;
-    [SerializeField] private Transform popUpWinTransform;
-    [SerializeField] private Transform popUpLoseTransform;
+    [SerializeField] private GameObject popUpSelectSkillTransform;
+    [SerializeField] private GameObject popUpPauseTransform;
+    [SerializeField] private GameObject popUpWinTransform;
+    [SerializeField] private GameObject popUpLoseTransform;
 
     [Header("Elements")]
     [SerializeField] private Clock clock;
@@ -48,10 +51,13 @@ public class GameplayController : MonoBehaviour
 
         enemyManager = FindFirstObjectByType<EnemyManager>();
 
-        popUpLoseTransform.gameObject.SetActive(false);
-        popUpWinTransform.gameObject.SetActive(false);
-        popUpSelectSkillTransform.gameObject.SetActive(false);
-        popUpPauseTransform.gameObject.SetActive(false);
+        popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
+        popUpWin = popUpWinTransform.GetComponent<PopUpWin>();
+
+        popUpLoseTransform.SetActive(false);
+        popUpWinTransform.SetActive(false);
+        popUpSelectSkillTransform.SetActive(false);
+        popUpPauseTransform.SetActive(false);
 
     }
 
@@ -157,7 +163,6 @@ public class GameplayController : MonoBehaviour
     }
     private void UpdateLosePopUp()
     {
-        PopUpLose popUpLose = popUpLoseTransform.GetComponent<PopUpLose>();
         popUpLose.SetData((minutes, seconds),
                             "Chapter " + configLevel.levelIndex + 1,
                             GameManager.Instance.GetBestTimeInLevel(configLevel),
@@ -167,7 +172,6 @@ public class GameplayController : MonoBehaviour
 
     public void UpdateWinPopUp()
     {
-        PopUpWin popUpWin = popUpWinTransform.GetComponent<PopUpWin>();
         popUpWin.SetData(configLevel.levelIndex + 1, killCount.GetKillCount());
         popUpWinTransform.gameObject.SetActive(true);
     }
@@ -183,7 +187,7 @@ public class GameplayController : MonoBehaviour
     {
         Time.timeScale = 1;
         isPaused = false;
-        popUpPauseTransform.gameObject.SetActive(false);
+        popUpPauseTransform.GetComponent<AnimationPopup>().OnHide();
 
         Debug.Log("<color=cyan>=> RESUME <=</color>");
     }
