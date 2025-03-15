@@ -25,18 +25,4 @@ public class Projectile_Guardian : Projectile
         transform.localScale = Vector3.zero;
         transform.DOScale(Vector3.one, 0.5f);
     }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-        if (collision.CompareTag("Enemy"))
-        {
-            EnemyHealth_Base enemyHealth = collision.GetComponent<EnemyHealth_Base>();
-
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-            }
-        }
-    }
 }

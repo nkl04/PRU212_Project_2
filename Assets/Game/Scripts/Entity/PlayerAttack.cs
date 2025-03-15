@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     private Dictionary<Weapon, float> _attackTimers = new Dictionary<Weapon, float>();
 
     [SerializeField] private float _detectRange;
+    [SerializeField] private LayerMask _attackableLayer;
 
     private void Awake()
     {
@@ -84,25 +85,26 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public Enemy_Base GetTheNearestEnemy(Transform transform)
+    public IAttackable GetTheNearestAttackableObject(Transform transform)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _detectRange);
-        Enemy_Base nearestEnemy = null;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _detectRange, _attackableLayer);
+        IAttackable nearestIAttackable = null;
         float minDistance = float.MaxValue;
 
         foreach (var collider in colliders)
         {
-            Enemy_Base enemy = collider.GetComponent<Enemy_Base>();
-            if (enemy != null && !enemy.EnemyHealth.IsDead)
+            IAttackable attackable = collider.GetComponent<IAttackable>();
+
+            if (attackable != null && !attackable.IsDead)
             {
-                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+                float distance = Vector2.Distance(transform.position, attackable.Transform.position);
                 if (distance < minDistance)
                 {
                     minDistance = distance;
-                    nearestEnemy = enemy;
+                    nearestIAttackable = attackable;
                 }
             }
         }
-        return nearestEnemy;
+        return nearestIAttackable;
     }
 }

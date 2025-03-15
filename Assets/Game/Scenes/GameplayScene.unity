@@ -2603,6 +2603,20 @@ MonoBehaviour:
     hasMax: 0
     max: 0
     parent: {fileID: 0}
+  - tag: Meat
+    prefab: {fileID: 78266596186958394, guid: 075aeef396b14f04094659baf230f9ef, type: 3}
+    size: 3
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
+  - tag: Chest
+    prefab: {fileID: 7437081045587216328, guid: c2770c37a16c4714ab944d8269ceab95, type: 3}
+    size: 2
+    expandable: 1
+    hasMax: 0
+    max: 0
+    parent: {fileID: 0}
   - tag: DamagePopup
     prefab: {fileID: 3049776702485361408, guid: 92ad956b74f823d4882dc6a21fbe6799, type: 3}
     size: 10

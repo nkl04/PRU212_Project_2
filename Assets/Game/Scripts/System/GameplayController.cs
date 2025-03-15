@@ -75,7 +75,7 @@ public class GameplayController : MonoBehaviour
     private void Start()
     {
         fadeAnimTransform.gameObject.SetActive(true);
-        fadeAnimTransform.GetComponent<FadeAnimation>().FadeOut();
+        fadeAnimTransform.GetComponent<FadeAnimation>().FadeOut(() => fadeAnimTransform.gameObject.SetActive(false));
     }
 
     private void Update()

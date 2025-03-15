@@ -49,18 +49,4 @@ public class Projectile_Boomerang : Projectile
             gameObject.SetActive(false);
         }
     }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-        if (collision.CompareTag("Enemy"))
-        {
-            EnemyHealth_Base enemyHealth = collision.GetComponent<EnemyHealth_Base>();
-
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-            }
-        }
-    }
 }

@@ -10,7 +10,7 @@ public abstract class Enemy_Base : MonoBehaviour
     public EnemyHealth_Base EnemyHealth { get; private set; }
     public EnemyMovement_Base EnemyMovement { get; private set; }
     public EnemyAttack_Base EnemyAttack { get; private set; }
-    public EnemyRewardDrop EnemyRewardDrop { get; private set; }
+    public RewardDrop EnemyRewardDrop { get; private set; }
     public ConfigEnemy EnemyInfo => enemyInfo;
     public PlayerController Target { get; private set; }
     public StateMachine<EnemyState> StateMachine => stateMachine;
@@ -54,7 +54,7 @@ public abstract class Enemy_Base : MonoBehaviour
         EnemyHealth = GetComponent<EnemyHealth_Base>();
         EnemyMovement = GetComponent<EnemyMovement_Base>();
         EnemyAttack = GetComponent<EnemyAttack_Base>();
-        EnemyRewardDrop = GetComponent<EnemyRewardDrop>();
+        EnemyRewardDrop = GetComponent<RewardDrop>();
         Animator = GetComponent<Animator>();
 
         enemyManager = FindFirstObjectByType<EnemyManager>();
@@ -71,7 +71,7 @@ public abstract class Enemy_Base : MonoBehaviour
 
         EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
         enemyManager.RegisterEnemyGameObject(gameObject);
-        EnemyRewardDrop.SetReward(enemyInfo.RewardList);
+        EnemyRewardDrop.SetReward(enemyInfo.configReward.RewardList);
         stateMachine.ChangeState(EnemyStateIdle);
     }
 

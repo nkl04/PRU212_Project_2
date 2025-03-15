@@ -14,15 +14,9 @@ public class Projectile_Shuriken : Projectile
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if (collision.CompareTag("Enemy"))
+
+        if (collision.transform.TryGetComponent<IAttackable>(out IAttackable attackable) && !collision.CompareTag("Player"))
         {
-            EnemyHealth_Base enemyHealth = collision.GetComponent<EnemyHealth_Base>();
-
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-            }
-
             DisableSelf();
         }
     }

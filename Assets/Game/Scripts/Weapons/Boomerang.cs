@@ -15,11 +15,11 @@ public class Boomerang : LaunchWeapon
             return;
         }
 
-        Enemy_Base nearestEnemy = Player.PlayerAttack.GetTheNearestEnemy(Player.transform);
+        IAttackable nearestAttackable = Player.PlayerAttack.GetTheNearestAttackableObject(Player.transform);
 
-        if (nearestEnemy != null)
+        if (nearestAttackable != null)
         {
-            Vector2 direction = (nearestEnemy.transform.position - Player.transform.position).normalized;
+            Vector2 direction = (nearestAttackable.Transform.position - Player.transform.position).normalized;
 
             GameObject boomerangGameObj = ObjectPooler.Instance.GetObjectFromPool(_weaponInfo.bulletPrefab.name);
 

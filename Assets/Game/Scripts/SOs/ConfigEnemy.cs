@@ -8,14 +8,6 @@ public class ConfigEnemy : ConfigEntity
 {
     public float _baseAttackRate;
 
-    [Header("Rewards")]
-    public List<Reward> RewardList;
+    public ConfigReward configReward;
 }
 
-[Serializable]
-public class Reward
-{
-    public GameObject RewardPrefab;
-    public int Amount;
-    public float DropRate;
-}

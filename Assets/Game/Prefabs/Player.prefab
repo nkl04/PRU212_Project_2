@@ -156,6 +156,9 @@ MonoBehaviour:
   handPosition: {fileID: 6781855487046847941}
   attackWeaponRate: {fileID: 0}
   _detectRange: 0
+  _attackableLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &6907794548704509220
 MonoBehaviour:
   m_ObjectHideFlags: 0

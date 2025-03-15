@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1369c29bc0f753144ad38565085cbad7, type: 3}
-  m_Name: ConfigEnemy_Zombie_Big
+  m_Script: {fileID: 11500000, guid: 050f812dc79bc4144a38cf43635d8cdf, type: 3}
+  m_Name: ConfigReward_Enemy_Dog
   m_EditorClassIdentifier: 
-  _name: Big Zombie
-  _baseMaxHealth: 1000
-  _baseDamage: 10
-  _baseSpeed: 1
-  _baseAttackRate: 3
-  configReward: {fileID: 11400000, guid: 8ebcfbd0505aae84fa7cd67f372a2869, type: 2}
+  RewardList:
+  - RewardPrefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
+    Amount: 70
+    DropRate: 1
+    HasAnimation: 1

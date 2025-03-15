@@ -17,7 +17,4 @@ MonoBehaviour:
   _baseDamage: 3
   _baseSpeed: 2.2
   _baseAttackRate: 2
-  RewardList:
-  - RewardPrefab: {fileID: 699611932336065097, guid: 40c09f65f35d94a4c8f96b48f7c04c4d, type: 3}
-    Amount: 1
-    DropRate: 80
+  configReward: {fileID: 11400000, guid: 7816dcf0934439948ba476cb1e88488c, type: 2}

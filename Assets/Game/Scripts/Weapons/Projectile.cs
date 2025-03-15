@@ -48,12 +48,20 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.transform.TryGetComponent<IAttackable>(out IAttackable attackable) && !collision.CompareTag("Player"))
         {
-            GameObject damagePopup = ObjectPooler.Instance.GetObjectFromPool("DamagePopup");
-            damagePopup.transform.position = collision.transform.position;
-            damagePopup.GetComponent<DamagePopup>().SetText(damage.ToString());
-            damagePopup.SetActive(true);
+            if (attackable != null)
+            {
+                attackable.TakeDamage(damage);
+            }
+
+            if (attackable is EnemyHealth_Base)
+            {
+                GameObject damagePopup = ObjectPooler.Instance.GetObjectFromPool("DamagePopup");
+                damagePopup.transform.position = collision.transform.position;
+                damagePopup.GetComponent<DamagePopup>().SetText(damage.ToString());
+                damagePopup.SetActive(true);
+            }
         }
     }
 }
