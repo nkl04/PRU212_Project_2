@@ -11,6 +11,7 @@ public class LevelSOEditor : Editor
     private SerializedProperty indexLevelProperty;
     private SerializedProperty levelNameProperty;
     private SerializedProperty backgroundProperty;
+    private SerializedProperty descriptionProperty;
     private SerializedProperty durationProperty;
     private SerializedProperty waveListProperty;
 
@@ -27,6 +28,7 @@ public class LevelSOEditor : Editor
         indexLevelProperty = serializedObject.FindProperty("levelIndex");
         levelNameProperty = serializedObject.FindProperty("levelName");
         backgroundProperty = serializedObject.FindProperty("background");
+        descriptionProperty = serializedObject.FindProperty("description");
         durationProperty = serializedObject.FindProperty("durations");
         waveListProperty = serializedObject.FindProperty("waveList");
 
@@ -272,6 +274,7 @@ public class LevelSOEditor : Editor
         EditorGUILayout.PropertyField(indexLevelProperty);
         EditorGUILayout.PropertyField(levelNameProperty);
         EditorGUILayout.PropertyField(backgroundProperty);
+        EditorGUILayout.PropertyField(descriptionProperty);
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.PropertyField(durationProperty, new GUIContent("Duration"));
         GUILayout.Space(50);

@@ -15,6 +15,7 @@ MonoBehaviour:
   levelIndex: 1
   levelName: City Park
   background: {fileID: 21300000, guid: 8411b57347571f943bd5cc847c64a404, type: 3}
+  description: The dangerous place is the feeding ground of mutant plants...
   durations: 900
   waveList:
   - startTime: 2

@@ -8,6 +8,7 @@ public class ConfigLevel : ScriptableObject
     public int levelIndex;
     public string levelName;
     public Sprite background;
+    public string description;
     [Tooltip("Duration of the level (seconds)")]
     public int durations;
     public List<Wave> waveList;

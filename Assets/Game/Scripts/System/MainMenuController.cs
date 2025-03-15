@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-        popUpSelectLevel.SetUpIcon(gameManager.ConfigLevelIcons.levelIcons.Count);
+        popUpSelectLevel.SetUp(gameManager.FinishedLevelDictionary, gameManager.ConfigLevelIcons.levelIcons);
     }
 
     public void OnTapPlay()

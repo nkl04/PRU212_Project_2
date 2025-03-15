@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Dictionary<ConfigLevel, bool> FinishedLevelDictionary => finishedLevelDictionary;
     public ConfigLevelHolder ConfigLevelHolder => configLevels;
     public ConfigLevelIcon ConfigLevelIcons => configLevelIcons;
     public ConfigLevel SelectedLevel { get; set; }
@@ -75,6 +76,8 @@ public class GameManager : Singleton<GameManager>
     public void FinishLevel(int levelIndex)
     {
         finishedLevelDictionary[configLevels.levels[levelIndex]] = true;
+        if (levelIndex + 1 < configLevels.levels.Count)
+            SelectedLevel = configLevels.levels[levelIndex + 1];
         SaveData();
     }
     public bool IsFinishLevel(int levelIndex)
@@ -119,11 +122,11 @@ public class GameManager : Singleton<GameManager>
         if (PlayerPrefs.HasKey(Utilities.PlayerPrefs.FINISHED_LEVELS))
         {
             string json = PlayerPrefs.GetString(Utilities.PlayerPrefs.FINISHED_LEVELS);
-            Dictionary<int, bool> loadedData = JsonUtility.FromJson<SerializableFinishedLevels>(json).ToDictionary();
+            SerializableFinishedLevels loadedData = JsonUtility.FromJson<SerializableFinishedLevels>(json);
 
             foreach (var item in configLevels.levels)
             {
-                finishedLevelDictionary[item] = loadedData.ContainsKey(item.levelIndex) && loadedData[item.levelIndex];
+                finishedLevelDictionary[item] = loadedData.completedLevels.Contains(item.levelIndex);
             }
         }
         else
@@ -162,6 +165,8 @@ public class GameManager : Singleton<GameManager>
 
     public void SaveData()
     {
+
+        Debug.Log("Save Data");
         #region Save SelectedLevel
         if (SelectedLevel != null)
         {
@@ -173,9 +178,10 @@ public class GameManager : Singleton<GameManager>
         SerializableFinishedLevels finishedData = new SerializableFinishedLevels();
         foreach (var pair in finishedLevelDictionary)
         {
-            finishedData.levels[pair.Key.levelIndex] = pair.Value;
+            if (pair.Value) finishedData.completedLevels.Add(pair.Key.levelIndex);
         }
         PlayerPrefs.SetString(Utilities.PlayerPrefs.FINISHED_LEVELS, JsonUtility.ToJson(finishedData));
+
         #endregion
 
         #region Save Best Times
@@ -204,10 +210,19 @@ public enum GameState
 [System.Serializable]
 public class SerializableFinishedLevels
 {
-    public Dictionary<int, bool> levels = new Dictionary<int, bool>();
+    public List<int> completedLevels = new List<int>();
 
-    public Dictionary<int, bool> ToDictionary() => levels;
+    public Dictionary<int, bool> ToDictionary()
+    {
+        Dictionary<int, bool> result = new Dictionary<int, bool>();
+        foreach (int level in completedLevels)
+        {
+            result[level] = true;
+        }
+        return result;
+    }
 }
+
 
 [System.Serializable]
 public class SerializableBestTime
