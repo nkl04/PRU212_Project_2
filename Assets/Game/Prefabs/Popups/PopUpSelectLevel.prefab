@@ -196,7 +196,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2814362776659299161}
-  m_Father: {fileID: 2390121844321342177}
+  m_Father: {fileID: 3824331251077469263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1300,7 +1300,6 @@ RectTransform:
   m_Children:
   - {fileID: 8459850431774066800}
   - {fileID: 5523208806051305605}
-  - {fileID: 7112363493531671155}
   m_Father: {fileID: 3824331251077469263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1363,6 +1362,7 @@ RectTransform:
   m_Children:
   - {fileID: 9132372036121777659}
   - {fileID: 2390121844321342177}
+  - {fileID: 7112363493531671155}
   - {fileID: 5303208736975198821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1386,6 +1386,7 @@ MonoBehaviour:
   popUpInfo: {fileID: 2390121844321342177}
   levelNameText: {fileID: 590294868711946383}
   descriptionText: {fileID: 7304592582002353502}
+  viewPort: {fileID: 6978610328181973001}
   scrollBar: {fileID: 3340697986558749535}
   levelContainer: {fileID: 6848086675015362871}
   levelIconPrefab: {fileID: 2230170935893398499, guid: 6c7b1a1ec1d2cd84d862f115fd8c7dc3, type: 3}

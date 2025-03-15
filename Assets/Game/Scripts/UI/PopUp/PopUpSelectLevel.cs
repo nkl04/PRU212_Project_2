@@ -2,6 +2,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PopUpSelectLevel : MonoBehaviour
@@ -11,6 +12,7 @@ public class PopUpSelectLevel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelNameText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [Space(10)]
+    [SerializeField] private GameObject viewPort;
     [SerializeField] private GameObject scrollBar;
     [SerializeField] private Transform levelContainer;
     [SerializeField] private GameObject levelIconPrefab;
@@ -22,10 +24,12 @@ public class PopUpSelectLevel : MonoBehaviour
     private MainMenuController mainMenuController;
     private List<bool> activeStatusList;
     float distance;
+    bool isScrolling = false;
     private void Awake()
     {
         mainMenuController = FindFirstObjectByType<MainMenuController>();
         selectedIndex = GameManager.Instance.SelectedLevel.levelIndex;
+        isScrolling = false;
     }
 
     private void Start()
@@ -87,12 +91,27 @@ public class PopUpSelectLevel : MonoBehaviour
         }
     }
 
+    private Vector3 lastMousePosition;
+
     private void Update()
     {
         if (pos == null || pos.Length == 0)
             return;
 
-        bool isScrolling = Input.GetMouseButton(0);
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastMousePosition = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButton(0) && Vector3.Distance(lastMousePosition, Input.mousePosition) > 5f)
+        {
+            isScrolling = true;
+            lastMousePosition = Input.mousePosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isScrolling = false;
+        }
 
         if (isScrolling)
         {
@@ -133,6 +152,5 @@ public class PopUpSelectLevel : MonoBehaviour
             }
         }
     }
-
 }
 

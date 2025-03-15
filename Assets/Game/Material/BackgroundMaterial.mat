@@ -42,6 +42,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
+    - _Glossiness: 0.5
+    - _Metallic: 0
     - _Speed: 0.1
     - _Tiling: 1
     - _ZWrite: 0
