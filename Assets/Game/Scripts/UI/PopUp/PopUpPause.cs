@@ -8,7 +8,15 @@ public class PopUpPause : MonoBehaviour
 {
     [SerializeField] private Transform[] activeSkillSlotItems;
     [SerializeField] private Transform[] passiveSkillSlotItems;
+    [SerializeField] private Button musicBtn;
 
+    private void Start()
+    {
+        musicBtn.onClick.AddListener(() =>
+        {
+            musicBtn.transform.GetChild(0).gameObject.SetActive(!musicBtn.transform.GetChild(0).gameObject.activeSelf);
+        });
+    }
     public void SetCurrentSkillIcons(Dictionary<ConfigSkill, int> currentSkills)
     {
         try

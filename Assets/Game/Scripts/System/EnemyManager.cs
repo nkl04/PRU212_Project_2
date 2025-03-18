@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    private List<GameObject> enemyList;
+    private List<Enemy_Base> enemyList;
 
     private void Awake()
     {
-        enemyList = new List<GameObject>();
+        enemyList = new List<Enemy_Base>();
     }
-    public void RegisterEnemyGameObject(GameObject enemyGameObject)
+
+    private void Update()
     {
-        enemyList.Add(enemyGameObject);
+        foreach (var enemy in enemyList)
+        {
+            enemy.StateMachine.Update();
+            CheckCollision(enemy);
+        }
     }
-    public void UnregisterEnemyGameObject(GameObject enemyGameObject)
+
+    public void RegisterEnemy(Enemy_Base enemy)
     {
-        enemyList.Remove(enemyGameObject);
+        enemyList.Add(enemy);
+        enemy.Initialize(enemyList.Count);
+    }
+    public void UnregisterEnemy(Enemy_Base enemy)
+    {
+        enemyList.Remove(enemy);
     }
 
     public void DestroyAllEnemies()
@@ -35,5 +46,24 @@ public class EnemyManager : MonoBehaviour
     public bool IsClearEnemies()
     {
         return enemyList.Count == 0;
+    }
+
+    public void CheckCollision(Enemy_Base enemy)
+    {
+        Collider2D enemyCollider = enemy.Collider2D;
+        Collider2D playerCollider = enemy.Target.GetComponent<Collider2D>();
+
+        bool isColliding = enemyCollider.IsTouching(playerCollider);
+
+        if (isColliding)
+        {
+            enemy.CanFollowPlayer = false;
+            enemy.CanAttackPlayer = true;
+        }
+        else
+        {
+            enemy.CanFollowPlayer = true;
+            enemy.CanAttackPlayer = false;
+        }
     }
 }

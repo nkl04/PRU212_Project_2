@@ -2,7 +2,9 @@
 
 public abstract class Enemy_Base : MonoBehaviour
 {
+    public int Id { get; set; }
     public Collider2D Collider2D => bodyCollider2d;
+    public EnemyState CurrentState => stateMachine.GetCurrentState();
     public EnemyStateIdle EnemyStateIdle { get; private set; }
     public EnemyStateRun EnemyStateRun { get; private set; }
     public EnemyStateAttack EnemyStateAttack { get; private set; }
@@ -27,26 +29,26 @@ public abstract class Enemy_Base : MonoBehaviour
     protected StateMachine<EnemyState> stateMachine;
     protected EnemyManager enemyManager;
 
-    private void OnEnable()
-    {
-        if (stateMachine != null)
-        {
-            if (EnemyStateIdle != null && EnemyStateRun != null && EnemyStateAttack != null && EnemyStateDie != null)
-            {
-                stateMachine.ChangeState(EnemyStateIdle);
-            }
-        }
+    //private void OnEnable()
+    //{
+    //    if (stateMachine != null)
+    //    {
+    //        if (EnemyStateIdle != null && EnemyStateRun != null && EnemyStateAttack != null && EnemyStateDie != null)
+    //        {
+    //            stateMachine.ChangeState(EnemyStateIdle);
+    //        }
+    //    }
 
-        if (EnemyHealth != null)
-        {
-            EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
-        }
+    //    if (EnemyHealth != null)
+    //    {
+    //        EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
+    //    }
 
-        if (enemyManager != null)
-        {
-            enemyManager.RegisterEnemyGameObject(gameObject);
-        }
-    }
+    //    //if (enemyManager != null)
+    //    //{
+    //    //    enemyManager.RegisterEnemy(this);
+    //    //}
+    //}
 
     protected virtual void Awake()
     {
@@ -62,41 +64,32 @@ public abstract class Enemy_Base : MonoBehaviour
         bodyCollider2d = GetComponent<Collider2D>();
     }
 
-    protected virtual void Start()
+    //protected virtual void Start()
+    //{
+    //    EnemyStateIdle = new EnemyStateIdle(this, stateMachine);
+    //    EnemyStateRun = new EnemyStateRun(this, stateMachine);
+    //    EnemyStateAttack = new EnemyStateAttack(this, stateMachine);
+    //    EnemyStateDie = new EnemyStateDie(this, stateMachine);
+    //}
+
+    public void Initialize(int id)
     {
+        Id = id;
+
         EnemyStateIdle = new EnemyStateIdle(this, stateMachine);
         EnemyStateRun = new EnemyStateRun(this, stateMachine);
         EnemyStateAttack = new EnemyStateAttack(this, stateMachine);
         EnemyStateDie = new EnemyStateDie(this, stateMachine);
 
         EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
-        enemyManager.RegisterEnemyGameObject(gameObject);
         EnemyRewardDrop.SetReward(enemyInfo.configReward.RewardList);
         stateMachine.ChangeState(EnemyStateIdle);
     }
 
-    protected virtual void Update()
-    {
-        stateMachine.Update();
-    }
 
     protected virtual void OnDisable()
     {
         EnemyHealth.SetMaxHealth(enemyInfo._baseMaxHealth);
-        enemyManager.UnregisterEnemyGameObject(gameObject);
-    }
-
-    protected virtual void OnTriggerEnter2D(Collider2D other)
-    { }
-
-    protected virtual void OnTriggerExit2D(Collider2D other)
-    { }
-
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
-
-    protected virtual void OnCollisionExit2D(Collision2D collision)
-    {
+        enemyManager.UnregisterEnemy(this);
     }
 }

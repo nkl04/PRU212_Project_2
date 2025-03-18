@@ -8,11 +8,12 @@ public class EnemySpawner : Spawner
     private Vector2 spawnCenter;
     private Queue<SpawnTask> spawnQueue = new Queue<SpawnTask>();
     private float lastSpawnTime;
-
+    private EnemyManager enemyManager;
     private void Start()
     {
         theCamera = Camera.main;
         spawnCenter = theCamera != null ? theCamera.transform.position : Vector2.zero;
+        enemyManager = FindFirstObjectByType<EnemyManager>();
     }
 
     private void Update()
@@ -70,6 +71,7 @@ public class EnemySpawner : Spawner
             enemy.transform.position = task.spawnPosition;
             enemy.SetActive(true);
             lastSpawnTime = Time.time;
+            enemyManager.RegisterEnemy(enemy.GetComponent<Enemy_Base>());
         }
     }
 

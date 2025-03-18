@@ -15,4 +15,9 @@ public class StateMachine<T> where T : State
     {
         currentState?.Execute();
     }
+
+    public T GetCurrentState()
+    {
+        return currentState;
+    }
 }
