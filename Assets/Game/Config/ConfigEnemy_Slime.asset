@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bc4f27f79697a42a52e18f5a492df2, type: 3}
-  m_Name: ConfigLevelHolder
+  m_Script: {fileID: 11500000, guid: 1369c29bc0f753144ad38565085cbad7, type: 3}
+  m_Name: ConfigEnemy_Slime
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 11400000, guid: ff7655ca4905982409ec7c4ffa91ae47, type: 2}
-  - {fileID: 11400000, guid: 4360daf7c2fdb664caa11a3792671576, type: 2}
+  _name: Slime
+  _baseMaxHealth: 35
+  _baseDamage: 3
+  _baseSpeed: 2
+  _baseAttackRate: 2.3
+  configReward: {fileID: 11400000, guid: 0f9f5832fadf9cf46aa8c9a2ec7aecda, type: 2}

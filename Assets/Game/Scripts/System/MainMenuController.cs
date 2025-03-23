@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,11 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentLevelNameText;
     [SerializeField] private TextMeshProUGUI longestSurvivedText;
     [SerializeField] private Image levelIconImage;
+    [Space(10)]
+    [SerializeField] private Button mainButton;
+    [SerializeField] private Button gearButton;
+    [SerializeField] private Button upgradeButton;
+
 
     private void Awake()
     {
